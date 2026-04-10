@@ -34,9 +34,12 @@ jobs:
           retention-days: 90
 
       - name: Commit rapport til repo
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "UU-tester bot"
           git config user.email "bot@github.com"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/ummeark/uu-tester-KSDigital.git
           git add rapporter/
           git diff --staged --quiet || git commit -m "Daglig UU-rapport $(date +%Y-%m-%d)"
           git push
