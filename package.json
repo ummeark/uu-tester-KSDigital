@@ -1,0 +1,14 @@
+{
+  "name": "uu-tester",
+  "version": "1.0.0",
+  "description": "Daglig WCAG og universell utforming-testing",
+  "type": "module",
+  "scripts": {
+    "rapport": "node uu-tester.js",
+    "vis": "node vis-rapport.js"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "playwright": "^1.52.0"
+  }
+}

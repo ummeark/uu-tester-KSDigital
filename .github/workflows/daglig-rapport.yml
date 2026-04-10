@@ -1,0 +1,42 @@
+name: Daglig UU-rapport
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Kjører kl. 06:00 UTC (08:00 norsk tid) hver dag
+  workflow_dispatch:       # Kan også trigges manuelt
+
+jobs:
+  uu-analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sett opp Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Installer avhengigheter
+        run: npm ci
+
+      - name: Installer Playwright-nettlesere
+        run: npx playwright install --with-deps chromium
+
+      - name: Kjør UU-analyse
+        run: npm run rapport
+
+      - name: Last opp rapport som artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: uu-rapport-${{ github.run_id }}
+          path: rapporter/
+          retention-days: 90
+
+      - name: Commit rapport til repo
+        run: |
+          git config user.name "UU-tester bot"
+          git config user.email "bot@github.com"
+          git add rapporter/
+          git diff --staged --quiet || git commit -m "Daglig UU-rapport $(date +%Y-%m-%d)"
+          git push
