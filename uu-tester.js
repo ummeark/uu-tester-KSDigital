@@ -10,7 +10,8 @@ const START_URL = process.argv[2] || 'https://tilskudd.fiks.test.ks.no/';
 const MAX_SIDER = parseInt(process.argv[3]) || 20;
 const dato = new Date().toISOString().slice(0, 10);
 const rapportDir = path.join(__dirname, 'rapporter', dato);
-fs.mkdirSync(rapportDir, { recursive: true });
+const skjermDir = path.join(rapportDir, 'skjermbilder');
+fs.mkdirSync(skjermDir, { recursive: true });
 
 const baseOrigin = new URL(START_URL).origin;
 
@@ -19,14 +20,78 @@ console.log(`📅 Dato: ${dato}`);
 console.log(`📄 Maks antall sider: ${MAX_SIDER}\n`);
 
 const browser = await chromium.launch();
-const context = await browser.newContext({ userAgent: 'Mozilla/5.0 UU-Tester/1.0' });
+const context = await browser.newContext({
+  userAgent: 'Mozilla/5.0 UU-Tester/1.0',
+  viewport: { width: 1280, height: 900 }
+});
 
-// --- Crawl og analyser alle interne sider ---
 const besøkte = new Set();
 const kø = [START_URL];
 const sideResultater = [];
+let sideIndeks = 0;
 
-async function analyserSide(url) {
+// --- Ta skjermdump av et feilende element ---
+async function taSkjermdump(page, selectors, filnavn, farge = '#dc3545') {
+  try {
+    // Marker alle feilende elementer
+    await page.evaluate(({ selectors, farge }) => {
+      selectors.forEach(sel => {
+        try {
+          const el = document.querySelector(sel);
+          if (el) {
+            el.setAttribute('data-uu-highlight', 'true');
+            el.style.outline = `3px solid ${farge}`;
+            el.style.outlineOffset = '2px';
+            el.style.backgroundColor = farge === '#dc3545' ? 'rgba(220,53,69,0.08)' : 'rgba(255,193,7,0.12)';
+          }
+        } catch {}
+      });
+    }, { selectors, farge });
+
+    // Prøv å ta nærbilde av første element
+    let nærbilde = null;
+    try {
+      const el = await page.$(selectors[0]);
+      if (el) {
+        const boks = await el.boundingBox();
+        if (boks && boks.width > 0 && boks.height > 0) {
+          const nærFil = path.join(skjermDir, `${filnavn}-element.png`);
+          await page.screenshot({
+            path: nærFil,
+            clip: {
+              x: Math.max(0, boks.x - 20),
+              y: Math.max(0, boks.y - 20),
+              width: Math.min(boks.width + 40, 1280),
+              height: Math.min(boks.height + 40, 600)
+            }
+          });
+          nærbilde = `skjermbilder/${filnavn}-element.png`;
+        }
+      }
+    } catch {}
+
+    // Ta helsidebilde med kontekst
+    const helFil = path.join(skjermDir, `${filnavn}-side.png`);
+    await page.screenshot({ path: helFil, fullPage: false });
+    const helside = `skjermbilder/${filnavn}-side.png`;
+
+    // Fjern markering
+    await page.evaluate(() => {
+      document.querySelectorAll('[data-uu-highlight]').forEach(el => {
+        el.removeAttribute('data-uu-highlight');
+        el.style.outline = '';
+        el.style.outlineOffset = '';
+        el.style.backgroundColor = '';
+      });
+    });
+
+    return { nærbilde, helside };
+  } catch {
+    return { nærbilde: null, helside: null };
+  }
+}
+
+async function analyserSide(url, indeks) {
   const page = await context.newPage();
   try {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
@@ -34,20 +99,78 @@ async function analyserSide(url) {
 
     const tittel = await page.title();
 
-    // Axe WCAG-analyse
-    const axe = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'])
-      .analyze();
+    // Finn og ekskluder versjonsnummer-element (f.eks. v0.4.3 / v.0.4.3)
+    // Bruker CSS-attributtvelger på klassenavn som inneholder "version" / "Version"
+    // samt tekstinnhold-sjekk (håndterer React sin <!-- --> kommentar-splitting)
+    const versjonSelectors = await page.evaluate(() => {
+      const resultat = new Set();
 
-    // Finn interne lenker for videre crawling
-    const internelenker = await page.evaluate((origin) => {
-      return Array.from(document.querySelectorAll('a[href]'))
+      // 1. Klasser som inneholder "version" eller "appVersion"
+      document.querySelectorAll('[class]').forEach(el => {
+        const cls = el.getAttribute('class') || '';
+        if (/version/i.test(cls)) {
+          const første = cls.trim().split(/\s+/)[0];
+          resultat.add(`[class*="${første.replace(/"/g, '')}"]`);
+        }
+      });
+
+      // 2. Tekstinnhold som matcher versjonsmønster (inkl. React-splittet tekst)
+      const mønster = /^v\.?\d+\.\d+\.\d+$/i;
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let node;
+      while ((node = walker.nextNode())) {
+        const tekst = node.textContent.trim();
+        if (mønster.test(tekst)) {
+          let el = node.parentElement;
+          for (let i = 0; i < 3 && el && el !== document.body; i++) {
+            if (el.id) { resultat.add(`#${el.id}`); break; }
+            const cls = el.getAttribute('class');
+            if (cls) { resultat.add(`[class="${cls}"]`); break; }
+            el = el.parentElement;
+          }
+        }
+      }
+      return [...resultat];
+    });
+
+    // Axe WCAG-analyse med ekskludering av versjonslement
+    let axeBuilder = new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice']);
+    for (const sel of versjonSelectors) {
+      try { axeBuilder = axeBuilder.exclude(sel); } catch {}
+    }
+    const axeRå = await axeBuilder.analyze();
+
+    // Post-filtrer: fjern også violations der HTML på noden inneholder versjonsmønster
+    // (håndterer tilfeller der axe.exclude() ikke fanger opp elementet)
+    const axe = {
+      ...axeRå,
+      violations: axeRå.violations.filter(v =>
+        !v.nodes.every(n => /version/i.test(n.html || '') || /v[\s\S]*?\d+\.\d+\.\d+/.test(n.html || ''))
+      )
+    };
+
+    // Ta skjermdump av hvert WCAG-brudd
+    console.log(`  📸 Tar skjermdumper av ${axe.violations.length} brudd...`);
+    const violasjonerMedBilder = [];
+    for (let vi = 0; vi < axe.violations.length; vi++) {
+      const v = axe.violations[vi];
+      const selectors = v.nodes.flatMap(n => n.target).slice(0, 5);
+      const filnavn = `s${indeks}-${v.id.replace(/[^a-z0-9]/gi, '-')}-${vi}`;
+      const farge = v.impact === 'critical' ? '#dc3545' : v.impact === 'serious' ? '#fd7e14' : '#ffc107';
+      const bilder = await taSkjermdump(page, selectors, filnavn, farge);
+      violasjonerMedBilder.push({ ...v, bilder });
+    }
+
+    // Finn interne lenker
+    const internelenker = await page.evaluate((origin) =>
+      Array.from(document.querySelectorAll('a[href]'))
         .map(a => a.href)
         .filter(href => href.startsWith(origin) && !href.includes('#'))
-        .map(href => href.split('?')[0].replace(/\/$/, '') || '/');
-    }, baseOrigin);
+        .map(href => href.split('?')[0].replace(/\/$/, '') || '/')
+    , baseOrigin);
 
-    // Lenkesjekk (alle lenker på siden)
+    // Lenkesjekk
     const allelenker = await page.evaluate(() =>
       Array.from(document.querySelectorAll('a[href]')).map(a => ({
         tekst: a.innerText.trim() || a.getAttribute('aria-label') || '(ingen tekst)',
@@ -69,12 +192,21 @@ async function analyserSide(url) {
           try {
             const r = await fetch(l.href, { method: 'GET', signal: AbortSignal.timeout(6000) });
             return { ...l, status: r.status, ok: r.ok };
-          } catch (e) {
+          } catch {
             return { ...l, status: 'feil', ok: false };
           }
         }
       })
     );
+
+    // Skjermdump av sider med døde lenker
+    const dødeLenker = lenkeSjekk.filter(l => !l.ok && l.status !== 'skip');
+    if (dødeLenker.length > 0) {
+      const dødFil = `s${indeks}-doede-lenker`;
+      const dødSelectors = dødeLenker.map(l => `a[href="${l.href}"]`).slice(0, 5);
+      const dødBilder = await taSkjermdump(page, dødSelectors, dødFil, '#6c757d');
+      dødeLenker.forEach(l => { l.bilder = dødBilder; });
+    }
 
     // Knapper
     const knapper = await page.evaluate(() =>
@@ -122,7 +254,7 @@ async function analyserSide(url) {
         })
     );
 
-    // Landmarks og struktur
+    // Struktur
     const struktur = await page.evaluate(() => {
       const overskrifter = Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6')).map(h => ({
         nivå: parseInt(h.tagName[1]),
@@ -138,8 +270,7 @@ async function analyserSide(url) {
     await page.close();
 
     return {
-      url,
-      tittel,
+      url, tittel,
       wcag: {
         brudd: axe.violations.length,
         bestått: axe.passes.length,
@@ -147,18 +278,15 @@ async function analyserSide(url) {
         alvorlige: axe.violations.filter(v => v.impact === 'serious').length,
         moderate: axe.violations.filter(v => v.impact === 'moderate').length,
         mindre: axe.violations.filter(v => v.impact === 'minor').length,
-        detaljer: axe.violations
+        detaljer: violasjonerMedBilder
       },
       lenker: {
         totalt: lenkeSjekk.filter(l => l.status !== 'skip').length,
-        døde: lenkeSjekk.filter(l => !l.ok && l.status !== 'skip'),
+        døde: dødeLenker,
         tomTekst: lenkeSjekk.filter(l => !l.harTekst && l.status !== 'skip'),
         alle: lenkeSjekk
       },
-      knapper,
-      bilder,
-      skjemafelt,
-      struktur,
+      knapper, bilder, skjemafelt, struktur,
       internelenker: [...new Set(internelenker)]
     };
   } catch (e) {
@@ -174,9 +302,10 @@ while (kø.length > 0 && besøkte.size < MAX_SIDER) {
   const normUrl = url.replace(/\/$/, '') || START_URL;
   if (besøkte.has(normUrl)) continue;
   besøkte.add(normUrl);
+  sideIndeks++;
 
   console.log(`📄 [${besøkte.size}/${MAX_SIDER}] Analyserer: ${normUrl}`);
-  const resultat = await analyserSide(normUrl);
+  const resultat = await analyserSide(normUrl, sideIndeks);
   if (resultat) {
     sideResultater.push(resultat);
     for (const lenke of resultat.internelenker) {
@@ -188,12 +317,14 @@ while (kø.length > 0 && besøkte.size < MAX_SIDER) {
 
 await browser.close();
 
-// --- Aggregert oppsummering ---
+// Aggregert oppsummering
 const totalt = {
   sider: sideResultater.length,
   wcagBrudd: sideResultater.reduce((s, r) => s + r.wcag.brudd, 0),
   kritiske: sideResultater.reduce((s, r) => s + r.wcag.kritiske, 0),
   alvorlige: sideResultater.reduce((s, r) => s + r.wcag.alvorlige, 0),
+  moderate: sideResultater.reduce((s, r) => s + r.wcag.moderate, 0),
+  mindre: sideResultater.reduce((s, r) => s + r.wcag.mindre, 0),
   dødelenker: sideResultater.reduce((s, r) => s + r.lenker.døde.length, 0),
   knapper: sideResultater.reduce((s, r) => s + r.knapper.length, 0),
   knappUtenLabel: sideResultater.reduce((s, r) => s + r.knapper.filter(k => !k.harLabel).length, 0),
@@ -203,15 +334,13 @@ const totalt = {
   feltUtenLabel: sideResultater.reduce((s, r) => s + r.skjemafelt.filter(f => !f.harLabel).length, 0),
 };
 
-// Lagre JSON
-const jsonFil = path.join(rapportDir, 'resultat.json');
-fs.writeFileSync(jsonFil, JSON.stringify({ url: START_URL, dato, totalt, sider: sideResultater }, null, 2));
+// Lagre JSON (uten bildedata for å holde størrelsen nede)
+fs.writeFileSync(path.join(rapportDir, 'resultat.json'), JSON.stringify({ url: START_URL, dato, totalt, sider: sideResultater.map(s => ({ ...s, wcag: { ...s.wcag, detaljer: s.wcag.detaljer.map(v => ({ ...v, bilder: v.bilder })) } })) }, null, 2));
 
 // Generer HTML
-const htmlFil = path.join(rapportDir, 'rapport.html');
-fs.writeFileSync(htmlFil, genererRapport(START_URL, dato, totalt, sideResultater));
+fs.writeFileSync(path.join(rapportDir, 'rapport.html'), genererRapport(START_URL, dato, totalt, sideResultater));
 
-// Terminal-oppsummering
+// Terminal
 console.log('\n' + '━'.repeat(60));
 console.log(`📊 RAPPORT – ${START_URL}`);
 console.log('━'.repeat(60));
@@ -222,9 +351,9 @@ console.log(`🔘 Knapper testet:   ${totalt.knapper} (${farge(totalt.knappUtenL
 console.log(`🖼️  Bilder testet:    ${totalt.bilder} (${farge(totalt.bilderUtenAlt, 0, 1, 3)} uten alt)`);
 console.log(`📝 Skjemafelt:       ${totalt.skjemafelt} (${farge(totalt.feltUtenLabel, 0, 1, 3)} uten label)`);
 console.log('━'.repeat(60));
-console.log(`\n📁 HTML-rapport: ${htmlFil}\n`);
-
-open(htmlFil).catch(() => {});
+console.log(`\n📁 HTML-rapport: ${path.join(rapportDir, 'rapport.html')}\n`);
+const { exec } = await import('child_process');
+exec(`open "${path.join(rapportDir, 'rapport.html')}"`);
 
 function farge(n, grønn, gul, rød) {
   if (n <= grønn) return `\x1b[32m${n}\x1b[0m`;
@@ -232,27 +361,27 @@ function farge(n, grønn, gul, rød) {
   return `\x1b[31m${n}\x1b[0m`;
 }
 
-async function open(fil) {
-  const { exec } = await import('child_process');
-  exec(`open "${fil}"`);
-}
-
-function score(t) {
+function scoreBeregn(t) {
   return Math.max(0, 100 - t.kritiske * 15 - t.alvorlige * 8 - t.moderate * 3 - t.mindre - t.dødelenker * 5 - t.knappUtenLabel * 4 - t.bilderUtenAlt * 4 - t.feltUtenLabel * 4);
 }
 
+function badge(n, klasse, tekst) {
+  if (n === 0) return '';
+  return `<span class="badge ${klasse}">${n} ${tekst}</span>`;
+}
+
+function impactFarge(impact) {
+  return { critical: '#dc3545', serious: '#fd7e14', moderate: '#ffc107', minor: '#6c757d' }[impact] || '#6c757d';
+}
+
 function genererRapport(url, dato, totalt, sider) {
-  const s = score({
-    ...totalt,
-    moderate: sider.reduce((a, r) => a + r.wcag.moderate, 0),
-    mindre: sider.reduce((a, r) => a + r.wcag.mindre, 0)
-  });
+  const s = scoreBeregn(totalt);
   const scoreKlasse = s >= 80 ? 'god' : s >= 50 ? 'middels' : 'dårlig';
 
   const sidenavigasjon = sider.map((side, i) =>
     `<li><a href="#side-${i}" class="sidenav-link ${side.wcag.kritiske > 0 ? 'har-kritiske' : side.wcag.brudd > 0 ? 'har-brudd' : 'ok'}">
       <span class="sidenavn">${side.tittel || side.url}</span>
-      <span class="side-url">${side.url.replace(url, '/')}</span>
+      <span class="side-url">${side.url.replace(url.replace(/\/$/, ''), '') || '/'}</span>
       <span class="side-badge">${side.wcag.brudd > 0 ? `${side.wcag.brudd} brudd` : '✅'}</span>
     </a></li>`
   ).join('');
@@ -271,7 +400,70 @@ function genererRapport(url, dato, totalt, sider) {
         </div>
       </div>
 
-      <!-- Struktur -->
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (${side.wcag.brudd})</h3>
+        ${side.wcag.detaljer.length === 0
+          ? '<div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>'
+          : side.wcag.detaljer.map(v => `
+            <div class="brudd-kort" style="border-left-color: ${impactFarge(v.impact)}">
+              <div class="brudd-header">
+                <div>
+                  <span class="badge ${v.impact}">${v.impact}</span>
+                  <code class="regel-id">${v.id}</code>
+                  <span class="regel-desc">${v.description}</span>
+                </div>
+                <span class="brudd-teller">${v.nodes.length} element${v.nodes.length !== 1 ? 'er' : ''}</span>
+              </div>
+              ${v.help ? `<p class="brudd-hjelp">💡 ${v.help} — <a href="${v.helpUrl}" target="_blank">Les mer</a></p>` : ''}
+              ${v.nodes.slice(0, 3).map(n => `
+                <div class="node-info">
+                  <code class="node-selector">${Array.isArray(n.target) ? n.target.join(' > ') : n.target}</code>
+                  ${n.failureSummary ? `<p class="failure-summary">${n.failureSummary.replace('Fix any of the following:\n', '').replace('Fix all of the following:\n', '').trim()}</p>` : ''}
+                </div>`).join('')}
+              ${v.bilder?.nærbilde || v.bilder?.helside ? `
+              <div class="skjermdump-gruppe">
+                ${v.bilder.nærbilde ? `
+                  <div class="skjermdump-wrapper">
+                    <p class="skjermdump-label">📍 Nærbilde av feilende element</p>
+                    <a href="${v.bilder.nærbilde}" target="_blank">
+                      <img src="${v.bilder.nærbilde}" alt="Nærbilde av feilende element for ${v.id}" class="skjermdump nærbilde" loading="lazy">
+                    </a>
+                  </div>` : ''}
+                ${v.bilder.helside ? `
+                  <div class="skjermdump-wrapper">
+                    <p class="skjermdump-label">🖥️ Sidekontekst (element markert)</p>
+                    <a href="${v.bilder.helside}" target="_blank">
+                      <img src="${v.bilder.helside}" alt="Skjermdump av siden med feilende element markert" class="skjermdump helside" loading="lazy">
+                    </a>
+                  </div>` : ''}
+              </div>` : ''}
+            </div>`).join('')}
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      ${side.lenker.døde.length > 0 ? `
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (${side.lenker.døde.length})</h3>
+        ${side.lenker.døde.map(l => `
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">${l.status}</span> <span>${l.tekst}</span></div>
+            </div>
+            <code class="node-selector">${l.href}</code>
+            ${l.bilder?.helside ? `
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="${l.bilder.helside}" target="_blank">
+                  <img src="${l.bilder.helside}" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>` : ''}
+          </div>`).join('')}
+      </div>` : ''}
+
+      <!-- Artefakter -->
       <div class="artefakt-grid">
         <div class="artefakt-kort">
           <h3>🏗️ Sidestruktur</h3>
@@ -281,103 +473,54 @@ function genererRapport(url, dato, totalt, sider) {
             <tr><td>Landmarks</td><td>${side.struktur.landmarks.length > 0 ? side.struktur.landmarks.map(l => `<code>${l.tag}</code>`).join(' ') : '<span class="mangler">Ingen ❌</span>'}</td></tr>
           </tbody></table>
           ${side.struktur.overskrifter.length > 0 ? `
-            <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
-            <ul class="overskrift-liste">
-              ${side.struktur.overskrifter.map(h => `<li style="padding-left:${(h.nivå-1)*1}rem"><span class="h-badge">H${h.nivå}</span> ${h.tekst}</li>`).join('')}
-            </ul>` : ''}
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            ${side.struktur.overskrifter.map(h => `<li style="padding-left:${(h.nivå-1)}rem"><span class="h-badge">H${h.nivå}</span> ${h.tekst}</li>`).join('')}
+          </ul>` : ''}
         </div>
-
-        <!-- Knapper -->
         <div class="artefakt-kort">
           <h3>🔘 Knapper testet (${side.knapper.length})</h3>
-          ${side.knapper.length === 0
-            ? '<p class="ingen">Ingen knapper funnet</p>'
-            : `<table>
-              <thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead>
-              <tbody>
-              ${side.knapper.map(k => `
-                <tr>
-                  <td><code>${k.tag}${k.type ? `[type=${k.type}]` : ''}</code></td>
-                  <td>${k.tekst || '<em>(ingen)</em>'}</td>
-                  <td>${k.harLabel ? '✅' : '<span class="mangler">❌ Mangler label</span>'}</td>
-                </tr>`).join('')}
-              </tbody>
-            </table>`}
+          ${side.knapper.length === 0 ? '<p class="ingen">Ingen knapper funnet</p>'
+            : `<table><thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead><tbody>
+            ${side.knapper.map(k => `<tr>
+              <td><code>${k.tag}${k.type ? `[${k.type}]` : ''}</code></td>
+              <td>${k.tekst || '<em>(ingen)</em>'}</td>
+              <td>${k.harLabel ? '✅' : '<span class="mangler">❌ Mangler</span>'}</td>
+            </tr>`).join('')}</tbody></table>`}
         </div>
-
-        <!-- Bilder -->
         <div class="artefakt-kort">
           <h3>🖼️ Bilder testet (${side.bilder.length})</h3>
-          ${side.bilder.length === 0
-            ? '<p class="ingen">Ingen bilder funnet</p>'
-            : `<table>
-              <thead><tr><th>Fil</th><th>Alt-tekst</th><th>Status</th></tr></thead>
-              <tbody>
-              ${side.bilder.map(b => `
-                <tr>
-                  <td style="font-size:0.8rem">${b.src.slice(0, 40)}</td>
-                  <td>${b.alt !== null ? (b.alt || '<em>(tom)</em>') : '<em>(ikke satt)</em>'}</td>
-                  <td>${b.harAlt ? (b.altErTom ? '⚠️ Tom alt' : '✅') : '<span class="mangler">❌ Mangler alt</span>'}</td>
-                </tr>`).join('')}
-              </tbody>
-            </table>`}
+          ${side.bilder.length === 0 ? '<p class="ingen">Ingen bilder funnet</p>'
+            : `<table><thead><tr><th>Fil</th><th>Alt-tekst</th><th>Status</th></tr></thead><tbody>
+            ${side.bilder.map(b => `<tr>
+              <td style="font-size:0.8rem">${b.src.slice(0, 35)}</td>
+              <td>${b.alt !== null ? (b.alt || '<em>(tom)</em>') : '<em>(ikke satt)</em>'}</td>
+              <td>${b.harAlt ? (b.altErTom ? '⚠️ Tom' : '✅') : '<span class="mangler">❌ Mangler</span>'}</td>
+            </tr>`).join('')}</tbody></table>`}
         </div>
-
-        <!-- Skjemafelt -->
         ${side.skjemafelt.length > 0 ? `
         <div class="artefakt-kort">
           <h3>📝 Skjemafelt testet (${side.skjemafelt.length})</h3>
-          <table>
-            <thead><tr><th>Type</th><th>ID/Navn</th><th>Label</th><th>Påkrevd</th><th>Status</th></tr></thead>
-            <tbody>
-            ${side.skjemafelt.map(f => `
-              <tr>
-                <td><code>${f.type}</code></td>
-                <td><code>${f.id !== '(ingen id)' ? f.id : f.navn || '—'}</code></td>
-                <td>${f.labelTekst || '<em>(ingen)</em>'}</td>
-                <td>${f.påkrevd ? '✅' : '—'}</td>
-                <td>${f.harLabel ? '✅' : '<span class="mangler">❌ Mangler label</span>'}</td>
-              </tr>`).join('')}
-            </tbody>
-          </table>
+          <table><thead><tr><th>Type</th><th>ID</th><th>Label</th><th>Status</th></tr></thead><tbody>
+          ${side.skjemafelt.map(f => `<tr>
+            <td><code>${f.type}</code></td>
+            <td><code>${f.id !== '(ingen id)' ? f.id : f.navn || '—'}</code></td>
+            <td>${f.labelTekst || '<em>(ingen)</em>'}</td>
+            <td>${f.harLabel ? '✅' : '<span class="mangler">❌ Mangler</span>'}</td>
+          </tr>`).join('')}</tbody></table>
         </div>` : ''}
-
-        <!-- Lenker -->
         <div class="artefakt-kort">
-          <h3>🔗 Lenker testet (${side.lenker.alle.filter(l => l.status !== 'skip').length})</h3>
+          <h3>🔗 Lenker sjekket (${side.lenker.totalt})</h3>
           ${side.lenker.døde.length === 0
             ? '<p class="ok-tekst">✅ Ingen døde lenker</p>'
-            : `<table>
-              <thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead>
-              <tbody>
-              ${side.lenker.døde.map(l => `
-                <tr>
-                  <td><span class="badge critical">${l.status}</span></td>
-                  <td>${l.tekst.slice(0, 30)}</td>
-                  <td style="font-size:0.75rem;word-break:break-all">${l.href}</td>
-                </tr>`).join('')}
-              </tbody>
-            </table>`}
+            : `<table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            ${side.lenker.døde.map(l => `<tr>
+              <td><span class="badge dead">${l.status}</span></td>
+              <td>${l.tekst.slice(0, 30)}</td>
+              <td style="font-size:0.75rem;word-break:break-all">${l.href}</td>
+            </tr>`).join('')}</tbody></table>`}
         </div>
       </div>
-
-      <!-- WCAG-brudd for denne siden -->
-      ${side.wcag.detaljer.length > 0 ? `
-      <div class="wcag-detaljer">
-        <h3>♿ WCAG-brudd på denne siden (${side.wcag.brudd})</h3>
-        <table>
-          <thead><tr><th>Alvorlighet</th><th>Regel</th><th>Beskrivelse</th><th>Elementer</th></tr></thead>
-          <tbody>
-          ${side.wcag.detaljer.map(v => `
-            <tr>
-              <td><span class="badge ${v.impact}">${v.impact}</span></td>
-              <td><code>${v.id}</code></td>
-              <td>${v.description}</td>
-              <td>${v.nodes.length}</td>
-            </tr>`).join('')}
-          </tbody>
-        </table>
-      </div>` : '<div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>'}
     </div>
   `).join('');
 
@@ -385,154 +528,109 @@ function genererRapport(url, dato, totalt, sider) {
 <html lang="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UU-rapport – ${dato}</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: system-ui, sans-serif; background: #f0f2f5; color: #1a1a2e; display: flex; min-height: 100vh; }
-
-  /* Sidemeny */
-  .sidemeny { width: 280px; min-width: 280px; background: #1a1a2e; color: white; padding: 1rem 0; overflow-y: auto; position: sticky; top: 0; height: 100vh; }
-  .sidemeny h1 { padding: 0.8rem 1.2rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.5rem; }
-  .sidemeny h1 span { display: block; font-size: 0.7rem; opacity: 0.6; margin-top: 0.2rem; font-weight: normal; }
-  .sidemeny ul { list-style: none; }
-  .sidenav-link { display: block; padding: 0.6rem 1.2rem; text-decoration: none; color: rgba(255,255,255,0.8); border-left: 3px solid transparent; transition: all 0.15s; }
-  .sidenav-link:hover { background: rgba(255,255,255,0.08); color: white; }
-  .sidenav-link.har-kritiske { border-color: #dc3545; }
-  .sidenav-link.har-brudd { border-color: #ffc107; }
-  .sidenav-link.ok { border-color: #28a745; }
-  .sidenavn { display: block; font-size: 0.85rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .side-url { display: block; font-size: 0.7rem; opacity: 0.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .side-badge { display: block; font-size: 0.7rem; margin-top: 0.2rem; opacity: 0.7; }
-
-  /* Hovedinnhold */
-  .hoveddel { flex: 1; padding: 2rem; overflow-y: auto; }
-  header { margin-bottom: 2rem; }
-  header h1 { font-size: 1.6rem; }
-  header p { color: #666; margin-top: 0.3rem; font-size: 0.9rem; }
-
-  /* Score */
-  .score-kort { background: white; border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-  .score-sirkel { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; flex-shrink: 0; }
-  .score-sirkel.god { background: #d4edda; color: #155724; border: 4px solid #28a745; }
-  .score-sirkel.middels { background: #fff3cd; color: #856404; border: 4px solid #ffc107; }
-  .score-sirkel.dårlig { background: #f8d7da; color: #721c24; border: 4px solid #dc3545; }
-
-  /* Nøkkeltall */
-  .kort-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-  .kort { background: white; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #ccc; }
-  .kort.kritisk { border-color: #dc3545; }
-  .kort.advarsel { border-color: #ffc107; }
-  .kort.ok { border-color: #28a745; }
-  .kort .tall { font-size: 2rem; font-weight: bold; margin: 0.2rem 0; }
-  .kort .etikett { font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.04em; }
-  .kort .ikon { font-size: 1.3rem; }
-  .kort .undertekst { font-size: 0.7rem; color: #999; margin-top: 0.2rem; }
-
-  /* Side-seksjoner */
-  .side-seksjon { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-  .side-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 2px solid #f0f2f5; flex-wrap: wrap; gap: 0.5rem; }
-  .side-header h2 { font-size: 1.1rem; }
-  .side-url-link { font-size: 0.8rem; color: #666; text-decoration: none; }
-  .side-url-link:hover { text-decoration: underline; }
-  .side-score-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
-  /* Artefakt-grid */
-  .artefakt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-  .artefakt-kort { background: #f8f9fa; border-radius: 8px; padding: 1rem; }
-  .artefakt-kort h3 { font-size: 0.95rem; margin-bottom: 0.8rem; }
-  .artefakt-kort h4 { font-size: 0.85rem; margin-bottom: 0.4rem; color: #555; }
-
-  /* Tabeller */
-  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  th { background: #e9ecef; text-align: left; padding: 0.4rem 0.6rem; font-weight: 600; }
-  td { padding: 0.4rem 0.6rem; border-bottom: 1px solid #e9ecef; vertical-align: top; }
-  tr:hover td { background: rgba(0,0,0,0.02); }
-
-  /* Badges */
-  .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 20px; font-size: 0.72rem; font-weight: 600; }
-  .badge.critical { background: #f8d7da; color: #721c24; }
-  .badge.serious { background: #ffe5d0; color: #7d3c00; }
-  .badge.moderate { background: #fff3cd; color: #856404; }
-  .badge.minor { background: #e2e3e5; color: #383d41; }
-  .badge.dead { background: #f8d7da; color: #721c24; }
-
-  /* Overskrift-liste */
-  .overskrift-liste { list-style: none; font-size: 0.82rem; }
-  .overskrift-liste li { padding: 0.2rem 0; }
-  .h-badge { display: inline-block; width: 24px; font-size: 0.7rem; font-weight: bold; color: #888; }
-
-  /* Status */
-  .mangler { color: #dc3545; font-weight: 600; }
-  .ok-tekst { color: #28a745; font-size: 0.9rem; }
-  .ingen { color: #888; font-style: italic; font-size: 0.85rem; }
-  .wcag-ok { background: #d4edda; color: #155724; padding: 0.8rem 1rem; border-radius: 8px; font-size: 0.9rem; }
-  .wcag-detaljer { margin-top: 1rem; }
-  .wcag-detaljer h3 { font-size: 0.95rem; margin-bottom: 0.6rem; }
-
-  footer { text-align: center; padding: 2rem; color: #888; font-size: 0.8rem; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh}
+  .sidemeny{width:270px;min-width:270px;background:#1a1a2e;color:white;padding:1rem 0;overflow-y:auto;position:sticky;top:0;height:100vh}
+  .sidemeny h1{padding:.8rem 1.2rem;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.5rem}
+  .sidemeny h1 span{display:block;font-size:.7rem;opacity:.6;margin-top:.2rem;font-weight:normal}
+  .sidemeny ul{list-style:none}
+  .sidenav-link{display:block;padding:.6rem 1.2rem;text-decoration:none;color:rgba(255,255,255,.8);border-left:3px solid transparent;transition:all .15s}
+  .sidenav-link:hover{background:rgba(255,255,255,.08);color:white}
+  .sidenav-link.har-kritiske{border-color:#dc3545}
+  .sidenav-link.har-brudd{border-color:#ffc107}
+  .sidenav-link.ok{border-color:#28a745}
+  .sidenavn{display:block;font-size:.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .side-url{display:block;font-size:.7rem;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .side-badge{display:block;font-size:.7rem;margin-top:.2rem;opacity:.7}
+  .hoveddel{flex:1;padding:2rem;overflow-y:auto;max-width:1000px}
+  header{margin-bottom:2rem}
+  header h1{font-size:1.6rem}
+  header p{color:#666;margin-top:.3rem;font-size:.9rem}
+  .score-kort{background:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .score-sirkel{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:bold;flex-shrink:0}
+  .score-sirkel.god{background:#d4edda;color:#155724;border:4px solid #28a745}
+  .score-sirkel.middels{background:#fff3cd;color:#856404;border:4px solid #ffc107}
+  .score-sirkel.dårlig{background:#f8d7da;color:#721c24;border:4px solid #dc3545}
+  .kort-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+  .kort{background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.08);border-left:4px solid #ccc}
+  .kort.kritisk{border-color:#dc3545}.kort.advarsel{border-color:#ffc107}.kort.ok{border-color:#28a745}
+  .kort .tall{font-size:2rem;font-weight:bold;margin:.2rem 0}
+  .kort .etikett{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.04em}
+  .kort .undertekst{font-size:.7rem;color:#999;margin-top:.2rem}
+  .side-seksjon{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .side-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:2px solid #f0f2f5;flex-wrap:wrap;gap:.5rem}
+  .side-header h2{font-size:1.1rem}
+  .side-url-link{font-size:.8rem;color:#666;text-decoration:none}
+  .side-url-link:hover{text-decoration:underline}
+  .side-score-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+  .wcag-seksjon{margin-bottom:1.2rem}
+  .wcag-seksjon h3{font-size:.95rem;margin-bottom:.8rem;color:#333}
+  .brudd-kort{background:#fafafa;border-radius:8px;padding:1rem;margin-bottom:.8rem;border-left:4px solid #ccc}
+  .brudd-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem;gap:.5rem;flex-wrap:wrap}
+  .regel-id{font-size:.82rem;margin:0 .4rem}
+  .regel-desc{font-size:.85rem;color:#444}
+  .brudd-teller{font-size:.75rem;color:#888;white-space:nowrap}
+  .brudd-hjelp{font-size:.82rem;color:#555;margin:.4rem 0;padding:.4rem .6rem;background:#f0f2f5;border-radius:4px}
+  .node-info{background:#f8f9fa;border-radius:4px;padding:.4rem .6rem;margin:.4rem 0;font-size:.8rem}
+  .node-selector{display:block;color:#6f42c1;margin-bottom:.2rem;word-break:break-all}
+  .failure-summary{color:#666;font-size:.78rem;margin-top:.2rem;white-space:pre-wrap}
+  .skjermdump-gruppe{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:.8rem}
+  .skjermdump-wrapper{background:#f0f2f5;border-radius:6px;padding:.6rem}
+  .skjermdump-label{font-size:.75rem;color:#666;margin-bottom:.4rem}
+  .skjermdump{width:100%;border-radius:4px;border:1px solid #dee2e6;cursor:zoom-in;transition:transform .2s}
+  .skjermdump:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .nærbilde{max-height:200px;object-fit:contain;background:white}
+  .helside{max-height:300px;object-fit:cover;object-position:top}
+  .artefakt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:1rem}
+  .artefakt-kort{background:#f8f9fa;border-radius:8px;padding:1rem}
+  .artefakt-kort h3{font-size:.95rem;margin-bottom:.8rem}
+  table{width:100%;border-collapse:collapse;font-size:.82rem}
+  th{background:#e9ecef;text-align:left;padding:.4rem .6rem;font-weight:600}
+  td{padding:.4rem .6rem;border-bottom:1px solid #e9ecef;vertical-align:top}
+  .badge{display:inline-block;padding:.15rem .5rem;border-radius:20px;font-size:.72rem;font-weight:600}
+  .badge.critical{background:#f8d7da;color:#721c24}
+  .badge.serious{background:#ffe5d0;color:#7d3c00}
+  .badge.moderate{background:#fff3cd;color:#856404}
+  .badge.minor{background:#e2e3e5;color:#383d41}
+  .badge.dead{background:#f8d7da;color:#721c24}
+  .overskrift-liste{list-style:none;font-size:.82rem}
+  .overskrift-liste li{padding:.2rem 0}
+  .h-badge{display:inline-block;width:24px;font-size:.7rem;font-weight:bold;color:#888}
+  .mangler{color:#dc3545;font-weight:600}
+  .ok-tekst{color:#28a745;font-size:.9rem}
+  .ingen{color:#888;font-style:italic;font-size:.85rem}
+  .wcag-ok{background:#d4edda;color:#155724;padding:.8rem 1rem;border-radius:8px;font-size:.9rem}
+  footer{text-align:center;padding:2rem;color:#888;font-size:.8rem}
 </style>
 </head>
 <body>
-
-<!-- Sidemeny med alle sider -->
 <nav class="sidemeny">
   <h1>UU-rapport <span>${dato} · ${totalt.sider} sider</span></h1>
   <ul>${sidenavigasjon}</ul>
 </nav>
-
 <div class="hoveddel">
   <header>
     <h1>♿ UU-rapport</h1>
-    <p><a href="${url}" target="_blank">${url}</a> · ${dato} · ${totalt.sider} sider analysert</p>
+    <p><a href="${url}" target="_blank">${url}</a> · ${dato} · ${totalt.sider} sider · med skjermdumper</p>
   </header>
-
-  <!-- Score -->
   <div class="score-kort">
     <div class="score-sirkel ${scoreKlasse}">${s}</div>
-    <div>
-      <strong>Total UU-score</strong>
-      <p style="color:#666;font-size:0.9rem;margin-top:0.3rem">Basert på WCAG-brudd, døde lenker og manglende labels på tvers av ${totalt.sider} sider.</p>
-    </div>
+    <div><strong>Total UU-score</strong><p style="color:#666;font-size:.9rem;margin-top:.3rem">Basert på WCAG-brudd, døde lenker og manglende labels på tvers av ${totalt.sider} sider. Klikk på skjermdumper for å forstørre.</p></div>
   </div>
-
-  <!-- Nøkkeltall -->
   <div class="kort-grid">
-    <div class="kort ${totalt.sider > 0 ? 'ok' : 'advarsel'}">
-      <div class="ikon">📄</div><div class="tall">${totalt.sider}</div><div class="etikett">Sider testet</div>
-    </div>
-    <div class="kort ${totalt.wcagBrudd === 0 ? 'ok' : totalt.wcagBrudd < 5 ? 'advarsel' : 'kritisk'}">
-      <div class="ikon">♿</div><div class="tall">${totalt.wcagBrudd}</div><div class="etikett">WCAG-brudd</div>
-      <div class="undertekst">${totalt.kritiske} kritiske · ${totalt.alvorlige} alvorlige</div>
-    </div>
-    <div class="kort ${totalt.dødelenker === 0 ? 'ok' : 'kritisk'}">
-      <div class="ikon">🔗</div><div class="tall">${totalt.dødelenker}</div><div class="etikett">Døde lenker</div>
-    </div>
-    <div class="kort ${totalt.knappUtenLabel === 0 ? 'ok' : 'advarsel'}">
-      <div class="ikon">🔘</div><div class="tall">${totalt.knapper}</div><div class="etikett">Knapper testet</div>
-      <div class="undertekst">${totalt.knappUtenLabel} uten label</div>
-    </div>
-    <div class="kort ${totalt.bilderUtenAlt === 0 ? 'ok' : 'advarsel'}">
-      <div class="ikon">🖼️</div><div class="tall">${totalt.bilder}</div><div class="etikett">Bilder testet</div>
-      <div class="undertekst">${totalt.bilderUtenAlt} uten alt-tekst</div>
-    </div>
-    <div class="kort ${totalt.feltUtenLabel === 0 ? 'ok' : 'advarsel'}">
-      <div class="ikon">📝</div><div class="tall">${totalt.skjemafelt}</div><div class="etikett">Skjemafelt testet</div>
-      <div class="undertekst">${totalt.feltUtenLabel} uten label</div>
-    </div>
+    <div class="kort ${totalt.sider > 0 ? 'ok' : 'advarsel'}"><div class="tall">${totalt.sider}</div><div class="etikett">📄 Sider testet</div></div>
+    <div class="kort ${totalt.wcagBrudd === 0 ? 'ok' : totalt.wcagBrudd < 5 ? 'advarsel' : 'kritisk'}"><div class="tall">${totalt.wcagBrudd}</div><div class="etikett">♿ WCAG-brudd</div><div class="undertekst">${totalt.kritiske} kritiske · ${totalt.alvorlige} alvorlige</div></div>
+    <div class="kort ${totalt.dødelenker === 0 ? 'ok' : 'kritisk'}"><div class="tall">${totalt.dødelenker}</div><div class="etikett">🔗 Døde lenker</div></div>
+    <div class="kort ${totalt.knappUtenLabel === 0 ? 'ok' : 'advarsel'}"><div class="tall">${totalt.knapper}</div><div class="etikett">🔘 Knapper testet</div><div class="undertekst">${totalt.knappUtenLabel} uten label</div></div>
+    <div class="kort ${totalt.bilderUtenAlt === 0 ? 'ok' : 'advarsel'}"><div class="tall">${totalt.bilder}</div><div class="etikett">🖼️ Bilder testet</div><div class="undertekst">${totalt.bilderUtenAlt} uten alt</div></div>
+    <div class="kort ${totalt.feltUtenLabel === 0 ? 'ok' : 'advarsel'}"><div class="tall">${totalt.skjemafelt}</div><div class="etikett">📝 Skjemafelt</div><div class="undertekst">${totalt.feltUtenLabel} uten label</div></div>
   </div>
-
-  <!-- Per-side detaljer -->
   ${sideDetaljer}
-
   <footer>UU-tester · axe-core + Playwright · ${dato}</footer>
 </div>
-
 </body>
 </html>`;
-}
-
-function badge(n, klasse, tekst) {
-  if (n === 0) return '';
-  return `<span class="badge ${klasse}">${n} ${tekst}</span>`;
 }

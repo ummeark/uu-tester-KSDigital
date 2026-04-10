@@ -3,9 +3,11 @@
   "dato": "2026-04-10",
   "totalt": {
     "sider": 9,
-    "wcagBrudd": 8,
+    "wcagBrudd": 1,
     "kritiske": 0,
     "alvorlige": 0,
+    "moderate": 1,
+    "mindre": 0,
     "dødelenker": 5,
     "knapper": 7,
     "knappUtenLabel": 0,
@@ -19,50 +21,13 @@
       "url": "https://tilskudd.fiks.test.ks.no",
       "tittel": "KS Tilskudd - Hjem",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 38,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 3,
@@ -126,7 +91,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":mntd4dczufx",
+          "id": ":mntgdag4txs",
           "navn": "search",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,
@@ -179,11 +144,11 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger",
       "tittel": "KS Tilskudd - Ordninger",
       "wcag": {
-        "brudd": 2,
+        "brudd": 1,
         "bestått": 32,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 2,
+        "moderate": 1,
         "mindre": 0,
         "detaljer": [
           {
@@ -216,43 +181,11 @@
                 ],
                 "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
               }
-            ]
-          },
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
             ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
+            "bilder": {
+              "nærbilde": "skjermbilder/s2-page-has-heading-one-0-element.png",
+              "helside": "skjermbilder/s2-page-has-heading-one-0-side.png"
+            }
           }
         ]
       },
@@ -348,7 +281,7 @@
       "skjemafelt": [
         {
           "type": "search",
-          "id": ":mntd4ewmn3x",
+          "id": ":mntgdc1vlag",
           "navn": "",
           "labelTekst": "Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.",
           "påkrevd": false,
@@ -773,50 +706,13 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
       "tittel": "KS Tilskudd",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 29,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 7,
@@ -827,7 +723,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s4-doede-lenker-side.png"
+            }
           }
         ],
         "tomTekst": [],
@@ -894,7 +794,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s4-doede-lenker-side.png"
+            }
           }
         ]
       },
@@ -985,50 +889,13 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81",
       "tittel": "KS Tilskudd",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 29,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 7,
@@ -1039,7 +906,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s5-doede-lenker-side.png"
+            }
           }
         ],
         "tomTekst": [],
@@ -1106,7 +977,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s5-doede-lenker-side.png"
+            }
           }
         ]
       },
@@ -1185,50 +1060,13 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
       "tittel": "KS Tilskudd",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 30,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 8,
@@ -1239,7 +1077,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s6-doede-lenker-side.png"
+            }
           }
         ],
         "tomTekst": [],
@@ -1322,7 +1164,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s6-doede-lenker-side.png"
+            }
           }
         ]
       },
@@ -1417,50 +1263,13 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
       "tittel": "KS Tilskudd",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 30,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 9,
@@ -1471,7 +1280,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s7-doede-lenker-side.png"
+            }
           }
         ],
         "tomTekst": [],
@@ -1562,7 +1375,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s7-doede-lenker-side.png"
+            }
           }
         ]
       },
@@ -1633,50 +1450,13 @@
       "url": "https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
       "tittel": "KS Tilskudd",
       "wcag": {
-        "brudd": 1,
+        "brudd": 0,
         "bestått": 29,
         "kritiske": 0,
         "alvorlige": 0,
-        "moderate": 1,
+        "moderate": 0,
         "mindre": 0,
-        "detaljer": [
-          {
-            "id": "region",
-            "impact": "moderate",
-            "tags": [
-              "cat.keyboard",
-              "best-practice",
-              "RGAAv4",
-              "RGAA-9.2.1"
-            ],
-            "description": "Ensure all page content is contained by landmarks",
-            "help": "All page content should be contained by landmarks",
-            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/region?application=playwright",
-            "nodes": [
-              {
-                "any": [
-                  {
-                    "id": "region",
-                    "data": {
-                      "isIframe": false
-                    },
-                    "relatedNodes": [],
-                    "impact": "moderate",
-                    "message": "Some page content is not contained by landmarks"
-                  }
-                ],
-                "all": [],
-                "none": [],
-                "impact": "moderate",
-                "html": "<div class=\"_appVersion_uxy9t_1\">v<!-- -->0.4.3</div>",
-                "target": [
-                  "._appVersion_uxy9t_1"
-                ],
-                "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-              }
-            ]
-          }
-        ]
+        "detaljer": []
       },
       "lenker": {
         "totalt": 7,
@@ -1687,7 +1467,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s8-doede-lenker-side.png"
+            }
           }
         ],
         "tomTekst": [],
@@ -1754,7 +1538,11 @@
             "intern": false,
             "harTekst": true,
             "status": "feil",
-            "ok": false
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s8-doede-lenker-side.png"
+            }
           }
         ]
       },
