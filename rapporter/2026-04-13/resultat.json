@@ -1,0 +1,20 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-13",
+  "totalt": {
+    "sider": 0,
+    "wcagBrudd": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "moderate": 0,
+    "mindre": 0,
+    "dødelenker": 0,
+    "knapper": 0,
+    "knappUtenLabel": 0,
+    "bilder": 0,
+    "bilderUtenAlt": 0,
+    "skjemafelt": 0,
+    "feltUtenLabel": 0
+  },
+  "sider": []
+}
