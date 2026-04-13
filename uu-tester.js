@@ -559,8 +559,12 @@ function genererRapport(url, dato, totalt, sider) {
   .rapport-header .meta{font-size:.85rem;color:#6b7280;margin-top:.4rem}
   .rapport-header .meta a{color:#07604f;text-decoration:none}
   .rapport-header .meta a:hover{text-decoration:underline}
-  .arkiv-knapp{display:inline-block;padding:.5rem 1.2rem;background:#0a1355;color:white;border-radius:100px;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s}
-  .arkiv-knapp:hover{background:#2b3285}
+  .nav-knapper{display:flex;gap:.6rem;flex-wrap:wrap;align-items:flex-start}
+  .knapp{display:inline-block;padding:.5rem 1.2rem;background:#0a1355;color:white;border-radius:100px;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:background .15s}
+  .knapp:hover{background:#2b3285}
+  .knapp.aktiv{background:#07604f;pointer-events:none}
+  .knapp.sekundær{background:transparent;border:1px solid #0a1355;color:#0a1355}
+  .knapp.sekundær:hover{background:#f4ecdf}
 
   /* Score card */
   .score-kort{background:white;border:1px solid #f1f0ee;padding:1.8rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
@@ -652,7 +656,11 @@ function genererRapport(url, dato, totalt, sider) {
       <h1>Tilgjengelighetsrapport</h1>
       <div class="meta"><a href="${url}" target="_blank">${url}</a> · ${dato} · ${totalt.sider} sider testet</div>
     </div>
-    <a href="arkiv.html" class="arkiv-knapp">Tidligere rapporter</a>
+    <div class="nav-knapper">
+      <a href="rapport.html" class="knapp aktiv">UU-rapport</a>
+      <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
+      <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
+    </div>
   </div>
   <div class="score-kort">
     <div class="score-sirkel ${scoreKlasse}">${s}</div>

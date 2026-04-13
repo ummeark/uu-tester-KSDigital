@@ -359,6 +359,7 @@ const html = `<!DOCTYPE html>
   .nav-knapper{display:flex;gap:.6rem;flex-wrap:wrap}
   .knapp{display:inline-block;padding:.5rem 1.2rem;background:#0a1355;color:white;border-radius:100px;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:background .15s}
   .knapp:hover{background:#2b3285}
+  .knapp.aktiv{background:#07604f;pointer-events:none}
   .knapp.sekundær{background:transparent;border:1px solid #0a1355;color:#0a1355}
   .knapp.sekundær:hover{background:#f4ecdf}
   .score-kort{background:white;border:1px solid #f1f0ee;padding:1.8rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;box-shadow:0 1px 4px rgba(10,19,85,.06)}
@@ -419,7 +420,8 @@ const html = `<!DOCTYPE html>
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">UU-rapport</a>
-      <a href="arkiv.html" class="knapp">Tidligere rapporter</a>
+      <a href="monkey-rapport.html" class="knapp aktiv">Monkey-test</a>
+      <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </div>
 
