@@ -26,6 +26,9 @@ jobs:
       - name: Kjør UU-analyse
         run: npm run rapport
 
+      - name: Generer arkivoversikt
+        run: npm run arkiv
+
       - name: Last opp rapport som artefakt
         uses: actions/upload-artifact@v4
         with:
@@ -47,5 +50,5 @@ jobs:
           cp -r rapporter/${DATO}/skjermbilder docs/skjermbilder 2>/dev/null || true
 
           git add rapporter/ docs/
-          git diff --staged --quiet || git commit -m "Daglig UU-rapport ${DATO}"
+          git diff --staged --quiet || git commit -m "Daglig UU-rapport ${DATO} [skip ci]"
           git push

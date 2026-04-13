@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UU-rapport – 2026-04-10</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;display:flex;min-height:100vh}
+  .sidemeny{width:270px;min-width:270px;background:#1a1a2e;color:white;padding:1rem 0;overflow-y:auto;position:sticky;top:0;height:100vh}
+  .sidemeny h1{padding:.8rem 1.2rem;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.5rem}
+  .sidemeny h1 span{display:block;font-size:.7rem;opacity:.6;margin-top:.2rem;font-weight:normal}
+  .sidemeny ul{list-style:none}
+  .sidenav-link{display:block;padding:.6rem 1.2rem;text-decoration:none;color:rgba(255,255,255,.8);border-left:3px solid transparent;transition:all .15s}
+  .sidenav-link:hover{background:rgba(255,255,255,.08);color:white}
+  .sidenav-link.har-kritiske{border-color:#dc3545}
+  .sidenav-link.har-brudd{border-color:#ffc107}
+  .sidenav-link.ok{border-color:#28a745}
+  .sidenavn{display:block;font-size:.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .side-url{display:block;font-size:.7rem;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .side-badge{display:block;font-size:.7rem;margin-top:.2rem;opacity:.7}
+  .hoveddel{flex:1;padding:2rem;overflow-y:auto;max-width:1000px}
+  header{margin-bottom:2rem}
+  header h1{font-size:1.6rem}
+  header p{color:#666;margin-top:.3rem;font-size:.9rem}
+  .score-kort{background:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:2rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .score-sirkel{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:bold;flex-shrink:0}
+  .score-sirkel.god{background:#d4edda;color:#155724;border:4px solid #28a745}
+  .score-sirkel.middels{background:#fff3cd;color:#856404;border:4px solid #ffc107}
+  .score-sirkel.dårlig{background:#f8d7da;color:#721c24;border:4px solid #dc3545}
+  .kort-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+  .kort{background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.08);border-left:4px solid #ccc}
+  .kort.kritisk{border-color:#dc3545}.kort.advarsel{border-color:#ffc107}.kort.ok{border-color:#28a745}
+  .kort .tall{font-size:2rem;font-weight:bold;margin:.2rem 0}
+  .kort .etikett{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.04em}
+  .kort .undertekst{font-size:.7rem;color:#999;margin-top:.2rem}
+  .side-seksjon{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .side-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:2px solid #f0f2f5;flex-wrap:wrap;gap:.5rem}
+  .side-header h2{font-size:1.1rem}
+  .side-url-link{font-size:.8rem;color:#666;text-decoration:none}
+  .side-url-link:hover{text-decoration:underline}
+  .side-score-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+  .wcag-seksjon{margin-bottom:1.2rem}
+  .wcag-seksjon h3{font-size:.95rem;margin-bottom:.8rem;color:#333}
+  .brudd-kort{background:#fafafa;border-radius:8px;padding:1rem;margin-bottom:.8rem;border-left:4px solid #ccc}
+  .brudd-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem;gap:.5rem;flex-wrap:wrap}
+  .regel-id{font-size:.82rem;margin:0 .4rem}
+  .regel-desc{font-size:.85rem;color:#444}
+  .brudd-teller{font-size:.75rem;color:#888;white-space:nowrap}
+  .brudd-hjelp{font-size:.82rem;color:#555;margin:.4rem 0;padding:.4rem .6rem;background:#f0f2f5;border-radius:4px}
+  .node-info{background:#f8f9fa;border-radius:4px;padding:.4rem .6rem;margin:.4rem 0;font-size:.8rem}
+  .node-selector{display:block;color:#6f42c1;margin-bottom:.2rem;word-break:break-all}
+  .failure-summary{color:#666;font-size:.78rem;margin-top:.2rem;white-space:pre-wrap}
+  .skjermdump-gruppe{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:.8rem}
+  .skjermdump-wrapper{background:#f0f2f5;border-radius:6px;padding:.6rem}
+  .skjermdump-label{font-size:.75rem;color:#666;margin-bottom:.4rem}
+  .skjermdump{width:100%;border-radius:4px;border:1px solid #dee2e6;cursor:zoom-in;transition:transform .2s}
+  .skjermdump:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .nærbilde{max-height:200px;object-fit:contain;background:white}
+  .helside{max-height:300px;object-fit:cover;object-position:top}
+  .artefakt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:1rem}
+  .artefakt-kort{background:#f8f9fa;border-radius:8px;padding:1rem}
+  .artefakt-kort h3{font-size:.95rem;margin-bottom:.8rem}
+  table{width:100%;border-collapse:collapse;font-size:.82rem}
+  th{background:#e9ecef;text-align:left;padding:.4rem .6rem;font-weight:600}
+  td{padding:.4rem .6rem;border-bottom:1px solid #e9ecef;vertical-align:top}
+  .badge{display:inline-block;padding:.15rem .5rem;border-radius:20px;font-size:.72rem;font-weight:600}
+  .badge.critical{background:#f8d7da;color:#721c24}
+  .badge.serious{background:#ffe5d0;color:#7d3c00}
+  .badge.moderate{background:#fff3cd;color:#856404}
+  .badge.minor{background:#e2e3e5;color:#383d41}
+  .badge.dead{background:#f8d7da;color:#721c24}
+  .overskrift-liste{list-style:none;font-size:.82rem}
+  .overskrift-liste li{padding:.2rem 0}
+  .h-badge{display:inline-block;width:24px;font-size:.7rem;font-weight:bold;color:#888}
+  .mangler{color:#dc3545;font-weight:600}
+  .ok-tekst{color:#28a745;font-size:.9rem}
+  .ingen{color:#888;font-style:italic;font-size:.85rem}
+  .wcag-ok{background:#d4edda;color:#155724;padding:.8rem 1rem;border-radius:8px;font-size:.9rem}
+  footer{text-align:center;padding:2rem;color:#888;font-size:.8rem}
+</style>
+</head>
+<body>
+<nav class="sidemeny">
+  <h1>UU-rapport <span>2026-04-10 · 9 sider</span></h1>
+  <ul><li><a href="#side-0" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd - Hjem</span>
+      <span class="side-url">/</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-1" class="sidenav-link har-brudd">
+      <span class="sidenavn">KS Tilskudd - Ordninger</span>
+      <span class="side-url">/ordninger</span>
+      <span class="side-badge">1 brudd</span>
+    </a></li><li><a href="#side-2" class="sidenav-link ok">
+      <span class="sidenavn">ID-porten</span>
+      <span class="side-url">/minside</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-3" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd</span>
+      <span class="side-url">/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-4" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd</span>
+      <span class="side-url">/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-5" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd</span>
+      <span class="side-url">/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-6" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd</span>
+      <span class="side-url">/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-7" class="sidenav-link ok">
+      <span class="sidenavn">KS Tilskudd</span>
+      <span class="side-url">/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6</span>
+      <span class="side-badge">✅</span>
+    </a></li><li><a href="#side-8" class="sidenav-link ok">
+      <span class="sidenavn">ID-porten</span>
+      <span class="side-url">/soknad/opprett</span>
+      <span class="side-badge">✅</span>
+    </a></li></ul>
+</nav>
+<div class="hoveddel">
+  <header>
+    <h1>♿ UU-rapport</h1>
+    <p><a href="https://tilskudd.fiks.test.ks.no/" target="_blank">https://tilskudd.fiks.test.ks.no/</a> · 2026-04-10 · 9 sider · med skjermdumper</p>
+  </header>
+  <div class="score-kort">
+    <div class="score-sirkel middels">72</div>
+    <div><strong>Total UU-score</strong><p style="color:#666;font-size:.9rem;margin-top:.3rem">Basert på WCAG-brudd, døde lenker og manglende labels på tvers av 9 sider. Klikk på skjermdumper for å forstørre.</p></div>
+  </div>
+  <div class="kort-grid">
+    <div class="kort ok"><div class="tall">9</div><div class="etikett">📄 Sider testet</div></div>
+    <div class="kort advarsel"><div class="tall">1</div><div class="etikett">♿ WCAG-brudd</div><div class="undertekst">0 kritiske · 0 alvorlige</div></div>
+    <div class="kort kritisk"><div class="tall">5</div><div class="etikett">🔗 Døde lenker</div></div>
+    <div class="kort ok"><div class="tall">7</div><div class="etikett">🔘 Knapper testet</div><div class="undertekst">0 uten label</div></div>
+    <div class="kort ok"><div class="tall">23</div><div class="etikett">🖼️ Bilder testet</div><div class="undertekst">0 uten alt</div></div>
+    <div class="kort ok"><div class="tall">2</div><div class="etikett">📝 Skjemafelt</div><div class="undertekst">0 uten label</div></div>
+  </div>
+  
+    <div class="side-seksjon" id="side-0">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd - Hjem</h2>
+          <a href="https://tilskudd.fiks.test.ks.no" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Nasjonal portal for søknad om offentlige tilskudd</li><li style="padding-left:1rem"><span class="h-badge">H2</span> En felles løsning for næringstilskudd</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (2)</h3>
+          <table><thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td><code>button[reset]</code></td>
+              <td>Tøm</td>
+              <td>✅</td>
+            </tr><tr>
+              <td><code>button[submit]</code></td>
+              <td>Søk</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (1)</h3>
+          <table><thead><tr><th>Fil</th><th>Alt-tekst</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td style="font-size:0.8rem">forside-banner.png</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr></tbody></table>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>📝 Skjemafelt testet (1)</h3>
+          <table><thead><tr><th>Type</th><th>ID</th><th>Label</th><th>Status</th></tr></thead><tbody>
+          <tr>
+            <td><code>search</code></td>
+            <td><code>:mntgdag4txs</code></td>
+            <td>Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.</td>
+            <td>✅</td>
+          </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (3)</h3>
+          <p class="ok-tekst">✅ Ingen døde lenker</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-1">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd - Ordninger</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (1)</h3>
+        
+            <div class="brudd-kort" style="border-left-color: #ffc107">
+              <div class="brudd-header">
+                <div>
+                  <span class="badge moderate">moderate</span>
+                  <code class="regel-id">page-has-heading-one</code>
+                  <span class="regel-desc">Ensure that the page, or at least one of its frames contains a level-one heading</span>
+                </div>
+                <span class="brudd-teller">1 element</span>
+              </div>
+              <p class="brudd-hjelp">💡 Page should contain a level-one heading — <a href="https://dequeuniversity.com/rules/axe/4.11/page-has-heading-one?application=playwright" target="_blank">Les mer</a></p>
+              
+                <div class="node-info">
+                  <code class="node-selector">html</code>
+                  <p class="failure-summary">Page must have a level-one heading</p>
+                </div>
+              
+              <div class="skjermdump-gruppe">
+                
+                  <div class="skjermdump-wrapper">
+                    <p class="skjermdump-label">📍 Nærbilde av feilende element</p>
+                    <a href="../2026-04-10/skjermbilder/s2-page-has-heading-one-0-element.png" target="_blank">
+                      <img src="../2026-04-10/skjermbilder/s2-page-has-heading-one-0-element.png" alt="Nærbilde av feilende element for page-has-heading-one" class="skjermdump nærbilde" loading="lazy">
+                    </a>
+                  </div>
+                
+                  <div class="skjermdump-wrapper">
+                    <p class="skjermdump-label">🖥️ Sidekontekst (element markert)</p>
+                    <a href="../2026-04-10/skjermbilder/s2-page-has-heading-one-0-side.png" target="_blank">
+                      <img src="../2026-04-10/skjermbilder/s2-page-has-heading-one-0-side.png" alt="Skjermdump av siden med feilende element markert" class="skjermdump helside" loading="lazy">
+                    </a>
+                  </div>
+              </div>
+            </div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:1rem"><span class="h-badge">H2</span> Alle tilskuddsordninger</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Forskning og innovasjon i bedrift</li><li style="padding-left:1rem"><span class="h-badge">H2</span> BIO-midlar 2026</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Stimuleringsmidler til internasjonalt samarbeid i Østfold</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Kommunalt næringsfond Kristiansund 2026</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Arktis 2030</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (1)</h3>
+          <table><thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td><code>button[reset]</code></td>
+              <td>Tøm</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>📝 Skjemafelt testet (1)</h3>
+          <table><thead><tr><th>Type</th><th>ID</th><th>Label</th><th>Status</th></tr></thead><tbody>
+          <tr>
+            <td><code>search</code></td>
+            <td><code>:mntgdc1vlag</code></td>
+            <td>Finn tilskuddsordning(er) ved å søke på navn, sted og type osv.</td>
+            <td>✅</td>
+          </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (9)</h3>
+          <p class="ok-tekst">✅ Ingen døde lenker</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-2">
+      <div class="side-header">
+        <div>
+          <h2>ID-porten</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/minside" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/minside</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Velg innloggingsmetode</li><li style="padding-left:1rem"><span class="h-badge">H2</span> TestID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> TestID på nivå høyt</li><li style="padding-left:1rem"><span class="h-badge">H2</span> MinID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> BankID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Buypass</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Commfides</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Digital lommebok</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Viktige lenker</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Kontakt</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (2)</h3>
+          <table><thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td><code>button</code></td>
+              <td>Meny</td>
+              <td>✅</td>
+            </tr><tr>
+              <td><code>button</code></td>
+              <td>Language</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (11)</h3>
+          <table><thead><tr><th>Fil</th><th>Alt-tekst</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td style="font-size:0.8rem">logo-idporten.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-idporten-bare.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">service-provider-placeholder.png</td>
+              <td>Tilskudd idporten test</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">testid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">testid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">minid-logo.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">bankid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">buypass.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">commfides.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-eu-digital-identity-wallet.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-idporten-negative.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (16)</h3>
+          <p class="ok-tekst">✅ Ingen døde lenker</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-3">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger/553b5d8c-209e-410e-88c6-a6cb79d714dc</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          <span class="badge dead">1 døde lenker</span>
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (1)</h3>
+        
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">feil</span> <span>rk@eksempel.no</span></div>
+            </div>
+            <code class="node-selector">email:rk@eksempel.no</code>
+            
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="../2026-04-10/skjermbilder/s4-doede-lenker-side.png" target="_blank">
+                  <img src="../2026-04-10/skjermbilder/s4-doede-lenker-side.png" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Forskning og innovasjon i bedrift</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Mål for ordningen</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hvem kan søke</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Satsingsområder</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hva dere kan få tilskudd til</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Krav for å motta støtte</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hvor mye støtte kan dere få?</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Retningslinjer</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Søknadsfrist</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Rund Klasse</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (0)</h3>
+          <p class="ingen">Ingen knapper funnet</p>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (7)</h3>
+          <table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            <tr>
+              <td><span class="badge dead">feil</span></td>
+              <td>rk@eksempel.no</td>
+              <td style="font-size:0.75rem;word-break:break-all">email:rk@eksempel.no</td>
+            </tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-4">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger/7082abd8-4f23-43e9-adce-c4762b848b81</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          <span class="badge dead">1 døde lenker</span>
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (1)</h3>
+        
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">feil</span> <span>lb@eksempel.no</span></div>
+            </div>
+            <code class="node-selector">email:lb@eksempel.no</code>
+            
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="../2026-04-10/skjermbilder/s5-doede-lenker-side.png" target="_blank">
+                  <img src="../2026-04-10/skjermbilder/s5-doede-lenker-side.png" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> BIO-midlar 2026</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Kven kan søke</li><li style="padding-left:1rem"><span class="h-badge">H2</span> I 2026 blir midlane retta mot</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hovudkrav til søknaden</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Merk følgande avgrensingar</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Søknadsfrist</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Lang Billett</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (0)</h3>
+          <p class="ingen">Ingen knapper funnet</p>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (7)</h3>
+          <table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            <tr>
+              <td><span class="badge dead">feil</span></td>
+              <td>lb@eksempel.no</td>
+              <td style="font-size:0.75rem;word-break:break-all">email:lb@eksempel.no</td>
+            </tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-5">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          <span class="badge dead">1 døde lenker</span>
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (1)</h3>
+        
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">feil</span> <span>mm@eksempel.no</span></div>
+            </div>
+            <code class="node-selector">email:mm@eksempel.no</code>
+            
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="../2026-04-10/skjermbilder/s6-doede-lenker-side.png" target="_blank">
+                  <img src="../2026-04-10/skjermbilder/s6-doede-lenker-side.png" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Stimuleringsmidler til internasjonalt samarbeid i Østfold</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Formål</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Om ordningen</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hvem kan søke</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Slik søker du</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Tildelingskriterier</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Vilkår for støtte</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Behandling av søknaden</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Rapportering</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Søknadsfrist</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Maritim Marmor</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (0)</h3>
+          <p class="ingen">Ingen knapper funnet</p>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (8)</h3>
+          <table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            <tr>
+              <td><span class="badge dead">feil</span></td>
+              <td>mm@eksempel.no</td>
+              <td style="font-size:0.75rem;word-break:break-all">email:mm@eksempel.no</td>
+            </tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-6">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          <span class="badge dead">1 døde lenker</span>
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (1)</h3>
+        
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">feil</span> <span>ak@eksempel.no</span></div>
+            </div>
+            <code class="node-selector">email:ak@eksempel.no</code>
+            
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="../2026-04-10/skjermbilder/s7-doede-lenker-side.png" target="_blank">
+                  <img src="../2026-04-10/skjermbilder/s7-doede-lenker-side.png" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Kommunalt næringsfond Kristiansund 2026</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Hvem kan søke</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Slik søker du</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Søknadsfrist</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Aktuell Kanin</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (0)</h3>
+          <p class="ingen">Ingen knapper funnet</p>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (9)</h3>
+          <table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            <tr>
+              <td><span class="badge dead">feil</span></td>
+              <td>ak@eksempel.no</td>
+              <td style="font-size:0.75rem;word-break:break-all">email:ak@eksempel.no</td>
+            </tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-7">
+      <div class="side-header">
+        <div>
+          <h2>KS Tilskudd</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          <span class="badge dead">1 døde lenker</span>
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+      <div class="wcag-seksjon">
+        <h3>🔗 Døde lenker (1)</h3>
+        
+          <div class="brudd-kort" style="border-left-color:#6c757d">
+            <div class="brudd-header">
+              <div><span class="badge dead">feil</span> <span>lg@eksempel.no</span></div>
+            </div>
+            <code class="node-selector">email:lg@eksempel.no</code>
+            
+            <div class="skjermdump-gruppe">
+              <div class="skjermdump-wrapper">
+                <p class="skjermdump-label">🖥️ Siden med den døde lenken markert</p>
+                <a href="../2026-04-10/skjermbilder/s8-doede-lenker-side.png" target="_blank">
+                  <img src="../2026-04-10/skjermbilder/s8-doede-lenker-side.png" alt="Skjermdump som viser plasseringen av den døde lenken" class="skjermdump helside" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>nav</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Arktis 2030</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Informasjon</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Søknadsfrist</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Lojal Gardin</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (0)</h3>
+          <p class="ingen">Ingen knapper funnet</p>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (0)</h3>
+          <p class="ingen">Ingen bilder funnet</p>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (7)</h3>
+          <table><thead><tr><th>Status</th><th>Tekst</th><th>URL</th></tr></thead><tbody>
+            <tr>
+              <td><span class="badge dead">feil</span></td>
+              <td>lg@eksempel.no</td>
+              <td style="font-size:0.75rem;word-break:break-all">email:lg@eksempel.no</td>
+            </tr></tbody></table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="side-seksjon" id="side-8">
+      <div class="side-header">
+        <div>
+          <h2>ID-porten</h2>
+          <a href="https://tilskudd.fiks.test.ks.no/soknad/opprett" target="_blank" class="side-url-link">https://tilskudd.fiks.test.ks.no/soknad/opprett</a>
+        </div>
+        <div class="side-score-badges">
+          
+          
+          
+        </div>
+      </div>
+
+      <!-- WCAG-brudd med skjermdumper -->
+      <div class="wcag-seksjon">
+        <h3>♿ WCAG-brudd (0)</h3>
+        <div class="wcag-ok">✅ Ingen WCAG-brudd på denne siden</div>
+      </div>
+
+      <!-- Døde lenker med skjermdump -->
+      
+
+      <!-- Artefakter -->
+      <div class="artefakt-grid">
+        <div class="artefakt-kort">
+          <h3>🏗️ Sidestruktur</h3>
+          <table><tbody>
+            <tr><td>Språkattributt</td><td><code>nb</code> ✅</td></tr>
+            <tr><td>Skip-lenke</td><td><span class="mangler">Mangler ❌</span></td></tr>
+            <tr><td>Landmarks</td><td><code>header</code> <code>nav</code> <code>main</code> <code>footer</code></td></tr>
+          </tbody></table>
+          
+          <h4 style="margin-top:0.8rem">Overskriftshierarki</h4>
+          <ul class="overskrift-liste">
+            <li style="padding-left:0rem"><span class="h-badge">H1</span> Velg innloggingsmetode</li><li style="padding-left:1rem"><span class="h-badge">H2</span> TestID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> TestID på nivå høyt</li><li style="padding-left:1rem"><span class="h-badge">H2</span> MinID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> BankID</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Buypass</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Commfides</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Digital lommebok</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Viktige lenker</li><li style="padding-left:1rem"><span class="h-badge">H2</span> Kontakt</li>
+          </ul>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🔘 Knapper testet (2)</h3>
+          <table><thead><tr><th>Element</th><th>Tekst/Label</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td><code>button</code></td>
+              <td>Meny</td>
+              <td>✅</td>
+            </tr><tr>
+              <td><code>button</code></td>
+              <td>Language</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        <div class="artefakt-kort">
+          <h3>🖼️ Bilder testet (11)</h3>
+          <table><thead><tr><th>Fil</th><th>Alt-tekst</th><th>Status</th></tr></thead><tbody>
+            <tr>
+              <td style="font-size:0.8rem">logo-idporten.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-idporten-bare.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">service-provider-placeholder.png</td>
+              <td>Tilskudd idporten test</td>
+              <td>✅</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">testid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">testid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">minid-logo.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">bankid.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">buypass.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">commfides.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-eu-digital-identity-wallet.svg</td>
+              <td><em>(tom)</em></td>
+              <td>⚠️ Tom</td>
+            </tr><tr>
+              <td style="font-size:0.8rem">logo-idporten-negative.svg</td>
+              <td>ID-porten logo</td>
+              <td>✅</td>
+            </tr></tbody></table>
+        </div>
+        
+        <div class="artefakt-kort">
+          <h3>🔗 Lenker sjekket (16)</h3>
+          <p class="ok-tekst">✅ Ingen døde lenker</p>
+        </div>
+      </div>
+    </div>
+  
+  <footer>UU-tester · axe-core + Playwright · 2026-04-10</footer>
+</div>
+</body>
+</html>

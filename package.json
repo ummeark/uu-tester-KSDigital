@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "rapport": "node uu-tester.js",
-    "vis": "node vis-rapport.js"
+    "arkiv": "node generer-arkiv.js"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.1",

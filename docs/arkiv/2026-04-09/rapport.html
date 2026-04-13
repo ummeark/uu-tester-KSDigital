@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UU-rapport – 2026-04-09</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  header { background: #1a1a2e; color: white; padding: 1.5rem 2rem; }
+  header h1 { font-size: 1.4rem; }
+  header p { opacity: 0.7; font-size: 0.9rem; margin-top: 0.3rem; }
+  .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+  .score-kort { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .score-sirkel { width: 110px; height: 110px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; flex-shrink: 0; }
+  .score-sirkel.god { background: #d4edda; color: #155724; border: 4px solid #28a745; }
+  .score-sirkel.middels { background: #fff3cd; color: #856404; border: 4px solid #ffc107; }
+  .score-sirkel.dårlig { background: #f8d7da; color: #721c24; border: 4px solid #dc3545; }
+  .score-info h2 { font-size: 1.2rem; }
+  .score-info p { color: #666; margin-top: 0.4rem; font-size: 0.95rem; }
+  .kort-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .kort { background: white; border-radius: 10px; padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 5px solid #ccc; }
+  .kort.kritisk { border-color: #dc3545; }
+  .kort.advarsel { border-color: #ffc107; }
+  .kort.ok { border-color: #28a745; }
+  .kort .tall { font-size: 2.2rem; font-weight: bold; margin: 0.3rem 0; }
+  .kort .etikett { font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+  .kort .ikon { font-size: 1.5rem; }
+  .seksjon { background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .seksjon h2 { font-size: 1.1rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f0f2f5; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th { background: #f0f2f5; text-align: left; padding: 0.6rem 0.8rem; font-weight: 600; }
+  td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #f0f2f5; vertical-align: top; }
+  tr:hover td { background: #fafafa; }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+  .badge.critical { background: #f8d7da; color: #721c24; }
+  .badge.serious { background: #ffe5d0; color: #7d3c00; }
+  .badge.moderate { background: #fff3cd; color: #856404; }
+  .badge.minor { background: #e2e3e5; color: #383d41; }
+  .ingenFunn { color: #28a745; font-size: 0.95rem; }
+  .overskrift-liste { list-style: none; }
+  .overskrift-liste li { padding: 0.3rem 0; }
+  .overskrift-liste li::before { content: attr(data-nivå); font-weight: bold; color: #888; margin-right: 0.5rem; font-size: 0.8rem; }
+  footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>♿ UU-rapport – https://tilskudd.fiks.test.ks.no/</h1>
+  <p>Generert: 2026-04-09 · Analyseverktøy: axe-core + Playwright</p>
+</header>
+<div class="container">
+
+  <!-- Score-kort -->
+  <div class="score-kort">
+    <div class="score-sirkel god">97</div>
+    <div class="score-info">
+      <h2>Total UU-score</h2>
+      <p>Basert på WCAG-brudd, døde lenker, manglende labels og alt-tekst.<br>
+      Mål: 80+ for tilfredsstillende tilgjengelighet.</p>
+    </div>
+  </div>
+
+  <!-- Nøkkeltall -->
+  <div class="kort-grid">
+    <div class="kort advarsel">
+      <div class="ikon">♿</div>
+      <div class="tall">1</div>
+      <div class="etikett">WCAG-brudd</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">🔴</div>
+      <div class="tall">0</div>
+      <div class="etikett">Kritiske brudd</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">🔗</div>
+      <div class="tall">0</div>
+      <div class="etikett">Døde lenker</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">🔘</div>
+      <div class="tall">0</div>
+      <div class="etikett">Knapper u/label</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">🖼️</div>
+      <div class="tall">0</div>
+      <div class="etikett">Bilder u/alt-tekst</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">📝</div>
+      <div class="tall">0</div>
+      <div class="etikett">Skjemafelt u/label</div>
+    </div>
+    <div class="kort ok">
+      <div class="ikon">✅</div>
+      <div class="tall">38</div>
+      <div class="etikett">WCAG bestått</div>
+    </div>
+  </div>
+
+  <!-- WCAG-brudd -->
+  <div class="seksjon">
+    <h2>♿ WCAG-brudd (1)</h2>
+    <table>
+      <thead><tr><th>Alvorlighet</th><th>Regel</th><th>Beskrivelse</th><th>Berørte elementer</th></tr></thead>
+      <tbody>
+      
+        <tr>
+          <td><span class="badge moderate">moderate</span></td>
+          <td><code>region</code></td>
+          <td>Ensure all page content is contained by landmarks</td>
+          <td>1</td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Døde lenker -->
+  <div class="seksjon">
+    <h2>🔗 Døde lenker (0)</h2>
+    <p class="ingenFunn">✅ Ingen døde lenker funnet.</p>
+  </div>
+
+  <!-- Knapper -->
+  <div class="seksjon">
+    <h2>🔘 Knapper uten label (0)</h2>
+    <p class="ingenFunn">✅ Alle knapper har tilgjengelig navn.</p>
+  </div>
+
+  <!-- Bilder -->
+  <div class="seksjon">
+    <h2>🖼️ Bilder uten alt-tekst (0)</h2>
+    <p class="ingenFunn">✅ Alle bilder har alt-attributt.</p>
+  </div>
+
+  <!-- Skjemafelt -->
+  <div class="seksjon">
+    <h2>📝 Skjemafelt uten label (0)</h2>
+    <p class="ingenFunn">✅ Alle skjemafelt har tilgjengelig label.</p>
+  </div>
+
+  <!-- Overskriftshierarki -->
+  <div class="seksjon">
+    <h2>📐 Overskriftshierarki</h2>
+    <ul class="overskrift-liste">
+    <li data-nivå="H1" style="padding-left:0rem">H1: Nasjonal portal for søknad om offentlige tilskudd</li><li data-nivå="H2" style="padding-left:1.2rem">H2: En felles løsning for næringstilskudd</li>
+    </ul>
+  </div>
+
+</div>
+<footer>UU-tester · axe-core + Playwright · 2026-04-09</footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UU-rapport arkiv – KS Digital</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f0f2f5; color: #1a1a2e; }
+  header { background: #1a1a2e; color: white; padding: 1.5rem 2rem; }
+  header h1 { font-size: 1.4rem; }
+  header p { opacity: 0.6; font-size: 0.85rem; margin-top: 0.3rem; }
+  header a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; }
+  header a:hover { color: white; }
+  .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+  /* Trend-graf */
+  .trend-graf { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .trend-graf h2 { font-size: 1rem; margin-bottom: 1rem; color: #555; }
+  .graf { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
+  .søyle-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .søyle { width: 100%; border-radius: 4px 4px 0 0; transition: opacity .2s; cursor: pointer; }
+  .søyle:hover { opacity: 0.8; }
+  .søyle.god { background: #28a745; }
+  .søyle.middels { background: #ffc107; }
+  .søyle.dårlig { background: #dc3545; }
+  .søyle-dato { font-size: 0.6rem; color: #888; text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); }
+
+  /* Rapportliste */
+  .rapport-liste { display: flex; flex-direction: column; gap: 0.8rem; }
+  .rapport-rad { background: white; border-radius: 10px; padding: 1.2rem 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 1rem; text-decoration: none; color: inherit; border-left: 5px solid #ccc; transition: box-shadow .15s; }
+  .rapport-rad:hover { box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+  .rapport-rad.god { border-color: #28a745; }
+  .rapport-rad.middels { border-color: #ffc107; }
+  .rapport-rad.dårlig { border-color: #dc3545; }
+  .score-boble { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; flex-shrink: 0; }
+  .score-boble.god { background: #d4edda; color: #155724; }
+  .score-boble.middels { background: #fff3cd; color: #856404; }
+  .score-boble.dårlig { background: #f8d7da; color: #721c24; }
+  .dato-info h3 { font-size: 1rem; }
+  .dato-info p { font-size: 0.8rem; color: #888; margin-top: 0.2rem; }
+  .nøkkeltall { display: flex; gap: 1rem; font-size: 0.8rem; color: #555; flex-wrap: wrap; }
+  .nøkkeltall span { display: flex; align-items: center; gap: 0.3rem; }
+  .nøkkeltall .rød { color: #dc3545; font-weight: 600; }
+  .nøkkeltall .grønn { color: #28a745; }
+  .åpne-knapp { background: #1a1a2e; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; white-space: nowrap; }
+  .rapport-rad:hover .åpne-knapp { background: #2d2d4e; }
+  .trend { font-size: 0.8rem; font-weight: 600; }
+  .trend.opp { color: #28a745; }
+  .trend.ned { color: #dc3545; }
+  .trend.lik { color: #888; }
+  footer { text-align: center; padding: 2rem; color: #888; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>♿ UU-rapport arkiv – KS Digital</h1>
+  <p><a href="index.html">← Siste rapport</a> &nbsp;·&nbsp; 2 rapporter totalt</p>
+</header>
+<div class="container">
+
+  <!-- Trend-graf -->
+  <div class="trend-graf">
+    <h2>Score-utvikling over tid</h2>
+    <div class="graf">
+      
+        <div class="søyle-wrapper" title="2026-04-09: 97 poeng">
+          <a href="arkiv/2026-04-09/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+            <div class="søyle god" style="height:97%"></div>
+          </a>
+          <span class="søyle-dato">04-09</span>
+        </div>
+        <div class="søyle-wrapper" title="2026-04-10: 72 poeng">
+          <a href="arkiv/2026-04-10/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+            <div class="søyle middels" style="height:72%"></div>
+          </a>
+          <span class="søyle-dato">04-10</span>
+        </div>
+    </div>
+  </div>
+
+  <!-- Rapportliste -->
+  <div class="rapport-liste">
+    
+      <a class="rapport-rad middels" href="arkiv/2026-04-10/rapport.html">
+        <div class="score-boble middels">72</div>
+        <div class="dato-info">
+          <h3>fredag 10. april 2026</h3>
+          <p>2026-04-10 &nbsp; <span class="trend ned">↓ -25</span></p>
+        </div>
+        <div class="nøkkeltall">
+          <span><b class="rød">♿ 1</b></span>
+          <span><b class="rød">🔗 5</b></span>
+          <span>📄 9 sider</span>
+        </div>
+        <div class="åpne-knapp">Se rapport →</div>
+      </a>
+      <a class="rapport-rad god" href="arkiv/2026-04-09/rapport.html">
+        <div class="score-boble god">97</div>
+        <div class="dato-info">
+          <h3>torsdag 9. april 2026</h3>
+          <p>2026-04-09 &nbsp; </p>
+        </div>
+        <div class="nøkkeltall">
+          <span><b class="rød">♿ 1</b></span>
+          <span><span class="grønn">🔗 0</span></span>
+          <span>📄 1 sider</span>
+        </div>
+        <div class="åpne-knapp">Se rapport →</div>
+      </a>
+  </div>
+</div>
+<footer>UU-tester · axe-core + Playwright</footer>
+</body>
+</html>
