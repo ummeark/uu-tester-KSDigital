@@ -3,169 +3,352 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tilgjengelighetsrapport – Arkiv – KS Tilskudd</title>
+<title>Testrapporter – Arkiv – KS Tilskudd</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, -apple-system, sans-serif; background: #faf6f0; color: #0f0e17; }
 
   header { background: #0a1355; color: white; padding: 1.6rem 2.5rem; }
-  .header-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .header-inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .header-merkevare { font-size: 0.72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: 0.45; margin-bottom: .4rem; }
   header h1 { font-size: 1.3rem; font-weight: 600; }
   header p { opacity: 0.5; font-size: 0.82rem; margin-top: 0.3rem; }
-  .header-nav a { display: inline-block; padding: .45rem 1.1rem; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.82rem; transition: all .15s; }
+  .header-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .header-nav a { display: inline-block; padding: .45rem 1.1rem; border: 1px solid rgba(255,255,255,.3); border-radius: 100px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.82rem; transition: all .15s; white-space: nowrap; }
   .header-nav a:hover { background: rgba(255,255,255,.1); color: white; border-color: rgba(255,255,255,.6); }
 
-  .container { max-width: 920px; margin: 2.5rem auto; padding: 0 1.5rem; }
+  .container { max-width: 980px; margin: 2.5rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+  /* Seksjon per testtype */
+  .testtype-seksjon { background: white; border: 1px solid #f1f0ee; box-shadow: 0 1px 4px rgba(10,19,85,.06); }
+  .seksjon-header { display: flex; align-items: center; gap: 0.8rem; padding: 1.2rem 1.6rem; border-bottom: 1px solid #f1f0ee; flex-wrap: wrap; }
+  .seksjon-ikon { font-size: 1.3rem; }
+  .seksjon-header h2 { font-size: 1rem; font-weight: 700; color: #0a1355; flex: 1; }
+  .seksjon-antall { font-size: 0.78rem; color: #9ca3af; }
+  .seksjon-lenke { font-size: 0.82rem; color: #07604f; text-decoration: none; font-weight: 500; white-space: nowrap; }
+  .seksjon-lenke:hover { text-decoration: underline; }
 
   /* Trend-graf */
-  .trend-graf { background: white; border: 1px solid #f1f0ee; padding: 1.8rem; margin-bottom: 2rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); }
-  .trend-graf h2 { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #0a1355; margin-bottom: 1.2rem; }
-  .graf { display: flex; align-items: flex-end; gap: 5px; height: 80px; }
-  .søyle-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .trend-graf { padding: 1.2rem 1.6rem; border-bottom: 1px solid #f4f3f1; }
+  .graf-tittel { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #9ca3af; margin-bottom: 0.8rem; }
+  .graf { display: flex; align-items: flex-end; gap: 5px; height: 60px; }
+  .søyle-wrapper { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
   .søyle { width: 100%; transition: opacity .2s; cursor: pointer; }
   .søyle:hover { opacity: 0.75; }
   .søyle.god { background: #07604f; }
   .søyle.middels { background: #b8860b; }
   .søyle.dårlig { background: #c53030; }
-  .søyle-dato { font-size: 0.58rem; color: #9ca3af; text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); }
+  .søyle-dato { font-size: 0.55rem; color: #9ca3af; text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); }
 
   /* Rapportliste */
-  .rapport-liste { display: flex; flex-direction: column; gap: 0.7rem; }
-  .rapport-rad { background: white; border: 1px solid #f1f0ee; border-left: 5px solid #e5e3de; padding: 1.3rem 1.6rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 1.2rem; text-decoration: none; color: inherit; transition: box-shadow .15s; }
-  .rapport-rad:hover { box-shadow: 0 4px 16px rgba(10,19,85,.1); }
+  .rapport-liste { display: flex; flex-direction: column; }
+  .rapport-rad { border-top: 1px solid #f4f3f1; border-left: 4px solid #e5e3de; padding: 1rem 1.6rem; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 1.2rem; text-decoration: none; color: inherit; transition: background .15s; }
+  .rapport-rad:hover { background: #faf6f0; }
   .rapport-rad.god { border-left-color: #07604f; }
   .rapport-rad.middels { border-left-color: #b8860b; }
   .rapport-rad.dårlig { border-left-color: #c53030; }
 
-  .score-boble { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 700; flex-shrink: 0; }
+  .score-boble { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; flex-shrink: 0; }
   .score-boble.god { background: #07604f; color: white; }
   .score-boble.middels { background: #f3dda2; color: #0a1355; }
   .score-boble.dårlig { background: #c53030; color: white; }
 
-  .dato-info h3 { font-size: .95rem; font-weight: 600; color: #0a1355; }
-  .dato-info p { font-size: 0.78rem; color: #9ca3af; margin-top: 0.25rem; }
+  .dato-info h3 { font-size: .88rem; font-weight: 600; color: #0a1355; }
+  .dato-info p { font-size: 0.74rem; color: #9ca3af; margin-top: 0.2rem; }
 
-  .nøkkeltall { display: flex; gap: 1.2rem; font-size: 0.8rem; color: #6b7280; flex-wrap: wrap; }
+  .nøkkeltall { display: flex; gap: 1rem; font-size: 0.78rem; color: #6b7280; flex-wrap: wrap; }
   .nøkkeltall span { display: flex; align-items: center; gap: 0.3rem; }
   .nøkkeltall .rød { color: #c53030; font-weight: 600; }
   .nøkkeltall .grønn { color: #07604f; }
 
-  .åpne-knapp { background: #0a1355; color: white; padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.8rem; white-space: nowrap; font-weight: 500; }
+  .åpne-knapp { background: #0a1355; color: white; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.78rem; white-space: nowrap; font-weight: 500; }
   .rapport-rad:hover .åpne-knapp { background: #2b3285; }
 
-  .trend { font-size: 0.78rem; font-weight: 600; }
+  .trend { font-size: 0.75rem; font-weight: 600; }
   .trend.opp { color: #07604f; }
   .trend.ned { color: #c53030; }
   .trend.lik { color: #9ca3af; }
 
-  footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 2rem; }
+  footer { text-align: center; padding: 2.5rem; color: #9ca3af; font-size: 0.78rem; border-top: 1px solid #f1f0ee; margin-top: 1rem; }
+
+  @media (max-width: 640px) {
+    .rapport-rad { grid-template-columns: auto 1fr auto; }
+    .nøkkeltall { display: none; }
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="header-inner">
     <div>
-      <div class="header-merkevare">KS Tilskudd · UU-tester</div>
-      <h1>Tilgjengelighetsrapport – Arkiv</h1>
-      <p>4 rapporter totalt</p>
+      <div class="header-merkevare">KS Tilskudd · Testrapporter</div>
+      <h1>Arkiv</h1>
+      <p>Historikk for alle fire testtyper</p>
     </div>
     <nav class="header-nav">
-      <a href="rapport.html">Siste rapport</a>
+      <a href="rapport.html">UU-rapport</a>
+      <a href="monkey-rapport.html">Monkey-test</a>
+      <a href="sikkerhet-rapport.html">Sikkerhetstest</a>
+      <a href="negativ-rapport.html">Negativ test</a>
     </nav>
   </div>
 </header>
 <div class="container">
 
-  <!-- Trend-graf -->
-  <div class="trend-graf">
-    <h2>Score-utvikling over tid</h2>
-    <div class="graf">
-      
-        <div class="søyle-wrapper" title="2026-04-09: 97 poeng">
-          <a href="arkiv/2026-04-09/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
-            <div class="søyle god" style="height:97%"></div>
-          </a>
-          <span class="søyle-dato">04-09</span>
-        </div>
-        <div class="søyle-wrapper" title="2026-04-10: 72 poeng">
-          <a href="arkiv/2026-04-10/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
-            <div class="søyle middels" style="height:72%"></div>
-          </a>
-          <span class="søyle-dato">04-10</span>
-        </div>
-        <div class="søyle-wrapper" title="2026-04-13: 67 poeng">
-          <a href="arkiv/2026-04-13/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
-            <div class="søyle middels" style="height:67%"></div>
-          </a>
-          <span class="søyle-dato">04-13</span>
-        </div>
-        <div class="søyle-wrapper" title="2026-04-14: 72 poeng">
-          <a href="arkiv/2026-04-14/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
-            <div class="søyle middels" style="height:72%"></div>
-          </a>
-          <span class="søyle-dato">04-14</span>
-        </div>
+  
+  <section class="testtype-seksjon">
+    <div class="seksjon-header">
+      <span class="seksjon-ikon">♿</span>
+      <h2>UU-test (WCAG / tilgjengelighet)</h2>
+      <span class="seksjon-antall">4 kjøringer</span>
+      <a href="rapport.html" class="seksjon-lenke">Siste rapport →</a>
     </div>
-  </div>
-
-  <!-- Rapportliste -->
-  <div class="rapport-liste">
+    <div class="trend-graf">
+      <div class="graf-tittel">Score-utvikling</div>
+      <div class="graf">
     
-      <a class="rapport-rad middels" href="arkiv/2026-04-14/rapport.html">
-        <div class="score-boble middels">72</div>
-        <div class="dato-info">
-          <h3>tirsdag 14. april 2026</h3>
-          <p>2026-04-14 &nbsp; <span class="trend opp">↑ +5</span></p>
-        </div>
-        <div class="nøkkeltall">
-          <span><b class="rød">WCAG 1</b></span>
-          <span><b class="rød">Lenker 5</b></span>
-          <span>9 sider</span>
-        </div>
-        <div class="åpne-knapp">Se rapport →</div>
-      </a>
-      <a class="rapport-rad middels" href="arkiv/2026-04-13/rapport.html">
-        <div class="score-boble middels">67</div>
-        <div class="dato-info">
-          <h3>mandag 13. april 2026</h3>
-          <p>2026-04-13 &nbsp; <span class="trend ned">↓ -5</span></p>
-        </div>
-        <div class="nøkkeltall">
-          <span><b class="rød">WCAG 1</b></span>
-          <span><b class="rød">Lenker 6</b></span>
-          <span>9 sider</span>
-        </div>
-        <div class="åpne-knapp">Se rapport →</div>
-      </a>
-      <a class="rapport-rad middels" href="arkiv/2026-04-10/rapport.html">
-        <div class="score-boble middels">72</div>
-        <div class="dato-info">
-          <h3>fredag 10. april 2026</h3>
-          <p>2026-04-10 &nbsp; <span class="trend ned">↓ -25</span></p>
-        </div>
-        <div class="nøkkeltall">
-          <span><b class="rød">WCAG 1</b></span>
-          <span><b class="rød">Lenker 5</b></span>
-          <span>9 sider</span>
-        </div>
-        <div class="åpne-knapp">Se rapport →</div>
-      </a>
-      <a class="rapport-rad god" href="arkiv/2026-04-09/rapport.html">
-        <div class="score-boble god">97</div>
-        <div class="dato-info">
-          <h3>torsdag 9. april 2026</h3>
-          <p>2026-04-09 &nbsp; </p>
-        </div>
-        <div class="nøkkeltall">
-          <span><b class="rød">WCAG 1</b></span>
-          <span><span class="grønn">Lenker 0</span></span>
-          <span>1 sider</span>
-        </div>
-        <div class="åpne-knapp">Se rapport →</div>
-      </a>
+      <div class="søyle-wrapper" title="2026-04-09: 97 poeng">
+        <a href="arkiv/2026-04-09/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle god" style="height:97%"></div>
+        </a>
+        <span class="søyle-dato">04-09</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-10: 72 poeng">
+        <a href="arkiv/2026-04-10/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:72%"></div>
+        </a>
+        <span class="søyle-dato">04-10</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-13: 67 poeng">
+        <a href="arkiv/2026-04-13/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:67%"></div>
+        </a>
+        <span class="søyle-dato">04-13</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-14: 72 poeng">
+        <a href="arkiv/2026-04-14/rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:72%"></div>
+        </a>
+        <span class="søyle-dato">04-14</span>
+      </div>
   </div>
+    </div>
+    <div class="rapport-liste">
+      
+  <a class="rapport-rad middels" href="arkiv/2026-04-14/rapport.html">
+    <div class="score-boble middels">72</div>
+    <div class="dato-info">
+      <h3>tirsdag 14. april 2026</h3>
+      <p>2026-04-14 &nbsp; <span class="trend opp">↑ +5</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><b class="rød">WCAG 1</b></span>
+  <span><b class="rød">Lenker 5</b></span>
+  <span>9 sider</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad middels" href="arkiv/2026-04-13/rapport.html">
+    <div class="score-boble middels">67</div>
+    <div class="dato-info">
+      <h3>mandag 13. april 2026</h3>
+      <p>2026-04-13 &nbsp; <span class="trend ned">↓ -5</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><b class="rød">WCAG 1</b></span>
+  <span><b class="rød">Lenker 6</b></span>
+  <span>9 sider</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad middels" href="arkiv/2026-04-10/rapport.html">
+    <div class="score-boble middels">72</div>
+    <div class="dato-info">
+      <h3>fredag 10. april 2026</h3>
+      <p>2026-04-10 &nbsp; <span class="trend ned">↓ -25</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><b class="rød">WCAG 1</b></span>
+  <span><b class="rød">Lenker 5</b></span>
+  <span>9 sider</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad god" href="arkiv/2026-04-09/rapport.html">
+    <div class="score-boble god">97</div>
+    <div class="dato-info">
+      <h3>torsdag 9. april 2026</h3>
+      <p>2026-04-09 &nbsp; </p>
+    </div>
+    <div class="nøkkeltall">
+  <span><b class="rød">WCAG 1</b></span>
+  <span><span class="grønn">Lenker 0</span></span>
+  <span>1 sider</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+    </div>
+  </section>
+  
+  <section class="testtype-seksjon">
+    <div class="seksjon-header">
+      <span class="seksjon-ikon">🐒</span>
+      <h2>Monkey-test</h2>
+      <span class="seksjon-antall">2 kjøringer</span>
+      <a href="monkey-rapport.html" class="seksjon-lenke">Siste rapport →</a>
+    </div>
+    <div class="trend-graf">
+      <div class="graf-tittel">Score-utvikling</div>
+      <div class="graf">
+    
+      <div class="søyle-wrapper" title="2026-04-13: 60 poeng">
+        <a href="arkiv/2026-04-13/monkey-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:60%"></div>
+        </a>
+        <span class="søyle-dato">04-13</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-14: 20 poeng">
+        <a href="arkiv/2026-04-14/monkey-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle dårlig" style="height:20%"></div>
+        </a>
+        <span class="søyle-dato">04-14</span>
+      </div>
+  </div>
+    </div>
+    <div class="rapport-liste">
+      
+  <a class="rapport-rad dårlig" href="arkiv/2026-04-14/monkey-rapport.html">
+    <div class="score-boble dårlig">20</div>
+    <div class="dato-info">
+      <h3>tirsdag 14. april 2026</h3>
+      <p>2026-04-14 &nbsp; <span class="trend ned">↓ -40</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Ingen JS-feil</span></span>
+  <span><b class="rød">Kritiske 4</b></span>
+  <span>60 iterasjoner</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad middels" href="arkiv/2026-04-13/monkey-rapport.html">
+    <div class="score-boble middels">60</div>
+    <div class="dato-info">
+      <h3>mandag 13. april 2026</h3>
+      <p>2026-04-13 &nbsp; </p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Ingen JS-feil</span></span>
+  <span><b class="rød">Kritiske 2</b></span>
+  <span>60 iterasjoner</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+    </div>
+  </section>
+  
+  <section class="testtype-seksjon">
+    <div class="seksjon-header">
+      <span class="seksjon-ikon">🔐</span>
+      <h2>Sikkerhetstest</h2>
+      <span class="seksjon-antall">2 kjøringer</span>
+      <a href="sikkerhet-rapport.html" class="seksjon-lenke">Siste rapport →</a>
+    </div>
+    <div class="trend-graf">
+      <div class="graf-tittel">Score-utvikling</div>
+      <div class="graf">
+    
+      <div class="søyle-wrapper" title="2026-04-13: 67 poeng">
+        <a href="arkiv/2026-04-13/sikkerhet-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:67%"></div>
+        </a>
+        <span class="søyle-dato">04-13</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-14: 67 poeng">
+        <a href="arkiv/2026-04-14/sikkerhet-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle middels" style="height:67%"></div>
+        </a>
+        <span class="søyle-dato">04-14</span>
+      </div>
+  </div>
+    </div>
+    <div class="rapport-liste">
+      
+  <a class="rapport-rad middels" href="arkiv/2026-04-14/sikkerhet-rapport.html">
+    <div class="score-boble middels">67</div>
+    <div class="dato-info">
+      <h3>tirsdag 14. april 2026</h3>
+      <p>2026-04-14 &nbsp; <span class="trend lik">→ 0</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Ingen kritiske</span></span>
+  <span><b class="rød">Alvorlige 2</b></span>
+  <span>8 bestått</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad middels" href="arkiv/2026-04-13/sikkerhet-rapport.html">
+    <div class="score-boble middels">67</div>
+    <div class="dato-info">
+      <h3>mandag 13. april 2026</h3>
+      <p>2026-04-13 &nbsp; </p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Ingen kritiske</span></span>
+  <span><b class="rød">Alvorlige 2</b></span>
+  <span>8 bestått</span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+    </div>
+  </section>
+  
+  <section class="testtype-seksjon">
+    <div class="seksjon-header">
+      <span class="seksjon-ikon">🧪</span>
+      <h2>Negativ test</h2>
+      <span class="seksjon-antall">2 kjøringer</span>
+      <a href="negativ-rapport.html" class="seksjon-lenke">Siste rapport →</a>
+    </div>
+    <div class="trend-graf">
+      <div class="graf-tittel">Score-utvikling</div>
+      <div class="graf">
+    
+      <div class="søyle-wrapper" title="2026-04-13: 80 poeng">
+        <a href="arkiv/2026-04-13/negativ-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle god" style="height:80%"></div>
+        </a>
+        <span class="søyle-dato">04-13</span>
+      </div>
+      <div class="søyle-wrapper" title="2026-04-14: 80 poeng">
+        <a href="arkiv/2026-04-14/negativ-rapport.html" style="width:100%;display:flex;flex-direction:column;align-items:center;flex:1;justify-content:flex-end">
+          <div class="søyle god" style="height:80%"></div>
+        </a>
+        <span class="søyle-dato">04-14</span>
+      </div>
+  </div>
+    </div>
+    <div class="rapport-liste">
+      
+  <a class="rapport-rad god" href="arkiv/2026-04-14/negativ-rapport.html">
+    <div class="score-boble god">80</div>
+    <div class="dato-info">
+      <h3>tirsdag 14. april 2026</h3>
+      <p>2026-04-14 &nbsp; <span class="trend lik">→ 0</span></p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Bestått 19</span></span>
+  <span><b class="rød">Advarsler 4</b></span>
+  <span><span class="grønn">Ingen feil</span></span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+  <a class="rapport-rad god" href="arkiv/2026-04-13/negativ-rapport.html">
+    <div class="score-boble god">80</div>
+    <div class="dato-info">
+      <h3>mandag 13. april 2026</h3>
+      <p>2026-04-13 &nbsp; </p>
+    </div>
+    <div class="nøkkeltall">
+  <span><span class="grønn">Bestått 19</span></span>
+  <span><b class="rød">Advarsler 4</b></span>
+  <span><span class="grønn">Ingen feil</span></span></div>
+    <div class="åpne-knapp">Se rapport →</div>
+  </a>
+    </div>
+  </section>
+
 </div>
-<footer>KS Tilskudd · UU-tester · axe-core + Playwright</footer>
+<footer>KS Tilskudd · Testrapporter · axe-core + Playwright</footer>
 </body>
 </html>
