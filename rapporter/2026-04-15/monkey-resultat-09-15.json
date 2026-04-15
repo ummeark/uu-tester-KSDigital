@@ -1,0 +1,62 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-04-15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 6,
+    "jsErrors": 1,
+    "konsollFeil": 0,
+    "nettverksFeil": 0,
+    "kritiske": 3,
+    "alvorlige": 0,
+    "varighet": 39
+  },
+  "score": 32,
+  "jsErrors": [
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "tid": "2026-04-15T07:15:09.050Z"
+    }
+  ],
+  "konsollFeil": [],
+  "nettverksFeil": [],
+  "interaksjoner": [
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaStimuleringsmidler til internasjonalt\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-1.png",
+      "tid": "2026-04-15T07:15:08.847Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter navigasjon: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/b39a60ca-08e4-476c-88a1-a78fe3cd7983",
+      "handling": "Gikk tilbake (browser back)",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-2.png",
+      "tid": "2026-04-15T07:15:09.599Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://tilskudd.fiks.test.ks.no/ordninger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "handling": "Klikket lenke: \"Punktlig Viktig Hund DaKommunalt næringsfond Kristiansund 20\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-7.png",
+      "tid": "2026-04-15T07:15:26.851Z"
+    }
+  ],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10",
+    "https://login.test.idporten.no/authorize/selector",
+    "https://tilskudd.fiks.test.ks.no/ordninger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+    "https://tilskudd.fiks.test.ks.no/ordninger?currentPage=1&pageSize=10&searchString=Test+bruker",
+    "https://tilskudd.fiks.test.ks.no/ordninger?searchString=%22-1%22&currentPage=1&pageSize=10"
+  ]
+}
