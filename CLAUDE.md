@@ -1,6 +1,6 @@
-# tester-KSTilskudd
+# tester-KSTilskudd-TEST
 
-Automatiserte tester av [tilskudd.fiks.test.ks.no](https://tilskudd.fiks.test.ks.no/) med Playwright og axe-core.
+Automatiserte tester av **testmiljøet** [tilskudd.fiks.test.ks.no](https://tilskudd.fiks.test.ks.no/) med Playwright og axe-core.
 
 ## Testene
 
@@ -29,7 +29,7 @@ rapporter/YYYY-MM-DD/       Genererte rapporter per dato
   skjermbilder-negativ/     Skjermbilder fra negativ test
   skjermbilder-sikkerhet/   Skjermbilder fra sikkerhetstest
 
-docs/                       GitHub Pages (ummeark.github.io/tester-KSTilskudd/)
+docs/                       GitHub Pages (ummeark.github.io/tester-KSTilskudd-TEST/)
   rapport.html              Siste UU-rapport
   monkey-rapport.html       Siste monkey-rapport
   sikkerhet-rapport.html    Siste sikkerhetsrapport
