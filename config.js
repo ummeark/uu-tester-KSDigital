@@ -3,6 +3,11 @@
 
 export const START_URL = process.argv[2] || process.env.TEST_URL || 'https://tilskudd.fiks.test.ks.no/';
 
+// Innlogging via ID-porten TestID
+// TEST_MODUS: 'fast' (bruker TEST_FNR) | 'tilfeldig' (klikker "Hent tilfeldig person")
+export const TEST_FNR   = process.env.TEST_FNR   || '10895696434';
+export const TEST_MODUS = process.env.TEST_MODUS || 'fast';
+
 export const MAX_SIDER    = parseInt(process.argv[3]) || parseInt(process.env.MAX_SIDER)    || 20;
 export const ITERASJONER  = parseInt(process.argv[3]) || parseInt(process.env.ITERASJONER)  || 60;
 
