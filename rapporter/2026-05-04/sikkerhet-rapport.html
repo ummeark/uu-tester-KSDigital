@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sikkerhetsrapport – 2026-05-04 08:30</title>
+<title>Sikkerhetsrapport – 2026-05-04 15:05</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#faf6f0;color:#0f0e17;display:flex;min-height:100vh}
@@ -72,24 +72,24 @@
 <nav class="sidemeny">
   <div class="sidemeny-header">
     <div class="sidemeny-logo">KS Tilskudd · Sikkerhetstester</div>
-    <div class="env-badge">TEST-MILJØ · v0.5.1</div>
-    <h1>Sikkerhetsrapport <span>2026-05-04 08:30</span></h1>
+    <div class="env-badge">TEST-MILJØ</div>
+    <h1>Sikkerhetsrapport <span>2026-05-04 15:05</span></h1>
   </div>
-  <ul><li><a href="#hoder" class="sidenav-link ok">
+  <ul><li><a href="#hoder" class="sidenav-link har-brudd">
     <span class="sidenavn">📋 HTTP-sikkerhetshoder</span>
-    <span class="side-badge">4 funn</span>
-  </a></li><li><a href="#informasjonslekkasje" class="sidenav-link ok">
+    <span class="side-badge">7 funn</span>
+  </a></li><li><a href="#informasjonslekkasje" class="sidenav-link har-brudd">
     <span class="sidenavn">🕵️ Informasjonslekkasje</span>
-    <span class="side-badge">✅ Bestått</span>
+    <span class="side-badge">1 funn</span>
   </a></li><li><a href="#https" class="sidenav-link ok">
     <span class="sidenavn">🔒 HTTPS-håndhevelse</span>
     <span class="side-badge">✅ Bestått</span>
-  </a></li><li><a href="#sensitive-stier" class="sidenav-link har-brudd">
+  </a></li><li><a href="#sensitive-stier" class="sidenav-link ok">
     <span class="sidenavn">📂 Sensitive stier og filer</span>
-    <span class="side-badge">2 funn</span>
-  </a></li><li><a href="#cookies" class="sidenav-link har-brudd">
+    <span class="side-badge">✅ Bestått</span>
+  </a></li><li><a href="#cookies" class="sidenav-link ok">
     <span class="sidenavn">🍪 Cookie-sikkerhet</span>
-    <span class="side-badge">1 funn</span>
+    <span class="side-badge">✅ Bestått</span>
   </a></li><li><a href="#mixed-content" class="sidenav-link ok">
     <span class="sidenavn">🔀 Mixed content</span>
     <span class="side-badge">✅ Bestått</span>
@@ -105,7 +105,7 @@
   <div class="rapport-header">
     <div>
       <h1>Sikkerhetsrapport</h1>
-      <div class="meta"><a href="https://tilskudd.fiks.test.ks.no/" target="_blank">https://tilskudd.fiks.test.ks.no/</a> · 2026-05-04 08:30 · 2s · Chromium 147</div>
+      <div class="meta"><a href="https://ummeark.github.io/tester-KSTilskudd-TEST/" target="_blank">https://ummeark.github.io/tester-KSTilskudd-TEST/</a> · 2026-05-04 15:05 · 4s · Chromium 147</div>
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">Forside</a>
@@ -158,25 +158,58 @@
     </div>
   </div>
   <div class="score-kort">
-    <div class="score-sirkel middels">67</div>
+    <div class="score-sirkel middels">62</div>
     <div class="score-tekst">
       <strong>Sikkerhetsscore</strong>
-      <p>Basert på 7 funn fordelt på 8 testområder. Testen er passiv og ikke-destruktiv.</p>
+      <p>Basert på 8 funn fordelt på 8 testområder. Testen er passiv og ikke-destruktiv.</p>
     </div>
   </div>
 
   <div class="kort-grid">
     <div class="kort ok"><div class="tall">0</div><div class="etikett">Kritiske</div></div>
     <div class="kort advarsel"><div class="tall">2</div><div class="etikett">Alvorlige</div></div>
-    <div class="kort advarsel"><div class="tall">1</div><div class="etikett">Moderate</div></div>
+    <div class="kort advarsel"><div class="tall">2</div><div class="etikett">Moderate</div></div>
     <div class="kort nøytral"><div class="tall">4</div><div class="etikett">Lave</div></div>
-    <div class="kort ok"><div class="tall">8</div><div class="etikett">Bestått</div></div>
+    <div class="kort ok"><div class="tall">4</div><div class="etikett">Bestått</div></div>
   </div>
 
   
   <div class="seksjon" id="hoder">
-    <div class="seksjon-tittel">📋 HTTP-sikkerhetshoder (4 funn)</div>
+    <div class="seksjon-tittel">📋 HTTP-sikkerhetshoder (7 funn)</div>
     
+  <div class="brudd-kort" style="border-left-color:#9a3412">
+    <div class="brudd-header">
+      <div>
+        <span class="badge alvorlig">alvorlig</span>
+        <span class="regel-desc">Manglende Content-Security-Policy</span>
+      </div>
+    </div>
+    <p class="brudd-hjelp">Begrenser hvilke ressurser siden kan laste og kjøre</p>
+    
+    
+  </div>
+  <div class="brudd-kort" style="border-left-color:#9a3412">
+    <div class="brudd-header">
+      <div>
+        <span class="badge alvorlig">alvorlig</span>
+        <span class="regel-desc">Manglende X-Frame-Options</span>
+      </div>
+    </div>
+    <p class="brudd-hjelp">Beskytter mot clickjacking via iframe-innramming</p>
+    
+    
+  </div>
+  <div class="brudd-kort" style="border-left-color:#b8860b">
+    <div class="brudd-header">
+      <div>
+        <span class="badge middels">middels</span>
+        <span class="regel-desc">Manglende X-Content-Type-Options</span>
+      </div>
+    </div>
+    <p class="brudd-hjelp">Hindrer MIME-type sniffing i nettleseren</p>
+    
+    
+  </div>
   <div class="brudd-kort" style="border-left-color:#4b5563">
     <div class="brudd-header">
       <div>
@@ -221,15 +254,26 @@
     
     
   </div>
-    <details style="margin-top:.8rem"><summary style="font-size:.78rem;color:#07604f;cursor:pointer;padding:.4rem 0">✅ 4 sjekk bestått</summary>
+    <details style="margin-top:.8rem"><summary style="font-size:.78rem;color:#07604f;cursor:pointer;padding:.4rem 0">✅ 1 sjekk bestått</summary>
     <ul style="list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.3rem">
-      <li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ HSTS er satt — <span style="color:#6b7280">Verdi: max-age=31536000; includeSubDomains</span></li><li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ Content-Security-Policy er satt — <span style="color:#6b7280">Verdi: default-src *.ks.no min.kommune.no; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.ks.no min.kommune.no; object-src 'none'; style-src 'self' 'unsafe-inline' *.ks.no min.kommune.no; img-src 'self' data: *.ks.no min.kommune.no; base-uri 'self';</span></li><li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ X-Frame-Options er satt — <span style="color:#6b7280">Verdi: sameorigin</span></li><li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ X-Content-Type-Options er satt — <span style="color:#6b7280">Verdi: nosniff</span></li>
+      <li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ HSTS er satt — <span style="color:#6b7280">Verdi: max-age=31556952</span></li>
     </ul>
   </details>
   </div>
   <div class="seksjon" id="informasjonslekkasje">
-    <div class="seksjon-tittel">🕵️ Informasjonslekkasje (0 funn)</div>
-    <div class="wcag-ok">Ingen funn i denne kategorien</div>
+    <div class="seksjon-tittel">🕵️ Informasjonslekkasje (1 funn)</div>
+    
+  <div class="brudd-kort" style="border-left-color:#b8860b">
+    <div class="brudd-header">
+      <div>
+        <span class="badge middels">middels</span>
+        <span class="regel-desc">Server avslører teknologiinformasjon: server</span>
+      </div>
+    </div>
+    <p class="brudd-hjelp">Verdi: "GitHub.com" – gir angriper innsikt i teknologistakk</p>
+    
+    
+  </div>
     
   </div>
   <div class="seksjon" id="https">
@@ -237,51 +281,18 @@
     <div class="wcag-ok">Ingen funn i denne kategorien</div>
     <details style="margin-top:.8rem"><summary style="font-size:.78rem;color:#07604f;cursor:pointer;padding:.4rem 0">✅ 1 sjekk bestått</summary>
     <ul style="list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.3rem">
-      <li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ HTTP omdirigerer til HTTPS — <span style="color:#6b7280">Redirect: https://tilskudd.fiks.test.ks.no/</span></li>
+      <li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ HTTP omdirigerer til HTTPS — <span style="color:#6b7280">Redirect: https://ummeark.github.io/tester-KSTilskudd-TEST/</span></li>
     </ul>
   </details>
   </div>
   <div class="seksjon" id="sensitive-stier">
-    <div class="seksjon-tittel">📂 Sensitive stier og filer (2 funn)</div>
-    
-  <div class="brudd-kort" style="border-left-color:#9a3412">
-    <div class="brudd-header">
-      <div>
-        <span class="badge alvorlig">alvorlig</span>
-        <span class="regel-desc">Sensitiv sti tilgjengelig: /api</span>
-      </div>
-    </div>
-    <p class="brudd-hjelp">API-rotendepunkt – HTTP 200, 10118 tegn innhold</p>
-    <div class="node-info"><span class="node-selector">https://tilskudd.fiks.test.ks.no/api</span></div>
-    
-  </div>
-  <div class="brudd-kort" style="border-left-color:#9a3412">
-    <div class="brudd-header">
-      <div>
-        <span class="badge alvorlig">alvorlig</span>
-        <span class="regel-desc">Sensitiv sti tilgjengelig: /robots.txt</span>
-      </div>
-    </div>
-    <p class="brudd-hjelp">Robot-eksklusjonsfil – HTTP 200, 67 tegn innhold</p>
-    <div class="node-info"><span class="node-selector">https://tilskudd.fiks.test.ks.no/robots.txt</span></div>
-    
-  </div>
+    <div class="seksjon-tittel">📂 Sensitive stier og filer (0 funn)</div>
+    <div class="wcag-ok">Ingen funn i denne kategorien</div>
     
   </div>
   <div class="seksjon" id="cookies">
-    <div class="seksjon-tittel">🍪 Cookie-sikkerhet (1 funn)</div>
-    
-  <div class="brudd-kort" style="border-left-color:#b8860b">
-    <div class="brudd-header">
-      <div>
-        <span class="badge middels">middels</span>
-        <span class="regel-desc">Cookie "07c80249a0769e869d701c22923ad7d0" har svake sikkerhetsattributter</span>
-      </div>
-    </div>
-    <p class="brudd-hjelp">SameSite er None eller ikke satt</p>
-    
-    
-  </div>
+    <div class="seksjon-tittel">🍪 Cookie-sikkerhet (0 funn)</div>
+    <div class="wcag-ok">Ingen funn i denne kategorien</div>
     
   </div>
   <div class="seksjon" id="mixed-content">
@@ -296,11 +307,7 @@
   <div class="seksjon" id="xss">
     <div class="seksjon-tittel">💉 Input-refleksjon (XSS) (0 funn)</div>
     <div class="wcag-ok">Ingen funn i denne kategorien</div>
-    <details style="margin-top:.8rem"><summary style="font-size:.78rem;color:#07604f;cursor:pointer;padding:.4rem 0">✅ 1 sjekk bestått</summary>
-    <ul style="list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.3rem">
-      <li style="font-size:.78rem;color:#374151;padding:.3rem .6rem;background:#ecfdf5;border-left:3px solid #07604f">✅ Søkefelt ser ut til å rense input — <span style="color:#6b7280">Payload ble ikke reflektert urensket</span></li>
-    </ul>
-  </details>
+    
   </div>
   <div class="seksjon" id="cors">
     <div class="seksjon-tittel">🌐 CORS-konfigurasjon (0 funn)</div>
@@ -345,7 +352,7 @@
       </div>
     </div>
   </details>
-  <footer>KS Tilskudd · Sikkerhetstester · Playwright · 2026-05-04 08:30</footer>
+  <footer>KS Tilskudd · Sikkerhetstester · Playwright · 2026-05-04 15:05</footer>
 </div>
 </body>
 </html>

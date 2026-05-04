@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Innloggingsflyt – KS Tilskudd</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0 }
+  body { font-family: system-ui, sans-serif; background: #faf6f0; color: #0f0e17; padding: 2.5rem 2rem }
+  h1 { font-size: 1.4rem; font-weight: 700; color: #0a1355; margin-bottom: .4rem }
+  .meta { font-size: .82rem; color: #6b7280; margin-bottom: 2.5rem }
+  .steg { display: flex; gap: 2rem; margin-bottom: 3rem; align-items: flex-start }
+  .steg-nr { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+              background: #0a1355; color: white; display: flex; align-items: center;
+              justify-content: center; font-size: 1.1rem; font-weight: 700; margin-top: .3rem }
+  .steg-info { flex: 1 }
+  .steg-tittel { font-size: 1rem; font-weight: 600; color: #0a1355; margin-bottom: .3rem }
+  .steg-beskriv { font-size: .85rem; color: #374151; line-height: 1.6; margin-bottom: .9rem }
+  .steg-bilde { width: 100%; border: 1px solid #e5e3de; border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(10,19,85,.08); cursor: zoom-in }
+  .pil { text-align: center; font-size: 1.6rem; color: #9ca3af; margin: -1.5rem 0 1.5rem 0 }
+  footer { text-align: center; font-size: .75rem; color: #9ca3af; margin-top: 3rem;
+           padding-top: 1.5rem; border-top: 1px solid #e5e3de }
+</style>
+</head>
+<body>
+<h1>Innloggingsflyt – KS Tilskudd</h1>
+<p class="meta">Steg-for-steg: fra forside via ID-porten TestID til Min side · 4.5.2026</p>
+
+
+<div class="steg">
+  <div class="steg-nr">1</div>
+  <div class="steg-info">
+    <div class="steg-tittel">Forside – ikke innlogget</div>
+    <div class="steg-beskriv">Brukeren åpner https://tilskudd.fiks.test.ks.no/ og ser forsiden med Logg inn-knapp.</div>
+    <a href="steg-1.png" target="_blank">
+      <img src="steg-1.png" alt="Forside – ikke innlogget" class="steg-bilde">
+    </a>
+  </div>
+</div>
+<div class="pil">↓</div>
+<div class="steg">
+  <div class="steg-nr">2</div>
+  <div class="steg-info">
+    <div class="steg-tittel">Klikket «Logg inn»</div>
+    <div class="steg-beskriv">Etter klikk på Logg inn blir brukeren videresendt til ID-porten innloggingsvelger.</div>
+    <a href="steg-2.png" target="_blank">
+      <img src="steg-2.png" alt="Klikket «Logg inn»" class="steg-bilde">
+    </a>
+  </div>
+</div>
+<div class="pil">↓</div>
+<div class="steg">
+  <div class="steg-nr">3</div>
+  <div class="steg-info">
+    <div class="steg-tittel">ID-porten – velg innloggingsmetode</div>
+    <div class="steg-beskriv">ID-porten viser tilgjengelige innloggingsmetoder. Brukeren velger TestID.</div>
+    <a href="steg-3.png" target="_blank">
+      <img src="steg-3.png" alt="ID-porten – velg innloggingsmetode" class="steg-bilde">
+    </a>
+  </div>
+</div>
+<div class="pil">↓</div>
+<div class="steg">
+  <div class="steg-nr">4</div>
+  <div class="steg-info">
+    <div class="steg-tittel">Klikket «TestID»</div>
+    <div class="steg-beskriv">TestID-skjemaet åpnes. Her kan brukeren skrive inn personidentifikator eller hente en tilfeldig testperson.</div>
+    <a href="steg-4.png" target="_blank">
+      <img src="steg-4.png" alt="Klikket «TestID»" class="steg-bilde">
+    </a>
+  </div>
+</div>
+<div class="pil">↓</div>
+<div class="steg">
+  <div class="steg-nr">5</div>
+  <div class="steg-info">
+    <div class="steg-tittel">Personidentifikator fylt inn</div>
+    <div class="steg-beskriv">Brukeren skriver inn personidentifikator 10895696434 i feltet.</div>
+    <a href="steg-5.png" target="_blank">
+      <img src="steg-5.png" alt="Personidentifikator fylt inn" class="steg-bilde">
+    </a>
+  </div>
+</div>
+<div class="pil">↓</div>
+<div class="steg">
+  <div class="steg-nr">6</div>
+  <div class="steg-info">
+    <div class="steg-tittel">Autentisert – landet på /minside</div>
+    <div class="steg-beskriv">Etter vellykket autentisering sendes brukeren tilbake til applikasjonen og lander på Min side.</div>
+    <a href="steg-6.png" target="_blank">
+      <img src="steg-6.png" alt="Autentisert – landet på /minside" class="steg-bilde">
+    </a>
+  </div>
+</div>
+
+
+<footer>KS Tilskudd · Innloggingsflyt · ID-porten TestID · Personidentifikator 10895696434</footer>
+</body>
+</html>
