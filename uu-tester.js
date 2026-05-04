@@ -1037,36 +1037,6 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
       <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </div>
-  ${innloggingsSteg.length > 0 ? `
-  <details style="margin-bottom:1.5rem;border:1px solid #e5e3de;background:white;box-shadow:0 1px 4px rgba(10,19,85,.06)" open>
-    <summary style="cursor:pointer;padding:1rem 1.5rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;user-select:none;list-style:none;display:flex;justify-content:space-between;align-items:center">
-      <span>🔐 Innloggingsflyt – ID-porten TestID (${innloggingsSteg.length} steg)</span>
-      <span style="font-size:.75rem;opacity:.5;font-weight:400;text-transform:none;letter-spacing:0">klikk for å kollapse ▲</span>
-    </summary>
-    <div style="padding:1.2rem 1.5rem 1.5rem;border-top:1px solid #f4ecdf">
-      <p style="font-size:.83rem;color:#374151;margin-bottom:1.2rem;line-height:1.6">
-        Automatisk dokumentasjon av innloggingsflyten fanget under denne testkjøringen. Viser hvert steg fra applikasjonsstart via ID-porten TestID og tilbake til applikasjonen.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:0">
-        ${innloggingsSteg.map((s, i) => `
-        <div style="display:flex;gap:1.4rem;align-items:flex-start">
-          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
-            <div style="width:36px;height:36px;border-radius:50%;background:#0a1355;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem">${s.nr}</div>
-            ${i < innloggingsSteg.length - 1 ? '<div style="width:2px;background:#e5e3de;flex:1;min-height:1rem;margin:.3rem 0"></div>' : ''}
-          </div>
-          <div style="flex:1;padding-bottom:${i < innloggingsSteg.length - 1 ? '1.4rem' : '0'}">
-            <div style="font-weight:600;color:#0a1355;font-size:.9rem;margin-bottom:.2rem">${s.tittel}</div>
-            <div style="font-size:.82rem;color:#6b7280;line-height:1.5;margin-bottom:.7rem">${s.beskriv}</div>
-            <a href="${s.fil}" target="_blank">
-              <img src="${s.fil}" alt="${s.tittel}" loading="lazy"
-                style="width:100%;max-width:780px;border:1px solid #e5e3de;border-radius:4px;box-shadow:0 2px 8px rgba(10,19,85,.08);cursor:zoom-in;display:block">
-            </a>
-          </div>
-        </div>`).join('')}
-      </div>
-    </div>
-  </details>` : ''}
-
   <div class="seksjon" style="background:#f4ecdf;border-color:#e8dcc8;margin-bottom:1.5rem">
     <div class="seksjon-tittel">Hva er UU-testing?</div>
     <p style="font-size:.88rem;line-height:1.7;color:#374151;margin-bottom:1rem">
@@ -1196,6 +1166,36 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
       </tbody>
     </table>
   </div>
+
+  ${innloggingsSteg.length > 0 ? `
+  <details style="margin-top:2rem;border:1px solid #e5e3de;background:white;box-shadow:0 1px 4px rgba(10,19,85,.06)">
+    <summary style="cursor:pointer;padding:1rem 1.5rem;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;user-select:none;list-style:none;display:flex;justify-content:space-between;align-items:center">
+      <span>🔐 Innloggingsflyt – ID-porten TestID (${innloggingsSteg.length} steg)</span>
+      <span style="font-size:.75rem;opacity:.5;font-weight:400;text-transform:none;letter-spacing:0">klikk for å utvide ▼</span>
+    </summary>
+    <div style="padding:1.2rem 1.5rem 1.5rem;border-top:1px solid #f4ecdf">
+      <p style="font-size:.83rem;color:#374151;margin-bottom:1.2rem;line-height:1.6">
+        Automatisk dokumentasjon av innloggingsflyten fanget under denne testkjøringen. Viser hvert steg fra applikasjonsstart via ID-porten TestID og tilbake til applikasjonen.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        ${innloggingsSteg.map((s, i) => `
+        <div style="display:flex;gap:1.4rem;align-items:flex-start">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+            <div style="width:36px;height:36px;border-radius:50%;background:#0a1355;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem">${s.nr}</div>
+            ${i < innloggingsSteg.length - 1 ? '<div style="width:2px;background:#e5e3de;flex:1;min-height:1rem;margin:.3rem 0"></div>' : ''}
+          </div>
+          <div style="flex:1;padding-bottom:${i < innloggingsSteg.length - 1 ? '1.4rem' : '0'}">
+            <div style="font-weight:600;color:#0a1355;font-size:.9rem;margin-bottom:.2rem">${s.tittel}</div>
+            <div style="font-size:.82rem;color:#6b7280;line-height:1.5;margin-bottom:.7rem">${s.beskriv}</div>
+            <a href="${s.fil}" target="_blank">
+              <img src="${s.fil}" alt="${s.tittel}" loading="lazy"
+                style="width:100%;max-width:780px;border:1px solid #e5e3de;border-radius:4px;box-shadow:0 2px 8px rgba(10,19,85,.08);cursor:zoom-in;display:block">
+            </a>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </details>` : ''}
 
   <div class="seksjon" style="margin-top:2rem">
     <div class="seksjon-tittel">Slik beregnes UU-scoren</div>
