@@ -1,0 +1,75 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-04",
+  "versjon": "v0.5.1",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 8,
+    "jsErrors": 2,
+    "konsollFeil": 6,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 14
+  },
+  "score": 66,
+  "jsErrors": [
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "tid": "2026-05-04T05:22:21.462Z"
+    },
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+      "tid": "2026-05-04T05:22:31.535Z"
+    }
+  ],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-04T05:22:19.538Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-04T05:22:19.983Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. august 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "tid": "2026-05-04T05:22:21.458Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+      "tid": "2026-05-04T05:22:22.156Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%22-1%22&currentPage=1&pageSize=10",
+      "tid": "2026-05-04T05:22:25.725Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 10. november 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+      "tid": "2026-05-04T05:22:31.533Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=+++&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%22-1%22&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6"
+  ]
+}

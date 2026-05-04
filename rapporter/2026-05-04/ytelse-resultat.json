@@ -1,0 +1,16 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-04",
+  "tidspunkt": "07:36",
+  "score": 0,
+  "totalt": {
+    "sider": 0,
+    "snittLCP": 0,
+    "snittFCP": 0,
+    "snittTTFB": 0,
+    "snittLoad": 0,
+    "totalSizeKB": 0,
+    "totalRequests": 0
+  },
+  "sider": []
+}

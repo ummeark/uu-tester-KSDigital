@@ -28,3 +28,7 @@ To https://github.com/ummeark/tester-KSTilskudd-TEST.git
 [0;32m✅ Miljøvalidering OK – ingen PROD-kontaminering i TEST-repo[0m
 To https://github.com/ummeark/tester-KSTilskudd-TEST.git
    5c5017e..db92bee  main -> main
+🔍 Validerer miljøseparasjon (TEST – tilskudd.fiks.test.ks.no)...
+[0;32m✅ Miljøvalidering OK – ingen PROD-kontaminering i TEST-repo[0m
+To https://github.com/ummeark/tester-KSTilskudd-TEST.git
+   db92bee..f797c43  main -> main
