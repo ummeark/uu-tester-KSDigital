@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>POC UU-rapport – 2026-04-24 23:52</title>
+<title>POC UU-rapport – 2026-05-04 15:39</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#faf6f0;color:#0f0e17;display:flex;min-height:100vh}
@@ -91,7 +91,7 @@
   <div class="sidemeny-header">
     <div class="sidemeny-logo">KS Tilskudd · UU-tester</div>
     <div class="env-badge">POC · TEST-MILJØ</div>
-    <h1>POC UU-rapport <span>2026-04-24 23:52 · 3 sider</span></h1>
+    <h1>POC UU-rapport <span>2026-05-04 15:39 · 3 sider</span></h1>
   </div>
   <ul>
     <li>
@@ -102,17 +102,17 @@
       </a>
     </li>
     <li>
-      <a href="#side-https://tilskudd.fiks.test.ks.no/ordninger" class="sidenav-link ok">
-        <span class="sidenavn">/ordninger</span>
-        <span class="side-url">https://tilskudd.fiks.test.ks.no/ordninger</span>
+      <a href="#side-https://tilskudd.fiks.test.ks.no/utlysinger" class="sidenav-link ok">
+        <span class="sidenavn">/utlysinger</span>
+        <span class="side-url">https://tilskudd.fiks.test.ks.no/utlysinger</span>
         <span class="side-badge">OK</span>
       </a>
     </li>
     <li>
-      <a href="#side-https://tilskudd.fiks.test.ks.no/minside" class="sidenav-link har-brudd">
+      <a href="#side-https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast" class="sidenav-link ok">
         <span class="sidenavn">/minside</span>
-        <span class="side-url">https://tilskudd.fiks.test.ks.no/minside</span>
-        <span class="side-badge">1 feilet</span>
+        <span class="side-url">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</span>
+        <span class="side-badge">OK</span>
       </a>
     </li>
   </ul>
@@ -124,7 +124,7 @@
       <h1>POC: UU-rapport (@playwright/test)</h1>
       <div class="meta">
         <a href="https://tilskudd.fiks.test.ks.no/" target="_blank" rel="noopener">https://tilskudd.fiks.test.ks.no/</a>
-        &nbsp;· 2026-04-24 23:52 · 3 sider testet · Playwright 1.59.1
+        &nbsp;· 2026-05-04 15:39 · 3 sider testet · Playwright 1.59.1
       </div>
     </div>
     <div class="nav-knapper">
@@ -143,11 +143,11 @@
   </div>
 
   <div class="score-kort">
-    <div class="score-sirkel middels" style="background:#b8860b;">92%</div>
+    <div class="score-sirkel god" style="background:#07604f;">100%</div>
     <div class="score-tekst">
-      <strong>1 test feilet</strong>
-      <p>11 av 12 tester bestatt på 3 sider.<br>
-      Varighet: 9.7s totalt.</p>
+      <strong>Alle tester bestatt</strong>
+      <p>12 av 12 tester bestatt på 3 sider.<br>
+      Varighet: 5.7s totalt.</p>
     </div>
   </div>
 
@@ -164,12 +164,12 @@
     </div>
     <div class="kort ok">
       <div class="etikett">Bestatt</div>
-      <div class="tall">11</div>
+      <div class="tall">12</div>
       <div class="undertekst">expected</div>
     </div>
-    <div class="kort kritisk">
+    <div class="kort ok">
       <div class="etikett">Feilet</div>
-      <div class="tall">1</div>
+      <div class="tall">0</div>
       <div class="undertekst">unexpected</div>
     </div>
   </div>
@@ -187,39 +187,39 @@
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>axe-core: ingen WCAG 2.1 AA-brudd</strong></span>
-          <span class="brudd-teller">746ms</span>
+          <span class="brudd-teller">453ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>2.4.7: synlig fokus på interaktive elementer</strong></span>
-          <span class="brudd-teller">468ms</span>
+          <span class="brudd-teller">171ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>1.4.10: ingen horisontal rulling ved 320px (reflow)</strong></span>
-          <span class="brudd-teller">572ms</span>
+          <span class="brudd-teller">149ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>1.4.12: tekst ikke avskåret ved økt tekstmellomrom</strong></span>
-          <span class="brudd-teller">509ms</span>
+          <span class="brudd-teller">254ms</span>
         </div>
         
       </div>
     </div>
   </section>
 
-  <section class="side-seksjon" id="side-https://tilskudd.fiks.test.ks.no/ordninger">
+  <section class="side-seksjon" id="side-https://tilskudd.fiks.test.ks.no/utlysinger">
     <div class="side-header">
       <div>
-        <h2>Side: /ordninger</h2>
-        <a class="side-url-link" href="https://tilskudd.fiks.test.ks.no/ordninger" target="_blank" rel="noopener">https://tilskudd.fiks.test.ks.no/ordninger</a>
+        <h2>Side: /utlysinger</h2>
+        <a class="side-url-link" href="https://tilskudd.fiks.test.ks.no/utlysinger" target="_blank" rel="noopener">https://tilskudd.fiks.test.ks.no/utlysinger</a>
       </div>
       <div class="side-score-badges"><span class="badge" style="background:#ecfdf5;color:#064e3b;">Alle OK</span></div>
     </div>
@@ -228,76 +228,76 @@
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>axe-core: ingen WCAG 2.1 AA-brudd</strong></span>
-          <span class="brudd-teller">575ms</span>
+          <span class="brudd-teller">377ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>2.4.7: synlig fokus på interaktive elementer</strong></span>
-          <span class="brudd-teller">333ms</span>
+          <span class="brudd-teller">195ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>1.4.10: ingen horisontal rulling ved 320px (reflow)</strong></span>
-          <span class="brudd-teller">398ms</span>
+          <span class="brudd-teller">183ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>1.4.12: tekst ikke avskåret ved økt tekstmellomrom</strong></span>
-          <span class="brudd-teller">322ms</span>
+          <span class="brudd-teller">199ms</span>
         </div>
         
       </div>
     </div>
   </section>
 
-  <section class="side-seksjon" id="side-https://tilskudd.fiks.test.ks.no/minside">
+  <section class="side-seksjon" id="side-https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast">
     <div class="side-header">
       <div>
         <h2>Side: /minside</h2>
-        <a class="side-url-link" href="https://tilskudd.fiks.test.ks.no/minside" target="_blank" rel="noopener">https://tilskudd.fiks.test.ks.no/minside</a>
+        <a class="side-url-link" href="https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast" target="_blank" rel="noopener">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</a>
       </div>
-      <div class="side-score-badges"><span class="badge critical">1 feilet</span></div>
+      <div class="side-score-badges"><span class="badge" style="background:#ecfdf5;color:#064e3b;">Alle OK</span></div>
     </div>
     <div class="wcag-seksjon">
       <h3>Testresultater (4 tester)</h3>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>axe-core: ingen WCAG 2.1 AA-brudd</strong></span>
-          <span class="brudd-teller">946ms</span>
+          <span class="brudd-teller">565ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>2.4.7: synlig fokus på interaktive elementer</strong></span>
-          <span class="brudd-teller">702ms</span>
+          <span class="brudd-teller">422ms</span>
         </div>
         
       </div>
       <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
           <span style="font-size:.9rem;">✅ <strong>1.4.10: ingen horisontal rulling ved 320px (reflow)</strong></span>
-          <span class="brudd-teller">750ms</span>
+          <span class="brudd-teller">390ms</span>
         </div>
         
       </div>
-      <div class="brudd-kort" style="border-left-color:#c53030;background:#fff5f5;">
+      <div class="brudd-kort" style="border-left-color:#064e3b;background:#ecfdf5;">
         <div class="brudd-header">
-          <span style="font-size:.9rem;">❌ <strong>1.4.12: tekst ikke avskåret ved økt tekstmellomrom</strong></span>
-          <span class="brudd-teller">950ms</span>
+          <span style="font-size:.9rem;">✅ <strong>1.4.12: tekst ikke avskåret ved økt tekstmellomrom</strong></span>
+          <span class="brudd-teller">1281ms</span>
         </div>
-        <div class="brudd-hjelp" style="margin-top:.5rem;white-space:pre-wrap;font-size:.78rem;">Error: page.addStyleTag: Applying inline style violates the following Content Security Policy directive 'style-src 'self' https://static.idporten.no'. Either the 'unsafe-inline' keyword, a hash ('sha256-VZEvrUNsockr+FOhIIVG3cNwdPBoLnH3aQCE7hZG4ms='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.<br><br>  50 |     test('1.4.12: tekst ikke avskåret ved økt tekstmellomrom', async ({ page }) =&gt; {<br>  51 |       await page.goto(url, { timeout: SIDE_TIMEOUT });<br>&gt; 52 |       await page.addStyleTag({<br>     |                  ^<br>  53 |         content: [<br>  54 |           '* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }',<br>  55 |           'p { margin-bottom: 2em !important; }',<br>    at /Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js:52:18</div>
+        
       </div>
     </div>
   </section>
 
-  <footer>KS Tilskudd · UU-tester · POC @playwright/test · 2026-04-24 23:52</footer>
+  <footer>KS Tilskudd · UU-tester · POC @playwright/test · 2026-05-04 15:39</footer>
 </main>
 </body>
 </html>

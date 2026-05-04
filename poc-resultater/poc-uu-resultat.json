@@ -87,12 +87,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 661,
+                      "duration": 453,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:01.198Z",
+                      "startTime": "2026-05-04T13:39:05.755Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -121,12 +121,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 349,
+                      "duration": 171,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:01.926Z",
+                      "startTime": "2026-05-04T13:39:06.275Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 308,
+                      "duration": 149,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:02.279Z",
+                      "startTime": "2026-05-04T13:39:06.451Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 554,
+                      "duration": 254,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:02.594Z",
+                      "startTime": "2026-05-04T13:39:06.603Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -210,7 +210,7 @@
           ]
         },
         {
-          "title": "https://tilskudd.fiks.test.ks.no/ordninger",
+          "title": "https://tilskudd.fiks.test.ks.no/utlysinger",
           "file": "poc-uu-tester.js",
           "line": 14,
           "column": 8,
@@ -231,12 +231,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 587,
+                      "duration": 377,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:03.154Z",
+                      "startTime": "2026-05-04T13:39:06.861Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -244,7 +244,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-9df4dcf0506ae3a6b977",
+              "id": "37af1431bc57f639fae0-fd835d4b2007543631b8",
               "file": "poc-uu-tester.js",
               "line": 16,
               "column": 5
@@ -265,12 +265,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 441,
+                      "duration": 195,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:03.748Z",
+                      "startTime": "2026-05-04T13:39:07.242Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -278,7 +278,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-5f8822e245c944ee4018",
+              "id": "37af1431bc57f639fae0-d5f340951cea3c66a753",
               "file": "poc-uu-tester.js",
               "line": 30,
               "column": 5
@@ -299,12 +299,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 386,
+                      "duration": 183,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:04.193Z",
+                      "startTime": "2026-05-04T13:39:07.441Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -312,7 +312,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-e17f20563590a4c7b48a",
+              "id": "37af1431bc57f639fae0-fef64172d75bf61372b9",
               "file": "poc-uu-tester.js",
               "line": 42,
               "column": 5
@@ -333,12 +333,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 403,
+                      "duration": 199,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:04.584Z",
+                      "startTime": "2026-05-04T13:39:07.628Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -346,7 +346,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-ce20923adacbd72c017b",
+              "id": "37af1431bc57f639fae0-2a29d6580bf3185a93fb",
               "file": "poc-uu-tester.js",
               "line": 50,
               "column": 5
@@ -354,7 +354,7 @@
           ]
         },
         {
-          "title": "https://tilskudd.fiks.test.ks.no/minside",
+          "title": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
           "file": "poc-uu-tester.js",
           "line": 14,
           "column": 8,
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 859,
+                      "duration": 565,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:04.992Z",
+                      "startTime": "2026-05-04T13:39:07.831Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -388,7 +388,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-d17074146533a38abacf",
+              "id": "37af1431bc57f639fae0-1e8d511d5bf1c6ba4689",
               "file": "poc-uu-tester.js",
               "line": 16,
               "column": 5
@@ -409,12 +409,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 699,
+                      "duration": 422,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:05.855Z",
+                      "startTime": "2026-05-04T13:39:08.399Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -422,7 +422,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-0f81610c55eac1210a73",
+              "id": "37af1431bc57f639fae0-31f8e1be95997f66e876",
               "file": "poc-uu-tester.js",
               "line": 30,
               "column": 5
@@ -443,12 +443,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 632,
+                      "duration": 390,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:06.559Z",
+                      "startTime": "2026-05-04T13:39:08.826Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -456,14 +456,14 @@
                   "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-7274a4a780f3d44b986f",
+              "id": "37af1431bc57f639fae0-76e14f889b357d084048",
               "file": "poc-uu-tester.js",
               "line": 42,
               "column": 5
             },
             {
               "title": "1.4.12: tekst ikke avskåret ved økt tekstmellomrom",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -476,51 +476,21 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 606,
-                      "error": {
-                        "message": "Error: page.addStyleTag: Applying inline style violates the following Content Security Policy directive 'style-src 'self' https://static.idporten.no'. Either the 'unsafe-inline' keyword, a hash ('sha256-VZEvrUNsockr+FOhIIVG3cNwdPBoLnH3aQCE7hZG4ms='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.",
-                        "stack": "Error: page.addStyleTag: Applying inline style violates the following Content Security Policy directive 'style-src 'self' https://static.idporten.no'. Either the 'unsafe-inline' keyword, a hash ('sha256-VZEvrUNsockr+FOhIIVG3cNwdPBoLnH3aQCE7hZG4ms='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\n    at /Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js:52:18",
-                        "location": {
-                          "file": "/Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js",
-                          "column": 18,
-                          "line": 52
-                        },
-                        "snippet": "  50 |     test('1.4.12: tekst ikke avskåret ved økt tekstmellomrom', async ({ page }) => {\n  51 |       await page.goto(url, { timeout: SIDE_TIMEOUT });\n> 52 |       await page.addStyleTag({\n     |                  ^\n  53 |         content: [\n  54 |           '* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }',\n  55 |           'p { margin-bottom: 2em !important; }',"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js",
-                            "column": 18,
-                            "line": 52
-                          },
-                          "message": "Error: page.addStyleTag: Applying inline style violates the following Content Security Policy directive 'style-src 'self' https://static.idporten.no'. Either the 'unsafe-inline' keyword, a hash ('sha256-VZEvrUNsockr+FOhIIVG3cNwdPBoLnH3aQCE7hZG4ms='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.\n\n  50 |     test('1.4.12: tekst ikke avskåret ved økt tekstmellomrom', async ({ page }) => {\n  51 |       await page.goto(url, { timeout: SIDE_TIMEOUT });\n> 52 |       await page.addStyleTag({\n     |                  ^\n  53 |         content: [\n  54 |           '* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }',\n  55 |           'p { margin-bottom: 2em !important; }',\n    at /Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js:52:18"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1281,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-04-24T21:55:07.196Z",
+                      "startTime": "2026-05-04T13:39:09.220Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/ummearkhan/tester-KSTilskudd/poc-resultater/traces/poc-uu-tester.js-https-til-fc0ba-året-ved-økt-tekstmellomrom/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/ummearkhan/tester-KSTilskudd/poc-uu-tester.js",
-                        "column": 18,
-                        "line": 52
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "37af1431bc57f639fae0-10fd4628e461e7679f5b",
+              "id": "37af1431bc57f639fae0-3b3cb6bc023ddc1e20ff",
               "file": "poc-uu-tester.js",
               "line": 50,
               "column": 5
@@ -532,11 +502,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-24T21:54:59.257Z",
-    "duration": 8578.633,
-    "expected": 11,
+    "startTime": "2026-05-04T13:39:04.830Z",
+    "duration": 5700.565,
+    "expected": 12,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

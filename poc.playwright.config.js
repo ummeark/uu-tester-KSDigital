@@ -11,6 +11,7 @@ export default defineConfig({
   ],
   use: {
     headless: true,
+    bypassCSP: true,
     viewport: { width: 1280, height: 900 },
     actionTimeout: 10000,
     navigationTimeout: 15000,

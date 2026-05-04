@@ -1,5 +1,5 @@
 [
   "https://tilskudd.fiks.test.ks.no/",
-  "https://tilskudd.fiks.test.ks.no/ordninger",
-  "https://tilskudd.fiks.test.ks.no/minside"
+  "https://tilskudd.fiks.test.ks.no/utlysinger",
+  "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast"
 ]
