@@ -132,6 +132,23 @@ const sikkerhet = datoer.flatMap(lesAlleSikkerhet);
 const negativ   = datoer.flatMap(lesAlleNegativ);
 const ytelse    = datoer.flatMap(lesAlleYtelse);
 
+function lesBrukerhistorie() {
+  const fil = path.join(__dirname, 'brukerhistorie-resultater/brukerhistorie-resultat.json');
+  if (!fs.existsSync(fil)) return null;
+  try {
+    const data    = JSON.parse(fs.readFileSync(fil, 'utf-8'));
+    const st      = data.stats ?? {};
+    const bestått = st.expected  ?? 0;
+    const feilet  = st.unexpected ?? 0;
+    const totalt  = bestått + feilet;
+    const score   = totalt > 0 ? Math.round((bestått / totalt) * 100) : 0;
+    const dato    = st.startTime
+      ? new Date(st.startTime).toISOString().slice(0, 10)
+      : new Date().toISOString().slice(0, 10);
+    return { score, dato, totalt: { bestått, feilet, totalt } };
+  } catch { return null; }
+}
+
 // Hent versjonsnummer fra nyeste tilgjengelige JSON-resultat
 function lesVersjon() {
   for (const dato of datoer) {
@@ -488,6 +505,7 @@ const arkivHTML = `<!DOCTYPE html>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp aktiv">Arkiv</a>
     </div>
   </div>
@@ -532,11 +550,12 @@ function dashboardKort(tittel, ikon, rapportFil, data, nøkkeltallFn) {
   </a>`;
 }
 
-const sisteUU       = uu[0]        || null;
-const sisteMonkey   = monkey[0]    || null;
-const sisteSikk     = sikkerhet[0] || null;
-const sisteNegativ  = negativ[0]   || null;
-const sisteYtelse   = ytelse[0]    || null;
+const sisteUU             = uu[0]        || null;
+const sisteMonkey         = monkey[0]    || null;
+const sisteSikk           = sikkerhet[0] || null;
+const sisteNegativ        = negativ[0]   || null;
+const sisteYtelse         = ytelse[0]    || null;
+const sisteBrukerhistorie = lesBrukerhistorie();
 
 const dashboardHTML = `<!DOCTYPE html>
 <html lang="no">
@@ -569,7 +588,7 @@ const dashboardHTML = `<!DOCTYPE html>
   .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
 
   /* Total score-rad */
-  .total-rad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+  .total-rad { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
 
   /* Dashboard-kort */
   .dash-kort { background: white; border: 1px solid #f1f0ee; border-top: 5px solid #e5e3de; padding: 1.8rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.7rem; min-height: 260px; transition: box-shadow .15s, transform .15s; }
@@ -654,12 +673,13 @@ const dashboardHTML = `<!DOCTYPE html>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Arkiv</a>
     </div>
   </div>
 
   ${(() => {
-    const scores = [sisteUU, sisteMonkey, sisteSikk, sisteNegativ, sisteYtelse].filter(Boolean).map(d => d.score);
+    const scores = [sisteUU, sisteMonkey, sisteSikk, sisteNegativ, sisteYtelse, sisteBrukerhistorie].filter(Boolean).map(d => d.score);
     if (scores.length === 0) return '';
     const snitt = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
     const sk = scoreKlasse(snitt);
@@ -695,6 +715,10 @@ const dashboardHTML = `<!DOCTYPE html>
       <span>LCP: ${visTid(r.totalt.snittLCP || 0)}</span>
       <span>FCP: ${visTid(r.totalt.snittFCP || 0)}</span>
       <span>${r.totalt.sider} sider</span>`)}
+    ${dashboardKort('Brukerhistorie', '📖', 'brukerhistorie-rapport.html', sisteBrukerhistorie, r => `
+      <span><span class="grønn">Bestått ${r.totalt.bestått}</span></span>
+      <span>${r.totalt.feilet > 0 ? `<b class="rød">${r.totalt.feilet} feilet</b>` : '<span class="grønn">Alle OK</span>'}</span>
+      <span>${r.totalt.totalt} tester totalt</span>`)}
   </div>
 
   <details class="om-tester">
@@ -708,6 +732,7 @@ const dashboardHTML = `<!DOCTYPE html>
           <tr><td>🔐 Sikkerhetstest</td><td>npm run sikkerhet</td><td>HTTP-hoder, cookies, CORS, eksponerte stier</td></tr>
           <tr><td>🧪 Negativ test</td><td>npm run negativ</td><td>Ugyldig input, URL-manipulering, tilgangskontroll</td></tr>
           <tr><td>🚀 Ytelsestest</td><td>npm run ytelse</td><td>LCP og FCP per side</td></tr>
+          <tr><td>📖 Brukerhistorie</td><td>npm run brukerhistorie</td><td>11 akseptansekriterier, BH-1 til BH-4</td></tr>
         </table>
       </div>
       <div class="om-seksjon">

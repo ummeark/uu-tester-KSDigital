@@ -29,7 +29,7 @@
   .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
 
   /* Total score-rad */
-  .total-rad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+  .total-rad { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
 
   /* Dashboard-kort */
   .dash-kort { background: white; border: 1px solid #f1f0ee; border-top: 5px solid #e5e3de; padding: 1.8rem; box-shadow: 0 1px 4px rgba(10,19,85,.06); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.7rem; min-height: 260px; transition: box-shadow .15s, transform .15s; }
@@ -114,13 +114,14 @@
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Arkiv</a>
     </div>
   </div>
 
   
   <div class="samlet-seksjon">
-    <div class="samlet-score middels">51</div>
+    <div class="samlet-score middels">59</div>
     <div class="samlet-tekst">
       <h2>Samlet gjennomsnittsscore på TEST: <a href="https://tilskudd.fiks.test.ks.no/" target="_blank" style="color:inherit;text-decoration:underline;">https://tilskudd.fiks.test.ks.no/</a></h2>
       <p>Det er forbedringspotensial — se detaljrapportene.</p>
@@ -198,6 +199,20 @@
       <span>15 sider</span></div>
     <div class="dash-lenke">Se full rapport →</div>
   </a>
+    
+  <a class="dash-kort god" href="brukerhistorie-rapport.html">
+    <div class="dash-topp">
+      <span class="dash-ikon">📖</span>
+      <span class="dash-tittel">Brukerhistorie</span>
+    </div>
+    <div class="dash-score god">100<span class="dash-score-enhet">/100</span></div>
+    <div class="dash-dato">onsdag 6. mai 2026</div>
+    <div class="dash-nøkkel">
+      <span><span class="grønn">Bestått 11</span></span>
+      <span><span class="grønn">Alle OK</span></span>
+      <span>11 tester totalt</span></div>
+    <div class="dash-lenke">Se full rapport →</div>
+  </a>
   </div>
 
   <details class="om-tester">
@@ -211,6 +226,7 @@
           <tr><td>🔐 Sikkerhetstest</td><td>npm run sikkerhet</td><td>HTTP-hoder, cookies, CORS, eksponerte stier</td></tr>
           <tr><td>🧪 Negativ test</td><td>npm run negativ</td><td>Ugyldig input, URL-manipulering, tilgangskontroll</td></tr>
           <tr><td>🚀 Ytelsestest</td><td>npm run ytelse</td><td>LCP og FCP per side</td></tr>
+          <tr><td>📖 Brukerhistorie</td><td>npm run brukerhistorie</td><td>11 akseptansekriterier, BH-1 til BH-4</td></tr>
         </table>
       </div>
       <div class="om-seksjon">
