@@ -1,0 +1,182 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-06",
+  "tidspunkt": "08:31",
+  "score": 100,
+  "totalt": {
+    "sider": 15,
+    "snittLCP": 169,
+    "snittFCP": 128,
+    "snittTTFB": 58,
+    "snittLoad": 133,
+    "totalSizeKB": 121,
+    "totalRequests": 241
+  },
+  "sider": [
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tittel": "KS Tilskudd - Min side",
+      "score": 100,
+      "ttfb": 138,
+      "load": 188,
+      "sizeKB": 1,
+      "requests": 22,
+      "lcp": 172,
+      "fcp": 172
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/",
+      "tittel": "KS Tilskudd - Hjem",
+      "score": 100,
+      "ttfb": 18,
+      "load": 54,
+      "sizeKB": 2,
+      "requests": 12,
+      "lcp": 52,
+      "fcp": 52
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/minside",
+      "tittel": "KS Tilskudd - Min side",
+      "score": 100,
+      "ttfb": 148,
+      "load": 201,
+      "sizeKB": 1,
+      "requests": 22,
+      "lcp": 184,
+      "fcp": 184
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/logout",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 17,
+      "load": 379,
+      "sizeKB": 1,
+      "requests": 9,
+      "lcp": 360,
+      "fcp": 360
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      "tittel": "ID-porten",
+      "score": 100,
+      "ttfb": 13,
+      "load": 84,
+      "sizeKB": 0,
+      "requests": 14,
+      "lcp": 88,
+      "fcp": 88
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+      "tittel": "ID-porten",
+      "score": 100,
+      "ttfb": 15,
+      "load": 101,
+      "sizeKB": 0,
+      "requests": 14,
+      "lcp": 104,
+      "fcp": 104
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf",
+      "tittel": "ID-porten",
+      "score": 100,
+      "ttfb": 17,
+      "load": 103,
+      "sizeKB": 0,
+      "requests": 14,
+      "lcp": 108,
+      "fcp": 108
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/d2bab1ec-ae65-4230-a64f-f0b23e6c714c",
+      "tittel": "ID-porten",
+      "score": 100,
+      "ttfb": 13,
+      "load": 83,
+      "sizeKB": 0,
+      "requests": 14,
+      "lcp": 88,
+      "fcp": 88
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger",
+      "tittel": "KS Tilskudd - Utlysinger",
+      "score": 100,
+      "ttfb": 49,
+      "load": 118,
+      "sizeKB": 7,
+      "requests": 19,
+      "lcp": 452,
+      "fcp": 104
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/om",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 25,
+      "load": 59,
+      "sizeKB": 1,
+      "requests": 11,
+      "lcp": 44,
+      "fcp": 44
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 81,
+      "load": 135,
+      "sizeKB": 108,
+      "requests": 19,
+      "lcp": 192,
+      "fcp": 120
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 97,
+      "load": 115,
+      "sizeKB": 0,
+      "requests": 19,
+      "lcp": 180,
+      "fcp": 116
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 105,
+      "load": 126,
+      "sizeKB": 0,
+      "requests": 19,
+      "lcp": 192,
+      "fcp": 128
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+      "tittel": "KS Tilskudd",
+      "score": 100,
+      "ttfb": 118,
+      "load": 133,
+      "sizeKB": 0,
+      "requests": 19,
+      "lcp": 192,
+      "fcp": 136
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/opprett",
+      "tittel": "ID-porten",
+      "score": 100,
+      "ttfb": 15,
+      "load": 116,
+      "sizeKB": 0,
+      "requests": 14,
+      "lcp": 120,
+      "fcp": 120
+    }
+  ]
+}
