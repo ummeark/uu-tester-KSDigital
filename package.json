@@ -14,7 +14,8 @@
     "generer-soeknadsnumre": "node testdata/generer-soeknadsnumre.js",
     "valider": "bash valider-miljø.sh",
     "prepare": "git config core.hooksPath .githooks",
-    "poc-uu": "playwright test --config poc.playwright.config.js && node generer-poc-uu-rapport.js"
+    "poc-uu": "playwright test --config poc.playwright.config.js && node generer-poc-uu-rapport.js",
+    "brukerhistorie": "playwright test --config brukerhistorie.playwright.config.js"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.10.1",
