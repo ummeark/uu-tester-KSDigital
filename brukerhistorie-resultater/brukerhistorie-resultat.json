@@ -68,7 +68,7 @@
         {
           "title": "BH-1: Som søker vil jeg se oversikt over tilskuddsordninger",
           "file": "brukerhistorie-tester.js",
-          "line": 10,
+          "line": 11,
           "column": 6,
           "specs": [
             {
@@ -87,12 +87,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 395,
+                      "duration": 263,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:16.109Z",
+                      "startTime": "2026-05-06T11:08:32.117Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -102,7 +102,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-0ae50a4e82064b8d9af4",
               "file": "brukerhistorie-tester.js",
-              "line": 12,
+              "line": 13,
               "column": 3
             },
             {
@@ -121,12 +121,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 615,
+                      "duration": 612,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:16.566Z",
+                      "startTime": "2026-05-06T11:08:32.448Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -136,7 +136,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-dfe4f531f824d51d937d",
               "file": "brukerhistorie-tester.js",
-              "line": 17,
+              "line": 18,
               "column": 3
             },
             {
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 316,
+                      "duration": 290,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:17.186Z",
+                      "startTime": "2026-05-06T11:08:33.065Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -170,7 +170,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-9877e45e6c706a4fa99a",
               "file": "brukerhistorie-tester.js",
-              "line": 23,
+              "line": 24,
               "column": 3
             }
           ]
@@ -178,7 +178,7 @@
         {
           "title": "BH-2: Som søker vil jeg søke etter en tilskuddsordning",
           "file": "brukerhistorie-tester.js",
-          "line": 35,
+          "line": 36,
           "column": 6,
           "specs": [
             {
@@ -197,12 +197,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 282,
+                      "duration": 304,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:17.512Z",
+                      "startTime": "2026-05-06T11:08:33.364Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -212,7 +212,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-4eca85eeeee85cd8bd12",
               "file": "brukerhistorie-tester.js",
-              "line": 37,
+              "line": 38,
               "column": 3
             },
             {
@@ -231,12 +231,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 225,
+                      "duration": 244,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:17.798Z",
+                      "startTime": "2026-05-06T11:08:33.672Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -246,7 +246,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-6e04f204d14671bab629",
               "file": "brukerhistorie-tester.js",
-              "line": 45,
+              "line": 46,
               "column": 3
             },
             {
@@ -265,12 +265,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 240,
+                      "duration": 244,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:18.027Z",
+                      "startTime": "2026-05-06T11:08:33.921Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -280,7 +280,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-10c293ba337b3879c654",
               "file": "brukerhistorie-tester.js",
-              "line": 55,
+              "line": 56,
               "column": 3
             }
           ]
@@ -288,7 +288,7 @@
         {
           "title": "BH-3: Som innlogget søker vil jeg se mine søknader",
           "file": "brukerhistorie-tester.js",
-          "line": 67,
+          "line": 68,
           "column": 6,
           "specs": [
             {
@@ -307,12 +307,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 270,
+                      "duration": 354,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:18.273Z",
+                      "startTime": "2026-05-06T11:08:34.169Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,7 +322,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-4e3358768d4c389ec549",
               "file": "brukerhistorie-tester.js",
-              "line": 69,
+              "line": 70,
               "column": 3
             },
             {
@@ -341,12 +341,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1378,
+                      "duration": 357,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:18.547Z",
+                      "startTime": "2026-05-06T11:08:34.527Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,7 +356,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-9992419c69b51b93c958",
               "file": "brukerhistorie-tester.js",
-              "line": 74,
+              "line": 75,
               "column": 3
             },
             {
@@ -375,12 +375,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1025,
+                      "duration": 1936,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:19.930Z",
+                      "startTime": "2026-05-06T11:08:34.889Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -390,7 +390,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-3bb1d806dfeb7df35c9f",
               "file": "brukerhistorie-tester.js",
-              "line": 80,
+              "line": 81,
               "column": 3
             }
           ]
@@ -398,7 +398,7 @@
         {
           "title": "BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning",
           "file": "brukerhistorie-tester.js",
-          "line": 91,
+          "line": 94,
           "column": 6,
           "specs": [
             {
@@ -417,12 +417,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1165,
+                      "duration": 1178,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:20.961Z",
+                      "startTime": "2026-05-06T11:08:36.832Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -432,7 +432,7 @@
               ],
               "id": "2d51df8f2a7ee4965639-37e9bde47be2254f01b4",
               "file": "brukerhistorie-tester.js",
-              "line": 93,
+              "line": 96,
               "column": 3
             },
             {
@@ -451,12 +451,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 257,
+                      "duration": 291,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-06T10:43:22.133Z",
+                      "startTime": "2026-05-06T11:08:38.017Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -466,7 +466,207 @@
               ],
               "id": "2d51df8f2a7ee4965639-77c9dd97a141556f5526",
               "file": "brukerhistorie-tester.js",
-              "line": 103,
+              "line": 106,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen",
+          "file": "brukerhistorie-tester.js",
+          "line": 117,
+          "column": 6,
+          "specs": [
+            {
+              "title": "skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5295,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:128:29",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 29,
+                          "line": 128
+                        },
+                        "snippet": "  126 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  127 |     ).first();\n> 128 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  129 |   });\n  130 |\n  131 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 29,
+                            "line": 128
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\nExpected: attached\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"#main\"], a[href=\"#maincontent\"], a[href=\"#main-content\"], a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]').first()\u001b[22m\n\n\n  126 |       'a[href=\"#innhold\"], a.skip-link, a[class*=\"skip\"]'\n  127 |     ).first();\n> 128 |     await expect(skipLenke).toBeAttached();\n      |                             ^\n  129 |   });\n  130 |\n  131 |   test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:128:29"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-06T11:08:38.318Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-40763-ld-finnes-i-DOM-WCAG-2-4-1-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 29,
+                        "line": 128
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-4d65b02f08c7f860f154",
+              "file": "brukerhistorie-tester.js",
+              "line": 119,
+              "column": 3
+            },
+            {
+              "title": "skiplink er første fokuserbare element ved Tab-navigasjon",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 302,
+                      "error": {
+                        "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m",
+                        "stack": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:138:84",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 84,
+                          "line": 138
+                        },
+                        "snippet": "  136 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  137 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 138 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  139 |   });\n  140 |\n  141 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 84,
+                            "line": 138
+                          },
+                          "message": "Error: Første Tab-stopp bør være en skiplink til #main eller #innhold\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: \u001b[32m/#main|#innhold|#content|#skip/\u001b[39m\nReceived string:  \u001b[31m\"/\"\u001b[39m\n\n  136 |     // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke\n  137 |     const href = await page.locator(':focus').getAttribute('href').catch(() => '');\n> 138 |     expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);\n      |                                                                                    ^\n  139 |   });\n  140 |\n  141 |   test('søkeskjema er merket med role=\"search\" for skjermlesere', async ({ page }) => {\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:138:84"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-06T11:08:43.921Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-e418c--element-ved-Tab-navigasjon/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 84,
+                        "line": 138
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-165c0b70b0b03816c00a",
+              "file": "brukerhistorie-tester.js",
+              "line": 131,
+              "column": 3
+            },
+            {
+              "title": "søkeskjema er merket med role=\"search\" for skjermlesere",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15229,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:145:32",
+                        "location": {
+                          "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                          "column": 32,
+                          "line": 145
+                        },
+                        "snippet": "  143 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  144 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 145 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  146 |   });\n  147 |\n  148 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                            "column": 32,
+                            "line": 145
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[role=\"search\"]').first()\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[role=\"search\"]').first()\u001b[22m\n\n\n  143 |     // Forventer: søkecontaineren er annotert med role=\"search\" (WCAG)\n  144 |     const searchRegion = page.locator('[role=\"search\"]').first();\n> 145 |     await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });\n      |                                ^\n  146 |   });\n  147 |\n  148 | });\n    at /Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js:145:32"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-06T11:08:44.522Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-resultater/traces/brukerhistorie-tester.js-B-fc80c-ole-search-for-skjermlesere/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/ummearkhan/tester-KSTilskudd/brukerhistorie-tester.js",
+                        "column": 32,
+                        "line": 145
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2d51df8f2a7ee4965639-e1fc8ad34ca095a4d40c",
+              "file": "brukerhistorie-tester.js",
+              "line": 141,
               "column": 3
             }
           ]
@@ -476,11 +676,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-06T10:43:14.061Z",
-    "duration": 8359.945,
+    "startTime": "2026-05-06T11:08:29.707Z",
+    "duration": 30133.329,
     "expected": 11,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 3,
     "flaky": 0
   }
 }

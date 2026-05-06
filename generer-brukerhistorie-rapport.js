@@ -2,6 +2,7 @@
 // Les brukerhistorie-resultater/brukerhistorie-resultat.json og generer docs/brukerhistorie-rapport.html
 
 import fs from 'fs';
+import path from 'path';
 
 const jsonPath = 'brukerhistorie-resultater/brukerhistorie-resultat.json';
 const utPath   = 'docs/brukerhistorie-rapport.html';
@@ -36,6 +37,18 @@ function esc(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function lesSkjermbilder(id) {
+  const dir = 'brukerhistorie-resultater/skjermbilder';
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter(f => f.startsWith(`${id}-`) && f.endsWith('.png'))
+    .sort()
+    .map(f => ({
+      filnavn: f,
+      base64: fs.readFileSync(path.join(dir, f)).toString('base64'),
+    }));
 }
 
 function bhId(title) {
@@ -87,6 +100,19 @@ function bhSeksjoner() {
       </div>`;
     }).join('\n');
 
+    const skjermbilder = lesSkjermbilder(id);
+    const skjermbildeHtml = skjermbilder.length > 0 ? `
+    <div class="skjermbilde-galleri">
+      <h3>Skjermbilder</h3>
+      <div class="skjermbilde-grid">
+        ${skjermbilder.map(s => `
+        <figure class="skjermbilde-fig">
+          <img src="data:image/png;base64,${s.base64}" alt="${esc(s.filnavn)}" class="skjermbilde">
+          <figcaption>${esc(s.filnavn.replace(/^BH-\d+-/, '').replace(/-/g, ' ').replace('.png', ''))}</figcaption>
+        </figure>`).join('')}
+      </div>
+    </div>` : '';
+
     return `  <section class="side-seksjon" id="bh-${esc(id)}">
     <div class="side-header">
       <div>
@@ -98,6 +124,7 @@ function bhSeksjoner() {
       <h3>Akseptansekriterier (${specs.length} tester)</h3>
 ${specRader}
     </div>
+    ${skjermbildeHtml}
   </section>`;
   }).join('\n\n');
 }
@@ -169,6 +196,13 @@ const html = `<!DOCTYPE html>
 
   .badge{display:inline-block;padding:.15rem .6rem;border-radius:100px;font-size:.7rem;font-weight:600}
   .badge.critical{background:#fee2e2;color:#c53030}
+
+  .skjermbilde-galleri{margin-top:1.4rem}
+  .skjermbilde-galleri h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0a1355;margin-bottom:.9rem;padding-bottom:.4rem;border-bottom:1px solid #f4ecdf}
+  .skjermbilde-grid{display:flex;flex-wrap:wrap;gap:1rem}
+  .skjermbilde-fig{flex:1 1 260px;max-width:100%}
+  .skjermbilde{width:100%;border:1px solid #e5e3de;border-radius:4px;box-shadow:0 2px 8px rgba(10,19,85,.1)}
+  figcaption{font-size:.68rem;color:#9ca3af;margin-top:.3rem;text-transform:capitalize}
 
   footer{text-align:center;padding:2.5rem;color:#9ca3af;font-size:.78rem;border-top:1px solid #f1f0ee;margin-top:2rem}
 </style>

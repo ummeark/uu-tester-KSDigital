@@ -3,6 +3,7 @@
 // Hver test.describe tilsvarer én brukerhistorie med akseptansekriterier som test()-steg.
 import { test, expect } from '@playwright/test';
 import { START_URL, SIDE_TIMEOUT, IDLE_TIMEOUT } from './config.js';
+import fs from 'fs';
 
 const base = START_URL.replace(/\/$/, '');
 
@@ -87,6 +88,8 @@ test.describe('BH-3: Som innlogget søker vil jeg se mine søknader', () => {
 
 });
 
+const SKJERMBILDER = 'brukerhistorie-resultater/skjermbilder';
+
 // ── BH-4 ─────────────────────────────────────────────────────────────────────
 test.describe('BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning', () => {
 
@@ -106,6 +109,40 @@ test.describe('BH-4: Som søker vil jeg kunne navigere tilbake fra en utlysning'
     await expect(page).toHaveURL(/utlysinger/);
     const body = await page.textContent('body');
     expect(body).not.toMatch(/500|Internal Server Error|Uventet feil/);
+  });
+
+});
+
+// ── BH-5 ─────────────────────────────────────────────────────────────────────
+test.describe('BH-5: Som søker med hjelpemiddelteknologi vil jeg hoppe over navigasjonen', () => {
+
+  test('skiplink til hovedinnhold finnes i DOM (WCAG 2.4.1)', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    fs.mkdirSync(SKJERMBILDER, { recursive: true });
+    await page.screenshot({ path: `${SKJERMBILDER}/BH-5-side-uten-skiplink.png` });
+    // Forventer: <a href="#main"> eller tilsvarende skiplink øverst på siden
+    const skipLenke = page.locator(
+      'a[href="#main"], a[href="#maincontent"], a[href="#main-content"], ' +
+      'a[href="#innhold"], a.skip-link, a[class*="skip"]'
+    ).first();
+    await expect(skipLenke).toBeAttached();
+  });
+
+  test('skiplink er første fokuserbare element ved Tab-navigasjon', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    await page.keyboard.press('Tab');
+    fs.mkdirSync(SKJERMBILDER, { recursive: true });
+    await page.screenshot({ path: `${SKJERMBILDER}/BH-5-foerste-tab-fokus.png` });
+    // Forventer: første Tab-stopp er skiplink, ikke logo/menylenke
+    const href = await page.locator(':focus').getAttribute('href').catch(() => '');
+    expect(href, 'Første Tab-stopp bør være en skiplink til #main eller #innhold').toMatch(/#main|#innhold|#content|#skip/);
+  });
+
+  test('søkeskjema er merket med role="search" for skjermlesere', async ({ page }) => {
+    await page.goto(`${base}/utlysinger`, { timeout: IDLE_TIMEOUT });
+    // Forventer: søkecontaineren er annotert med role="search" (WCAG)
+    const searchRegion = page.locator('[role="search"]').first();
+    await expect(searchRegion).toBeVisible({ timeout: SIDE_TIMEOUT });
   });
 
 });
