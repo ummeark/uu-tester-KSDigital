@@ -35,3 +35,7 @@ To https://github.com/ummeark/tester-KSTilskudd-TEST.git
 🔍 Validerer miljøseparasjon (TEST – tilskudd.fiks.test.ks.no)...
 [0;32m✅ Miljøvalidering OK – ingen PROD-kontaminering i TEST-repo[0m
 fatal: unable to access 'https://github.com/ummeark/tester-KSTilskudd-TEST.git/': Could not resolve host: github.com
+🔍 Validerer miljøseparasjon (TEST – tilskudd.fiks.test.ks.no)...
+[0;32m✅ Miljøvalidering OK – ingen PROD-kontaminering i TEST-repo[0m
+To https://github.com/ummeark/tester-KSTilskudd-TEST.git
+   398f289..675ef33  main -> main
