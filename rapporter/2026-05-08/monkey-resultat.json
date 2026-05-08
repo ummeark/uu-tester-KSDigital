@@ -1,0 +1,161 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-08",
+  "versjon": "v0.5.1",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 10,
+    "jsErrors": 1,
+    "konsollFeil": 24,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 20
+  },
+  "score": 20,
+  "jsErrors": [
+    {
+      "melding": "Minified React error #419; visit https://react.dev/errors/419 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "stack": "",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tid": "2026-05-08T06:30:43.233Z"
+    }
+  ],
+  "konsollFeil": [
+    {
+      "melding": "Input dateString is in the wrong format: 30. november 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.150Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.150Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.150Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.150Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 30. november 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.250Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.251Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.251Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:41.251Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+      "tid": "2026-05-08T06:30:42.051Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+      "tid": "2026-05-08T06:30:42.051Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 30. november 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:42.090Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:42.091Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:42.091Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:42.091Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-08T06:30:42.481Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tid": "2026-05-08T06:30:43.077Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 30. november 2026",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:43.130Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:43.130Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:43.130Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-08T06:30:43.130Z"
+    },
+    {
+      "melding": "Input dateString is in the wrong format: 31. desember 2025",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tid": "2026-05-08T06:30:43.231Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%220%22&currentPage=1&pageSize=10",
+      "tid": "2026-05-08T06:30:51.728Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-08T06:30:52.180Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at nc.from (https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/main-Bd-y_W4h.js:19:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+      "tid": "2026-05-08T06:30:52.576Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+    "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+    "https://tilskudd.fiks.test.ks.no/soknad/opprett?tilskuddsregisterId=553b5d8c-209e-410e-88c6-a6cb79d714dc",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%220%22&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=Test+bruker&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=qr97m9d8q8c+skdepbj0b4+xfdkbuxw00j+92tksy83kvn+iacecvfs0g7+x23o8kze5sa+3xoe6me3853+ju5e6w7eth&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10"
+  ]
+}
