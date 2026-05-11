@@ -74,12 +74,15 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/ummeark/tester-KSTilskudd-TEST.git"
-          git pull --rebase origin main
           git add rapporter/ docs/
           DATO=$(date '+%Y-%m-%d %H:%M')
-          git diff --staged --quiet && echo "Ingen nye rapporter å publisere" || \
+          if git diff --staged --quiet; then
+            echo "Ingen nye rapporter å publisere"
+          else
             git commit --no-verify -m "Testrapport GitHub Actions ${DATO} – ${{ inputs.test }}"
-          git push origin main
+            git pull --rebase origin main
+            git push origin main
+          fi
 
       - name: ✅ Bekreft publisering
         run: |
