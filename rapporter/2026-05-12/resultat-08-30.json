@@ -1,0 +1,3349 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-12",
+  "versjon": "v0.6.0",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "sider": 15,
+    "wcagBrudd": 1,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "moderate": 1,
+    "mindre": 0,
+    "dødelenker": 5,
+    "knapper": 11,
+    "knappUtenLabel": 0,
+    "bilder": 49,
+    "bilderUtenAlt": 0,
+    "skjemafelt": 2,
+    "feltUtenLabel": 0,
+    "tastaturFeil": 0,
+    "tastaturAdvarsel": 3,
+    "reflowFeil": 0,
+    "reflowAdvarsel": 0,
+    "tekstmellomromFeil": 0,
+    "tekstmellomromAdvarsel": 0
+  },
+  "tastatur": {
+    "tester": [
+      {
+        "kategori": "synligfokus",
+        "wcag": "2.4.7",
+        "navn": "Synlig fokus på interaktive elementer",
+        "resultat": "advarsel",
+        "detalj": "3 element(er) uten synlig fokus: A \"Logg inn\", A \"Logg inn\""
+      },
+      {
+        "kategori": "tabindeks",
+        "wcag": "2.4.3",
+        "navn": "Ingen tabindex > 0",
+        "resultat": "bestått",
+        "detalj": ""
+      },
+      {
+        "kategori": "rekkevidden",
+        "wcag": "2.1.1",
+        "navn": "Interaktive elementer nåbare via Tab",
+        "resultat": "bestått",
+        "detalj": "5 elementer nådd (6 i DOM)"
+      },
+      {
+        "kategori": "tastaturfelle",
+        "wcag": "2.1.2",
+        "navn": "Ingen tastaturfelle",
+        "resultat": "bestått",
+        "detalj": ""
+      },
+      {
+        "kategori": "hopplenke",
+        "wcag": "2.4.1",
+        "navn": "Hopplenke til hovedinnhold",
+        "resultat": "advarsel",
+        "detalj": "Første Tab: A \"ks tilskudd\""
+      },
+      {
+        "kategori": "aktivering",
+        "wcag": "2.1.1",
+        "navn": "Enter aktiverer navigasjonslenke",
+        "resultat": "advarsel",
+        "detalj": "Ingen navigasjonslenke aktivert i de første 15 Tab-stegene"
+      }
+    ],
+    "bestått": 3,
+    "feil": 0,
+    "advarsel": 3
+  },
+  "reflow": {
+    "tester": [
+      {
+        "kategori": "reflow",
+        "wcag": "1.4.10",
+        "navn": "Ingen horisontal rulling ved 320px (400 % zoom)",
+        "resultat": "bestått",
+        "detalj": "Ingen horisontal rulling ved 320px bredde"
+      },
+      {
+        "kategori": "klipping",
+        "wcag": "1.4.10",
+        "navn": "Innhold ikke avskåret ved 320px",
+        "resultat": "bestått",
+        "detalj": ""
+      }
+    ],
+    "bestått": 2,
+    "feil": 0,
+    "advarsel": 0
+  },
+  "tekstmellomrom": {
+    "tester": [
+      {
+        "kategori": "klipping",
+        "wcag": "1.4.12",
+        "navn": "Ingen tekstklipping ved økt linjehøyde og bokstavmellomrom",
+        "resultat": "bestått",
+        "detalj": ""
+      },
+      {
+        "kategori": "overflyt",
+        "wcag": "1.4.12",
+        "navn": "Ingen horisontal overflyt etter økt tekstmellomrom",
+        "resultat": "bestått",
+        "detalj": ""
+      }
+    ],
+    "bestått": 2,
+    "feil": 0,
+    "advarsel": 0
+  },
+  "sider": [
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tittel": "KS Tilskudd - Min side",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 33,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 9,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Utkast",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Under behandling",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=under+behandling",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Avsluttede",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=avsluttede",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tyttebær Ledende",
+            "href": "https://tilskudd.fiks.test.ks.no/logout",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad - Næringsfond Hardanger 2026\n\nMORALSK MARITIM FJELLREV\n\nSøknadsfrist 31. desember 2025",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad på vegne av kunde\n\nFAMØS SMIDIG TIGER AS\n\nSøknadsfrist 31. desember 2025",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad på Kommunalt næringsfond\n\nMORALSK MARITIM FJELLREV\n\nSøknadsfrist 30. november 2026",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "KS Tilskudd"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Dine utkast"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/logout",
+        "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+        "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no",
+      "tittel": "KS Tilskudd - Hjem",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 35,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 3,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "reset",
+          "tekst": "Tøm",
+          "harLabel": true,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "type": "submit",
+          "tekst": "Søk",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [],
+      "skjemafelt": [
+        {
+          "type": "search",
+          "id": ":mp2943fm9ve",
+          "navn": "search",
+          "labelTekst": "Finn tilskuddsordninger ved å søke etter navn, forvalter eller beskrivelse.",
+          "påkrevd": false,
+          "harLabel": true
+        }
+      ],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Nasjonal portal for søknad om offentlige tilskudd"
+          },
+          {
+            "nivå": 2,
+            "tekst": "En felles løsning for næringstilskudd"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/minside",
+      "tittel": "KS Tilskudd - Min side",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 33,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 9,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Utkast",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Under behandling",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=under+behandling",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Avsluttede",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=avsluttede",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tyttebær Ledende",
+            "href": "https://tilskudd.fiks.test.ks.no/logout",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad - Næringsfond Hardanger 2026\n\nMORALSK MARITIM FJELLREV\n\nUtkast",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad på vegne av kunde\n\nFAMØS SMIDIG TIGER AS\n\nUtkast",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søknad på Kommunalt næringsfond\n\nMORALSK MARITIM FJELLREV\n\nUtkast",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "KS Tilskudd"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Dine søknader"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/logout",
+        "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+        "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/logout",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 30,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 6,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Utlogget",
+            "href": "https://tilskudd.fiks.test.ks.no/om",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Utlogget"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/om"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      "tittel": "ID-porten",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 36,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 5,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "Bokmål",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nb",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Nynorsk",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nn",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Davvisámegiella",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=se",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "English",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=en",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid1",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID på nivå høyt\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid2",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "MinID\n\nApp eller engangskode",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/minid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "BankID\n\nBruk BankID-app eller kodebrikke",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/bankid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Buypass\n\nBruk Buypass ID på smartkort, mobil eller nøkkel",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/buypass",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Commfides\n\nMed smartkort",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/commfides",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Digital lommebok\n\nMed din digitale lommebok",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/eudiw",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Sikkerhet og personvern",
+            "href": "https://www.norge.no/nb/personopplysninger-nar-du-logger-inn/61",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilgjengelighetserklæring for ID-porten",
+            "href": "https://uustatus.no/nb/erklaringer/publisert/bb14c7d3-c008-47e0-be65-cfa6eb74ff82",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjelp til innlogging",
+            "href": "https://www.norge.no/nb/hjelp-og-kontakt/52",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Meny",
+          "harLabel": true,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Language",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [
+        {
+          "src": "logo-idporten.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        },
+        {
+          "src": "logo-idporten-bare.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-bare.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 25,
+          "høyde": 25
+        },
+        {
+          "src": "service-provider-placeholder.png",
+          "fullSrc": "/img/service-providers/service-provider-placeholder.png",
+          "alt": "Tilskudd idporten test",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 73,
+          "høyde": 32
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "minid-logo.svg",
+          "fullSrc": "/img/providers/minid-logo.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 300,
+          "høyde": 75
+        },
+        {
+          "src": "bankid.svg",
+          "fullSrc": "/img/providers/bankid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 240,
+          "høyde": 150
+        },
+        {
+          "src": "buypass.svg",
+          "fullSrc": "/img/providers/buypass.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "commfides.svg",
+          "fullSrc": "/img/providers/commfides.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "logo-eu-digital-identity-wallet.svg",
+          "fullSrc": "/img/providers/logo-eu-digital-identity-wallet.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 126,
+          "høyde": 42
+        },
+        {
+          "src": "logo-idporten-negative.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-negative.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Velg innloggingsmetode"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID på nivå høyt"
+          },
+          {
+            "nivå": 2,
+            "tekst": "MinID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "BankID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Buypass"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Commfides"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Digital lommebok"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Viktige lenker"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kontakt"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": []
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601",
+      "tittel": "ID-porten",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 36,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 5,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "Bokmål",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nb",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Nynorsk",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nn",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Davvisámegiella",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=se",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "English",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=en",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid1",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID på nivå høyt\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid2",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "MinID\n\nApp eller engangskode",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/minid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "BankID\n\nBruk BankID-app eller kodebrikke",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/bankid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Buypass\n\nBruk Buypass ID på smartkort, mobil eller nøkkel",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/buypass",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Commfides\n\nMed smartkort",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/commfides",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Digital lommebok\n\nMed din digitale lommebok",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/eudiw",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Sikkerhet og personvern",
+            "href": "https://www.norge.no/nb/personopplysninger-nar-du-logger-inn/61",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilgjengelighetserklæring for ID-porten",
+            "href": "https://uustatus.no/nb/erklaringer/publisert/bb14c7d3-c008-47e0-be65-cfa6eb74ff82",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjelp til innlogging",
+            "href": "https://www.norge.no/nb/hjelp-og-kontakt/52",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Meny",
+          "harLabel": true,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Language",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [
+        {
+          "src": "logo-idporten.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        },
+        {
+          "src": "logo-idporten-bare.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-bare.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 25,
+          "høyde": 25
+        },
+        {
+          "src": "service-provider-placeholder.png",
+          "fullSrc": "/img/service-providers/service-provider-placeholder.png",
+          "alt": "Tilskudd idporten test",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 73,
+          "høyde": 32
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "minid-logo.svg",
+          "fullSrc": "/img/providers/minid-logo.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 300,
+          "høyde": 75
+        },
+        {
+          "src": "bankid.svg",
+          "fullSrc": "/img/providers/bankid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 240,
+          "høyde": 150
+        },
+        {
+          "src": "buypass.svg",
+          "fullSrc": "/img/providers/buypass.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "commfides.svg",
+          "fullSrc": "/img/providers/commfides.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "logo-eu-digital-identity-wallet.svg",
+          "fullSrc": "/img/providers/logo-eu-digital-identity-wallet.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 126,
+          "høyde": 42
+        },
+        {
+          "src": "logo-idporten-negative.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-negative.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Velg innloggingsmetode"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID på nivå høyt"
+          },
+          {
+            "nivå": 2,
+            "tekst": "MinID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "BankID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Buypass"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Commfides"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Digital lommebok"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Viktige lenker"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kontakt"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": []
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf",
+      "tittel": "ID-porten",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 36,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 5,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "Bokmål",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nb",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Nynorsk",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nn",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Davvisámegiella",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=se",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "English",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=en",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid1",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID på nivå høyt\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid2",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "MinID\n\nApp eller engangskode",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/minid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "BankID\n\nBruk BankID-app eller kodebrikke",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/bankid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Buypass\n\nBruk Buypass ID på smartkort, mobil eller nøkkel",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/buypass",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Commfides\n\nMed smartkort",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/commfides",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Digital lommebok\n\nMed din digitale lommebok",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/eudiw",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Sikkerhet og personvern",
+            "href": "https://www.norge.no/nb/personopplysninger-nar-du-logger-inn/61",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilgjengelighetserklæring for ID-porten",
+            "href": "https://uustatus.no/nb/erklaringer/publisert/bb14c7d3-c008-47e0-be65-cfa6eb74ff82",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjelp til innlogging",
+            "href": "https://www.norge.no/nb/hjelp-og-kontakt/52",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Meny",
+          "harLabel": true,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Language",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [
+        {
+          "src": "logo-idporten.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        },
+        {
+          "src": "logo-idporten-bare.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-bare.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 25,
+          "høyde": 25
+        },
+        {
+          "src": "service-provider-placeholder.png",
+          "fullSrc": "/img/service-providers/service-provider-placeholder.png",
+          "alt": "Tilskudd idporten test",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 73,
+          "høyde": 32
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "minid-logo.svg",
+          "fullSrc": "/img/providers/minid-logo.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 300,
+          "høyde": 75
+        },
+        {
+          "src": "bankid.svg",
+          "fullSrc": "/img/providers/bankid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 240,
+          "høyde": 150
+        },
+        {
+          "src": "buypass.svg",
+          "fullSrc": "/img/providers/buypass.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "commfides.svg",
+          "fullSrc": "/img/providers/commfides.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "logo-eu-digital-identity-wallet.svg",
+          "fullSrc": "/img/providers/logo-eu-digital-identity-wallet.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 126,
+          "høyde": 42
+        },
+        {
+          "src": "logo-idporten-negative.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-negative.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Velg innloggingsmetode"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID på nivå høyt"
+          },
+          {
+            "nivå": 2,
+            "tekst": "MinID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "BankID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Buypass"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Commfides"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Digital lommebok"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Viktige lenker"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kontakt"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": []
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger",
+      "tittel": "KS Tilskudd - Tilskuddsordninger",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 32,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 10,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Forskning og innovasjon i bedrift",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "BIO-midlar 2026",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Stimuleringsmidler til internasjonalt samarbeid i Østfold",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Kommunalt næringsfond Kristiansund 2026",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Arktis 2030",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "reset",
+          "tekst": "Tøm",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [],
+      "skjemafelt": [
+        {
+          "type": "search",
+          "id": "(ingen id)",
+          "navn": "",
+          "labelTekst": "Søk",
+          "påkrevd": false,
+          "harLabel": true
+        }
+      ],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Tilskuddsordninger"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Forskning og innovasjon i bedrift"
+          },
+          {
+            "nivå": 2,
+            "tekst": "BIO-midlar 2026"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Stimuleringsmidler til internasjonalt samarbeid i Østfold"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kommunalt næringsfond Kristiansund 2026"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Arktis 2030"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+        "https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5",
+        "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+        "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+        "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/om",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 1,
+        "bestått": 29,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 1,
+        "mindre": 0,
+        "detaljer": [
+          {
+            "id": "landmark-unique",
+            "impact": "moderate",
+            "tags": [
+              "cat.semantics",
+              "best-practice"
+            ],
+            "description": "Ensure landmarks are unique",
+            "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=playwright",
+            "nodes": [
+              {
+                "any": [
+                  {
+                    "id": "landmark-is-unique",
+                    "data": {
+                      "role": "navigation",
+                      "accessibleText": null
+                    },
+                    "relatedNodes": [
+                      {
+                        "html": "<nav class=\"_navigation_1ibai_11\">",
+                        "target": [
+                          "._page_kovxa_1 > header > ._navigation_1ibai_11"
+                        ]
+                      }
+                    ],
+                    "impact": "moderate",
+                    "message": "The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+                  }
+                ],
+                "all": [],
+                "none": [],
+                "impact": "moderate",
+                "html": "<nav class=\"_navigation_1ibai_11\">",
+                "target": [
+                  "body > header > ._navigation_1ibai_11"
+                ],
+                "failureSummary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+              }
+            ],
+            "bilder": {
+              "nærbilde": "skjermbilder/s9-landmark-unique-0-element.png",
+              "helside": "skjermbilder/s9-landmark-unique-0-side.png"
+            }
+          }
+        ]
+      },
+      "lenker": {
+        "totalt": 8,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Om oss",
+            "href": "https://tilskudd.fiks.test.ks.no/om",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Om KS Tilskudd"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Ofte stilte spørsmål"
+          },
+          {
+            "nivå": 2,
+            "tekst": "For søkere"
+          },
+          {
+            "nivå": 2,
+            "tekst": "For forvaltere"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/om"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 33,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 6,
+        "døde": [
+          {
+            "tekst": "rk@eksempel.no",
+            "href": "email:rk@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s10-doede-lenker-side.png"
+            }
+          }
+        ],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "rk@eksempel.no",
+            "href": "email:rk@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s10-doede-lenker-side.png"
+            }
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [
+        {
+          "src": "3200.png",
+          "fullSrc": "https://static.fiks.ks.no/img/kommunevaapen/3200.png",
+          "alt": "Skjold",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 101,
+          "høyde": 120
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Forskning og innovasjon i bedrift"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Mål for ordningen"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hvem kan søke"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Satsingsområder"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hva dere kan få tilskudd til"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Krav for å motta støtte"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hvor mye støtte kan dere få?"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Retningslinjer"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Løpende"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Rund Klasse"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 33,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 5,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "4745459988",
+            "href": "tel:4745459988",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [
+        {
+          "src": "4600.png",
+          "fullSrc": "https://static.fiks.ks.no/img/kommunevaapen/4600.png",
+          "alt": "Skjold",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 96,
+          "høyde": 117
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "BIO-midlar 2026"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kven kan søke"
+          },
+          {
+            "nivå": 2,
+            "tekst": "I 2026 blir midlane retta mot"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hovudkrav til søknaden"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Merk følgande avgrensingar"
+          },
+          {
+            "nivå": 2,
+            "tekst": "20. september 2025 kl. 00:00"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Lang Billett"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 34,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 8,
+        "døde": [
+          {
+            "tekst": "mm@eksempel.no",
+            "href": "email:mm@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s12-doede-lenker-side.png"
+            }
+          }
+        ],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "www.regionalforvaltning.no",
+            "href": "https://www.regionalforvaltning.no",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "espenho@ofk.no",
+            "href": "mailto:espenho@ofk.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Søk om tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/opprett?tilskuddsregisterId=7082abd8-4f23-43e9-adce-c4762b848b81",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "4798765432",
+            "href": "tel:4798765432",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "mm@eksempel.no",
+            "href": "email:mm@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s12-doede-lenker-side.png"
+            }
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [
+        {
+          "src": "3100.png",
+          "fullSrc": "https://static.fiks.ks.no/img/kommunevaapen/3100.png",
+          "alt": "Skjold",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 104,
+          "høyde": 120
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Stimuleringsmidler til internasjonalt samarbeid i Østfold"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Formål"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Om ordningen"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hvem kan søke"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Slik søker du"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Tildelingskriterier"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Vilkår for støtte"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Behandling av søknaden"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Rapportering"
+          },
+          {
+            "nivå": 2,
+            "tekst": "30. november 2026 kl. 00:00"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Østfold Internasjonale Avdeling"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/soknad/opprett"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 34,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 10,
+        "døde": [
+          {
+            "tekst": "ak@eksempel.no",
+            "href": "email:ak@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s13-doede-lenker-side.png"
+            }
+          },
+          {
+            "tekst": "mm@eksempel.no",
+            "href": "email:mm@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s13-doede-lenker-side.png"
+            }
+          }
+        ],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "www.regionalforvaltning.no",
+            "href": "https://www.regionalforvaltning.no",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "www.regionalforvaltning.no",
+            "href": "https://www.regionalforvaltning.no",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "postmottak@kristiansund.kommune.no",
+            "href": "mailto:postmottak@kristiansund.kommune.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Søk om tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/opprett?tilskuddsregisterId=cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "4799887766",
+            "href": "tel:4799887766",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "ak@eksempel.no",
+            "href": "email:ak@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s13-doede-lenker-side.png"
+            }
+          },
+          {
+            "tekst": "4798765432",
+            "href": "tel:4798765432",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "4798765432",
+            "href": "tel:4798765432",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "mm@eksempel.no",
+            "href": "email:mm@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s13-doede-lenker-side.png"
+            }
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [
+        {
+          "src": "1505.png",
+          "fullSrc": "https://static.fiks.ks.no/img/kommunevaapen/1505.png",
+          "alt": "Skjold",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 83,
+          "høyde": 120
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Kommunalt næringsfond Kristiansund 2026"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Hvem kan søke"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Slik søker du"
+          },
+          {
+            "nivå": 2,
+            "tekst": "31. august 2026 kl. 00:00"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Aktuell Kanin"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Urolig Kråke"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kristiansand Næringsråd"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/soknad/opprett"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+      "tittel": "KS Tilskudd",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 33,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 7,
+        "døde": [
+          {
+            "tekst": "lg@eksempel.no",
+            "href": "email:lg@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s14-doede-lenker-side.png"
+            }
+          }
+        ],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "KS Tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Logg inn",
+            "href": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjem",
+            "href": "https://tilskudd.fiks.test.ks.no/",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilskuddsordninger",
+            "href": "https://tilskudd.fiks.test.ks.no/utlysinger",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Søk om tilskudd",
+            "href": "https://tilskudd.fiks.test.ks.no/soknad/opprett?tilskuddsregisterId=72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+            "intern": true,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "4799887766",
+            "href": "tel:4799887766",
+            "intern": false,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "lg@eksempel.no",
+            "href": "email:lg@eksempel.no",
+            "intern": false,
+            "harTekst": true,
+            "status": "feil",
+            "ok": false,
+            "bilder": {
+              "nærbilde": null,
+              "helside": "skjermbilder/s14-doede-lenker-side.png"
+            }
+          }
+        ]
+      },
+      "knapper": [],
+      "bilder": [
+        {
+          "src": "5500.png",
+          "fullSrc": "https://static.fiks.ks.no/img/kommunevaapen/5500.png",
+          "alt": "Skjold",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 101,
+          "høyde": 120
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Arktis 2030"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Informasjon"
+          },
+          {
+            "nivå": 2,
+            "tekst": "10. november 2026 kl. 00:00"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Lojal Gardin"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": "Du er her:"
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": [
+        "https://tilskudd.fiks.test.ks.no",
+        "https://tilskudd.fiks.test.ks.no/utlysinger",
+        "https://tilskudd.fiks.test.ks.no/minside",
+        "https://tilskudd.fiks.test.ks.no/soknad/opprett"
+      ]
+    },
+    {
+      "url": "https://tilskudd.fiks.test.ks.no/soknad/opprett",
+      "tittel": "ID-porten",
+      "wcag": {
+        "brudd": 0,
+        "bestått": 36,
+        "kritiske": 0,
+        "alvorlige": 0,
+        "moderate": 0,
+        "mindre": 0,
+        "detaljer": []
+      },
+      "lenker": {
+        "totalt": 5,
+        "døde": [],
+        "tomTekst": [],
+        "alle": [
+          {
+            "tekst": "Bokmål",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nb",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Nynorsk",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=nn",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Davvisámegiella",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=se",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "English",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/selector?lang=en",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid1",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "TestID på nivå høyt\n\nLag din egen testbruker",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/testid2",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "MinID\n\nApp eller engangskode",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/minid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "BankID\n\nBruk BankID-app eller kodebrikke",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/bankid",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Buypass\n\nBruk Buypass ID på smartkort, mobil eller nøkkel",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/buypass",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Commfides\n\nMed smartkort",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/commfides",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Digital lommebok\n\nMed din digitale lommebok",
+            "href": "https://tilskudd.fiks.test.ks.no/authorize/eudiw",
+            "intern": true,
+            "harTekst": true,
+            "status": "skip",
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Sikkerhet og personvern",
+            "href": "https://www.norge.no/nb/personopplysninger-nar-du-logger-inn/61",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Slik skaffer du deg elektronisk ID",
+            "href": "https://www.norge.no/nb/ulike-innloggingsmetoder/46",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Tilgjengelighetserklæring for ID-porten",
+            "href": "https://uustatus.no/nb/erklaringer/publisert/bb14c7d3-c008-47e0-be65-cfa6eb74ff82",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          },
+          {
+            "tekst": "Hjelp til innlogging",
+            "href": "https://www.norge.no/nb/hjelp-og-kontakt/52",
+            "intern": false,
+            "harTekst": true,
+            "status": 200,
+            "ok": true
+          }
+        ]
+      },
+      "knapper": [
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Meny",
+          "harLabel": true,
+          "disabled": false
+        },
+        {
+          "tag": "button",
+          "type": "",
+          "tekst": "Language",
+          "harLabel": true,
+          "disabled": false
+        }
+      ],
+      "bilder": [
+        {
+          "src": "logo-idporten.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        },
+        {
+          "src": "logo-idporten-bare.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-bare.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 25,
+          "høyde": 25
+        },
+        {
+          "src": "service-provider-placeholder.png",
+          "fullSrc": "/img/service-providers/service-provider-placeholder.png",
+          "alt": "Tilskudd idporten test",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 73,
+          "høyde": 32
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "testid.svg",
+          "fullSrc": "/img/providers/testid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 80,
+          "høyde": 50
+        },
+        {
+          "src": "minid-logo.svg",
+          "fullSrc": "/img/providers/minid-logo.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 300,
+          "høyde": 75
+        },
+        {
+          "src": "bankid.svg",
+          "fullSrc": "/img/providers/bankid.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 240,
+          "høyde": 150
+        },
+        {
+          "src": "buypass.svg",
+          "fullSrc": "/img/providers/buypass.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "commfides.svg",
+          "fullSrc": "/img/providers/commfides.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 239,
+          "høyde": 150
+        },
+        {
+          "src": "logo-eu-digital-identity-wallet.svg",
+          "fullSrc": "/img/providers/logo-eu-digital-identity-wallet.svg",
+          "alt": "",
+          "harAlt": true,
+          "altErTom": true,
+          "rolle": "",
+          "bredde": 126,
+          "høyde": 42
+        },
+        {
+          "src": "logo-idporten-negative.svg",
+          "fullSrc": "https://static.idporten.no/v0.8.5/img/logo/logo-idporten-negative.svg",
+          "alt": "ID-porten logo",
+          "harAlt": true,
+          "altErTom": false,
+          "rolle": "",
+          "bredde": 147,
+          "høyde": 27
+        }
+      ],
+      "skjemafelt": [],
+      "struktur": {
+        "overskrifter": [
+          {
+            "nivå": 1,
+            "tekst": "Velg innloggingsmetode"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "TestID på nivå høyt"
+          },
+          {
+            "nivå": 2,
+            "tekst": "MinID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "BankID"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Buypass"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Commfides"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Digital lommebok"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Viktige lenker"
+          },
+          {
+            "nivå": 2,
+            "tekst": "Kontakt"
+          }
+        ],
+        "landmarks": [
+          {
+            "tag": "header",
+            "rolle": "header",
+            "label": ""
+          },
+          {
+            "tag": "nav",
+            "rolle": "nav",
+            "label": ""
+          },
+          {
+            "tag": "main",
+            "rolle": "main",
+            "label": ""
+          },
+          {
+            "tag": "footer",
+            "rolle": "footer",
+            "label": ""
+          }
+        ],
+        "harSkipLink": false,
+        "langAttr": "nb"
+      },
+      "internelenker": []
+    }
+  ]
+}

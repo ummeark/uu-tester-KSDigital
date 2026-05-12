@@ -1,0 +1,65 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-12",
+  "versjon": "v0.6.0",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 6,
+    "jsErrors": 0,
+    "konsollFeil": 7,
+    "nettverksFeil": 0,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 8
+  },
+  "score": 79,
+  "jsErrors": [],
+  "konsollFeil": [
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:29.129Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:33.657Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:33.804Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:33.905Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:34.593Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:34.696Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-12T06:30:34.777Z"
+    }
+  ],
+  "nettverksFeil": [],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%21%40%23%24%25%26*%28%29&currentPage=1&pageSize=10"
+  ]
+}
