@@ -2,9 +2,10 @@
 <html lang="no">
 <head>
 <meta charset="UTF-8">
+<script>if(!sessionStorage.getItem('ks-auth'))location.replace('logg-inn.html?redir='+encodeURIComponent(location.href))</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Monkey-testrapport – 2026-05-13 09:21</title>
+<title>Monkey-testrapport – 2026-05-13 12:20</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#faf6f0;color:#0f0e17;display:flex;min-height:100vh}
@@ -80,8 +81,8 @@
 <nav class="sidemeny">
   <div class="sidemeny-header">
     <div class="sidemeny-logo">KS Tilskudd · Monkey-tester</div>
-    <div class="env-badge">TEST-MILJØ</div>
-    <h1>Monkey-testrapport <span>2026-05-13 09:21 · 60 iterasjoner</span></h1>
+    <div class="env-badge">TEST-MILJØ · v0.6.0</div>
+    <h1>Monkey-testrapport <span>2026-05-13 12:20 · 60 iterasjoner</span></h1>
   </div>
   <ul><li><a href="#sammendrag" class="sidenav-link ">
     <span class="sidenavn">Sammendrag</span>
@@ -89,25 +90,25 @@
   </a></li><li><a href="#js-feil" class="sidenav-link ok">
     <span class="sidenavn">JS-feil</span>
     <span class="side-badge">0 funn</span>
-  </a></li><li><a href="#konsoll" class="sidenav-link ok">
+  </a></li><li><a href="#konsoll" class="sidenav-link har-brudd">
     <span class="sidenavn">Konsoll-feil</span>
-    <span class="side-badge">0 funn</span>
+    <span class="side-badge">5 funn</span>
   </a></li><li><a href="#nettverk" class="sidenav-link ok">
     <span class="sidenavn">Nettverksfeil</span>
     <span class="side-badge">0 funn</span>
-  </a></li><li><a href="#interaksjoner" class="sidenav-link har-kritiske">
+  </a></li><li><a href="#interaksjoner" class="sidenav-link ok">
     <span class="sidenavn">Interaksjonsfunn</span>
-    <span class="side-badge">18 funn</span>
+    <span class="side-badge">0 funn</span>
   </a></li><li><a href="#sider" class="sidenav-link ">
     <span class="sidenavn">Sider besøkt</span>
-    <span class="side-badge">3 funn</span>
+    <span class="side-badge">8 funn</span>
   </a></li></ul>
 </nav>
 <div class="hoveddel">
   <div class="rapport-header">
     <div>
       <h1>Monkey-testrapport</h1>
-      <div class="meta"><a href="https://ummeark.github.io/tester-KSTilskudd-TEST/" target="_blank">https://ummeark.github.io/tester-KSTilskudd-TEST/</a> · 2026-05-13 09:21 · 3s · 60 tilfeldige handlinger · Chromium 147</div>
+      <div class="meta"><a href="https://tilskudd.fiks.test.ks.no/" target="_blank">https://tilskudd.fiks.test.ks.no/</a> · 2026-05-13 12:20 · 5s · 60 tilfeldige handlinger · Chromium 147</div>
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">Forside</a>
@@ -161,20 +162,20 @@
     </div>
   </div>
   <div class="score-kort">
-    <div class="score-sirkel dårlig">0</div>
+    <div class="score-sirkel god">85</div>
     <div class="score-tekst">
       <strong>Robusthetsscore</strong>
-      <p>Basert på JS-feil, nettverksfeil og kritiske funn etter 60 tilfeldige interaksjoner på 3 sider. Lavere score indikerer ustabilitet.</p>
+      <p>Basert på JS-feil, nettverksfeil og kritiske funn etter 60 tilfeldige interaksjoner på 8 sider. Lavere score indikerer ustabilitet.</p>
     </div>
   </div>
 
   <div class="kort-grid">
     <div class="kort ok"><div class="tall">60</div><div class="etikett">Iterasjoner</div></div>
-    <div class="kort ok"><div class="tall">3</div><div class="etikett">Sider besøkt</div></div>
+    <div class="kort ok"><div class="tall">8</div><div class="etikett">Sider besøkt</div></div>
     <div class="kort ok"><div class="tall">0</div><div class="etikett">JS-feil</div></div>
-    <div class="kort ok"><div class="tall">0</div><div class="etikett">Konsoll-feil</div></div>
+    <div class="kort advarsel"><div class="tall">5</div><div class="etikett">Konsoll-feil</div></div>
     <div class="kort ok"><div class="tall">0</div><div class="etikett">Nettverksfeil</div></div>
-    <div class="kort kritisk"><div class="tall">18</div><div class="etikett">Kritiske funn</div></div>
+    <div class="kort ok"><div class="tall">0</div><div class="etikett">Kritiske funn</div></div>
   </div>
 
   <!-- JS-feil -->
@@ -185,8 +186,39 @@
 
   <!-- Konsoll-feil -->
   <div class="seksjon" id="konsoll">
-    <div class="seksjon-tittel">Konsoll-feil (0)</div>
-    <div class="wcag-ok">Ingen console.error()-kall oppdaget</div>
+    <div class="seksjon-tittel">Konsoll-feil (5)</div>
+    <table><thead><tr><th>Tidspunkt</th><th>Melding</th><th>URL</th></tr></thead><tbody>
+          <tr>
+            <td style="white-space:nowrap">10:20:18</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr><tr>
+            <td style="white-space:nowrap">10:20:19</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr><tr>
+            <td style="white-space:nowrap">10:20:19</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr><tr>
+            <td style="white-space:nowrap">10:20:20</td>
+            <td>TypeError: Cannot read properties of undefined (reading 'code')
+    at loader (https://tilskudd.fiks.test.ks.no/assets/i</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5</td>
+          </tr><tr>
+            <td style="white-space:nowrap">10:20:20</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr>
+        </tbody></table>
   </div>
 
   <!-- Nettverksfeil -->
@@ -197,375 +229,15 @@
 
   <!-- Interaksjonsfunn -->
   <div class="seksjon" id="interaksjoner">
-    <div class="seksjon-tittel">Interaksjonsfunn (18)</div>
-    
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-1.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-1.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter navigasjon: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Gikk tilbake (browser back)</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-2.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-2.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-3.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-3.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-4.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-4.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter navigasjon: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Gikk tilbake (browser back)</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-5.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-5.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter navigasjon: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Gikk tilbake (browser back)</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-6.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-6.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-7.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-7.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:49</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-8.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-8.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-9.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-9.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-10.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-10.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-11.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-11.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-12.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-12.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-13.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-13.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-14.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-14.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-15.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-15.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:50</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-16.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-16.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:51</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🤖 Testdatagenerator"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-17.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-17.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="brudd-kort" style="border-left-color:#c53030">
-    <div class="brudd-header">
-      <div>
-        <span class="badge kritisk">kritisk</span>
-        <span class="regel-desc">Feilside etter klikk: inneholder "500"</span>
-      </div>
-      <span class="brudd-teller">07:21:51</span>
-    </div>
-    <p class="brudd-hjelp">Handling: Klikket lenke: "🗂️ Testdatahub"</p>
-    <div class="node-info"><span class="node-selector">https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html</span></div>
-    
-    <div class="skjermdump-gruppe">
-      <div class="skjermdump-wrapper">
-        <p class="skjermdump-label">Skjermdump ved funn</p>
-        <a href="skjermbilder-monkey/monkey-feilside-18.png" target="_blank">
-          <img src="skjermbilder-monkey/monkey-feilside-18.png" alt="Skjermdump" class="skjermdump helside" loading="lazy">
-        </a>
-      </div>
-    </div>
-  </div>
+    <div class="seksjon-tittel">Interaksjonsfunn (0)</div>
+    <div class="wcag-ok">Ingen kritiske funn under monkey-testing</div>
   </div>
 
   <!-- Sider besøkt -->
   <div class="seksjon" id="sider">
-    <div class="seksjon-tittel">Sider besøkt (3)</div>
+    <div class="seksjon-tittel">Sider besøkt (8)</div>
     <ul class="url-liste">
-      <li title="https://ummeark.github.io/tester-KSTilskudd-TEST/">https://ummeark.github.io/tester-KSTilskudd-TEST/</li><li title="https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html">https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html</li><li title="https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html">https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html</li>
+      <li title="https://tilskudd.fiks.test.ks.no/">https://tilskudd.fiks.test.ks.no/</li><li title="https://tilskudd.fiks.test.ks.no/minside?statusFilter=avsluttede">https://tilskudd.fiks.test.ks.no/minside?statusFilter=avsluttede</li><li title="https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc">https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5">https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85&currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=%C3%A6%C3%B8%C3%A5+%C3%86%C3%98%C3%85&currentPage=1&pageSize=10</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</li>
     </ul>
   </div>
 
@@ -597,7 +269,7 @@
       </div>
     </div>
   </details>
-  <footer>KS Tilskudd · Monkey-tester · Playwright · 2026-05-13 09:21</footer>
+  <footer>KS Tilskudd · Monkey-tester · Playwright · 2026-05-13 12:20</footer>
 </div>
 </body>
 </html>

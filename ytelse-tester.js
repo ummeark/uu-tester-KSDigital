@@ -2,13 +2,13 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT, TEST_FNR, TEST_MODUS } from './config.js';
+import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR } from './config.js';
 import { loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dato = new Date().toISOString().slice(0, 10);
 const tidspunkt = new Date().toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' });
-const rapportDir = path.join(__dirname, 'rapporter', dato);
+const rapportDir = RAPPORTDIR ? path.join(RAPPORTDIR, dato) : path.join(__dirname, 'rapporter', dato);
 fs.mkdirSync(rapportDir, { recursive: true });
 
 const baseOrigin = new URL(START_URL).origin;
