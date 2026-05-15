@@ -1,0 +1,108 @@
+{
+  "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+  "dato": "2026-05-15",
+  "versjon": null,
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 3,
+    "jsErrors": 0,
+    "konsollFeil": 0,
+    "nettverksFeil": 0,
+    "kritiske": 9,
+    "alvorlige": 0,
+    "varighet": 4
+  },
+  "score": 0,
+  "jsErrors": [],
+  "konsollFeil": [],
+  "nettverksFeil": [],
+  "interaksjoner": [
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-1.png",
+      "tid": "2026-05-15T12:54:04.948Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-2.png",
+      "tid": "2026-05-15T12:54:05.168Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-3.png",
+      "tid": "2026-05-15T12:54:05.238Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-4.png",
+      "tid": "2026-05-15T12:54:05.312Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-5.png",
+      "tid": "2026-05-15T12:54:05.380Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-6.png",
+      "tid": "2026-05-15T12:54:05.475Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-7.png",
+      "tid": "2026-05-15T12:54:05.556Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "handling": "Klikket lenke: \"🗂️ Testdatahub\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-8.png",
+      "tid": "2026-05-15T12:54:05.743Z"
+    },
+    {
+      "type": "feilside",
+      "alvorlighet": "kritisk",
+      "melding": "Feilside etter klikk: inneholder \"500\"",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "handling": "Klikket lenke: \"🤖 Testdatagenerator\"",
+      "skjermdump": "skjermbilder-monkey/monkey-feilside-9.png",
+      "tid": "2026-05-15T12:54:06.030Z"
+    }
+  ],
+  "besøkte": [
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html",
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+    "https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html"
+  ]
+}

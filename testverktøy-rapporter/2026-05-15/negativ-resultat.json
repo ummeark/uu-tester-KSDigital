@@ -1,0 +1,246 @@
+{
+  "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+  "dato": "2026-05-15",
+  "versjon": null,
+  "nettleser": "147.0.7727.15",
+  "score": 40,
+  "totalt": {
+    "bestått": 13,
+    "feil": 1,
+    "advarsel": 9,
+    "totalt": 23,
+    "varighet": 5
+  },
+  "tester": [
+    {
+      "kategori": "skjema",
+      "navn": "Tom søkeinnsending",
+      "input": "(tomt)",
+      "forventet": "Viser feilmelding eller ingen resultatendring",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "skjema",
+      "navn": "Søk med ekstremt lang tekst (2000 tegn)",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "forventet": "Håndteres uten krasj",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "skjema",
+      "navn": "Søk med spesialtegn",
+      "input": "!@#$%^&*()<>{}[]|\\;:'\",.?/`~",
+      "forventet": "Håndteres uten krasj eller XSS",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "skjema",
+      "navn": "Søk med kun mellomrom",
+      "input": "     ",
+      "forventet": "Behandles som tom søk eller gir feilmelding",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "skjema",
+      "navn": "Søk med norske tegn (æøå)",
+      "input": "æøå ÆØÅ tilskudd",
+      "forventet": "Håndteres korrekt",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "skjema",
+      "navn": "SQL-lignende søketekst",
+      "input": "' OR '1'='1",
+      "forventet": "Renses og vises trygt",
+      "faktisk": "Søkefelt ikke funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "url",
+      "navn": "Ukjent side",
+      "input": "https://ummeark.github.io/finnesikke",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Viser 404-side korrekt",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "url",
+      "navn": "Ugyldig UUID i URL",
+      "input": "https://ummeark.github.io/ordninger/ikke-en-gyldig-uuid",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Viser 404-side korrekt",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "url",
+      "navn": "Null-UUID",
+      "input": "https://ummeark.github.io/ordninger/00000000-0000-0000-0000-000000000000",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Viser 404-side korrekt",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "url",
+      "navn": "Path traversal-forsøk",
+      "input": "https://ummeark.github.io/ordninger/../admin",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Viser 404-side korrekt",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "url",
+      "navn": "Kodet path traversal",
+      "input": "https://ummeark.github.io/%2e%2e%2fadmin",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Ingen tydelig feilhåndtering",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": "skjermbilder-negativ/negativ-url-ingen-feilside-1.png"
+    },
+    {
+      "kategori": "url",
+      "navn": "Ugyldig søknads-ID",
+      "input": "https://ummeark.github.io/søknad/opprett/ugyldigid",
+      "forventet": "Viser 404-side eller feilmelding – ikke krasj",
+      "faktisk": "Viser 404-side korrekt",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "navigasjon",
+      "navn": "Direkte tilgang til søknadsskjema uten forside",
+      "input": "/soknad/opprett",
+      "forventet": "Håndteres – viser skjema eller omdirigerer",
+      "faktisk": "Lastet uten krasj (URL: https://ummeark.github.io/soknad/opprett)",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "navigasjon",
+      "navn": "Browser tilbake fra søknadsskjema",
+      "input": "goBack()",
+      "forventet": "Håndteres uten krasj",
+      "faktisk": "Tilbake-navigasjon håndtert uten krasj",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "navigasjon",
+      "navn": "Rask frem-og-tilbake-navigasjon (5x)",
+      "input": "5x goBack/goForward",
+      "forventet": "Ingen krasj",
+      "faktisk": "Rask navigasjon håndtert uten krasj",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "navigasjon",
+      "navn": "Dobbelt-klikk på handlingsknapp",
+      "input": "dblclick",
+      "forventet": "Ingen dobbel-innsending eller krasj",
+      "faktisk": "Ingen knapp funnet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "nettleser",
+      "navn": "Sideoppdatering (F5) under søknad",
+      "input": "reload()",
+      "forventet": "Håndteres – viser skjema eller forklaring",
+      "faktisk": "Reload håndtert uten krasj",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "nettleser",
+      "navn": "Siden uten JavaScript",
+      "input": "noScript",
+      "forventet": "Viser innhold eller tydelig feilmelding",
+      "faktisk": "Siden viser innhold uten JavaScript",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "nettleser",
+      "navn": "Smal mobilvisning (320px bredde)",
+      "input": "320px viewport",
+      "forventet": "Ingen krasj, siden er brukbar",
+      "faktisk": "Siden lastet på 320px uten krasj",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": "skjermbilder-negativ/negativ-mobil-2.png"
+    },
+    {
+      "kategori": "nettleser",
+      "navn": "Stor skjerm (3840×2160)",
+      "input": "4K viewport",
+      "forventet": "Ingen krasj, layout er stabil",
+      "faktisk": "Siden lastet på 4K uten krasj",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "sesjon",
+      "navn": "Last side etter sletting av alle cookies",
+      "input": "clearCookies()",
+      "forventet": "Siden laster – viser innloggingsside eller offentlig innhold",
+      "faktisk": "Siden lastet uten cookies (URL: https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html)",
+      "resultat": "bestått",
+      "detalj": "",
+      "skjerm": null
+    },
+    {
+      "kategori": "sesjon",
+      "navn": "Last side etter tømming av localStorage",
+      "input": "localStorage.clear()",
+      "forventet": "Siden laster – ingen krasj",
+      "faktisk": "Unntak: page.evaluate: Execution context was destroyed, most likely because of a navigation",
+      "resultat": "feil",
+      "detalj": "",
+      "skjerm": "skjermbilder-negativ/negativ-unntak-3.png"
+    },
+    {
+      "kategori": "sesjon",
+      "navn": "Direkte tilgang til \"Min side\" uten innlogging",
+      "input": "/minside",
+      "forventet": "Omdirigerer til innlogging – ikke krasj",
+      "faktisk": "Landet på: https://ummeark.github.io/minside – sjekk om innhold er beskyttet",
+      "resultat": "advarsel",
+      "detalj": "",
+      "skjerm": "skjermbilder-negativ/negativ-minside-uten-auth-4.png"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+  "dato": "2026-05-15",
+  "versjon": null,
+  "nettleser": "147.0.7727.15",
+  "score": 62,
+  "totalt": {
+    "kritiske": 0,
+    "alvorlige": 2,
+    "middels": 2,
+    "lave": 4,
+    "ok": 4,
+    "varighet": 5
+  },
+  "funn": [
+    {
+      "kategori": "hoder",
+      "alvorlighet": "ok",
+      "tittel": "HSTS er satt",
+      "detalj": "Verdi: max-age=31556952",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "alvorlig",
+      "tittel": "Manglende Content-Security-Policy",
+      "detalj": "Begrenser hvilke ressurser siden kan laste og kjøre",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "alvorlig",
+      "tittel": "Manglende X-Frame-Options",
+      "detalj": "Beskytter mot clickjacking via iframe-innramming",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "middels",
+      "tittel": "Manglende X-Content-Type-Options",
+      "detalj": "Hindrer MIME-type sniffing i nettleseren",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "lav",
+      "tittel": "Manglende Referrer-Policy",
+      "detalj": "Kontrollerer referrer-informasjon i forespørsler",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "lav",
+      "tittel": "Manglende Permissions-Policy",
+      "detalj": "Begrenser tilgang til nettleserfunksjoner (kamera, GPS osv.)",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "lav",
+      "tittel": "Manglende COOP",
+      "detalj": "Isolerer nettleservinduet mot cross-origin-angrep",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "hoder",
+      "alvorlighet": "lav",
+      "tittel": "Manglende CORP",
+      "detalj": "Begrenser hvem som kan laste inn sidens ressurser",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "informasjonslekkasje",
+      "alvorlighet": "middels",
+      "tittel": "Server avslører teknologiinformasjon: server",
+      "detalj": "Verdi: \"GitHub.com\" – gir angriper innsikt i teknologistakk",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "https",
+      "alvorlighet": "ok",
+      "tittel": "HTTP omdirigerer til HTTPS",
+      "detalj": "Redirect: https://ummeark.github.io/tester-KSTilskudd-TEST/",
+      "url": "http://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "mixed-content",
+      "alvorlighet": "ok",
+      "tittel": "Ingen mixed content funnet",
+      "detalj": "Alle ressurser lastes over HTTPS",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    },
+    {
+      "kategori": "cors",
+      "alvorlighet": "ok",
+      "tittel": "Ingen CORS-hoder – standard same-origin-policy gjelder",
+      "detalj": "",
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/"
+    }
+  ]
+}

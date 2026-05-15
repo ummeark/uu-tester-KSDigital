@@ -1,0 +1,237 @@
+{
+  "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+  "dato": "2026-05-15",
+  "tidspunkt": "15:15",
+  "score": 100,
+  "totalt": {
+    "sider": 20,
+    "snittLCP": 142,
+    "snittFCP": 154,
+    "snittTTFB": 95,
+    "snittLoad": 173,
+    "totalSizeKB": 391,
+    "totalRequests": 14
+  },
+  "sider": [
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/",
+      "tittel": "KS Tilskudd – Testdashboard",
+      "score": 100,
+      "ttfb": 0,
+      "load": 24,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 32,
+      "fcp": 32
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/rapport.html",
+      "tittel": "KS Tilskudd – Testdashboard",
+      "score": 100,
+      "ttfb": 0,
+      "load": 5,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 28,
+      "fcp": 28
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/uu-rapport.html",
+      "tittel": "UU-rapport – 2026-05-15 08:30",
+      "score": 100,
+      "ttfb": 13,
+      "load": 58,
+      "sizeKB": 301,
+      "requests": 3,
+      "lcp": 40,
+      "fcp": 40
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/monkey-rapport.html",
+      "tittel": "Monkey-testrapport – 2026-05-15 08:30",
+      "score": 100,
+      "ttfb": 146,
+      "load": 153,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 184,
+      "fcp": 184
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/sikkerhet-rapport.html",
+      "tittel": "Sikkerhetsrapport – 2026-05-15 08:30",
+      "score": 100,
+      "ttfb": 141,
+      "load": 173,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 180,
+      "fcp": 180
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/negativ-rapport.html",
+      "tittel": "Negativ testrapport – 2026-05-15 08:31",
+      "score": 100,
+      "ttfb": 167,
+      "load": 205,
+      "sizeKB": 84,
+      "requests": 5,
+      "lcp": 212,
+      "fcp": 212
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/ytelse-rapport.html",
+      "tittel": "Ytelsesrapport – 2026-05-15 08:31",
+      "score": 100,
+      "ttfb": 173,
+      "load": 184,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 228,
+      "fcp": 228
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/brukerhistorie-rapport.html",
+      "tittel": "Brukerhistorietester – 2026-05-06 13:08",
+      "score": 100,
+      "ttfb": 230,
+      "load": 272,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 280,
+      "fcp": 280
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/arkiv.html",
+      "tittel": "Testrapporter – Arkiv – KS Tilskudd",
+      "score": 100,
+      "ttfb": 137,
+      "load": 177,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 188,
+      "fcp": 188
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/kjor-tester.html",
+      "tittel": "Kjør tester – KS Tilskudd TEST",
+      "score": 100,
+      "ttfb": 151,
+      "load": 185,
+      "sizeKB": 0,
+      "requests": 2,
+      "lcp": 192,
+      "fcp": 192
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-hub.html",
+      "tittel": "Testdatahub – KS Tilskudd",
+      "score": 100,
+      "ttfb": 135,
+      "load": 1180,
+      "sizeKB": 1,
+      "requests": 1,
+      "lcp": 640,
+      "fcp": 640
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testdata-generator.html",
+      "tittel": "Testdatagenerator – KS Tilskudd",
+      "score": 100,
+      "ttfb": 142,
+      "load": 315,
+      "sizeKB": 2,
+      "requests": 1,
+      "lcp": 252,
+      "fcp": 252
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/admin.html",
+      "tittel": "Admin – KS Tilskudd Tester",
+      "score": 100,
+      "ttfb": 136,
+      "load": 156,
+      "sizeKB": 3,
+      "requests": 2,
+      "lcp": 328,
+      "fcp": 164
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/testverkt%C3%B8y-rapport.html",
+      "tittel": "Page not found · GitHub Pages",
+      "score": 100,
+      "ttfb": 15,
+      "load": 20,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 36,
+      "fcp": 36
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s10-landmark-unique-0-element.png",
+      "tittel": "s10-landmark-unique-0-element.png (1108×126)",
+      "score": 100,
+      "ttfb": 0,
+      "load": 6,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 20,
+      "fcp": 12
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s10-landmark-unique-0-side.png",
+      "tittel": "s10-landmark-unique-0-side.png (1280×900)",
+      "score": 100,
+      "ttfb": 0,
+      "load": 3,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 0,
+      "fcp": 16
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s11-doede-lenker-side.png",
+      "tittel": "s11-doede-lenker-side.png (1280×900)",
+      "score": 100,
+      "ttfb": 0,
+      "load": 4,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 0,
+      "fcp": 20
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s13-doede-lenker-side.png",
+      "tittel": "s13-doede-lenker-side.png (1280×900)",
+      "score": 100,
+      "ttfb": 19,
+      "load": 27,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 0,
+      "fcp": 36
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s14-doede-lenker-side.png",
+      "tittel": "s14-doede-lenker-side.png (1280×900)",
+      "score": 100,
+      "ttfb": 150,
+      "load": 157,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 0,
+      "fcp": 172
+    },
+    {
+      "url": "https://ummeark.github.io/tester-KSTilskudd-TEST/skjermbilder/s15-doede-lenker-side.png",
+      "tittel": "s15-doede-lenker-side.png (1280×900)",
+      "score": 100,
+      "ttfb": 153,
+      "load": 160,
+      "sizeKB": 0,
+      "requests": 0,
+      "lcp": 0,
+      "fcp": 176
+    }
+  ]
+}
