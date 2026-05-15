@@ -10254,3 +10254,456 @@ Call log:
 ✅ Arkiv generert → docs/arkiv.html
    Datoer: 28 | UU: 78 | Monkey: 63 | Sikkerhet: 62 | Negativ: 62
 ✅ Dashboard generert → docs/rapport.html
+[2026-05-14 15:39:20] ✅ Ferdig og pushet til GitHub
+[2026-05-15 04:05:25] 🚀 Starter tester (ikke kjørt i dag)
+=======================================
+[2026-05-15 04:05:25] Starter daglig UU-test
+[2026-05-15 04:05:25] Node: v24.12.0
+[2026-05-15 04:05:25] Kjører npm run rapport...
+
+> uu-tester@1.0.0 rapport
+> node uu-tester.js
+
+
+🔍 Starter UU-analyse av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+📄 [1/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  📸 Tar skjermdumper av 0 brudd...
+📄 [2/20] Analyserer: https://tilskudd.fiks.test.ks.no
+  📸 Tar skjermdumper av 0 brudd...
+📄 [3/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside
+  📸 Tar skjermdumper av 0 brudd...
+📄 [4/20] Analyserer: https://tilskudd.fiks.test.ks.no/logout
+  📸 Tar skjermdumper av 0 brudd...
+📄 [5/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef
+  📸 Tar skjermdumper av 0 brudd...
+📄 [6/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601
+  📸 Tar skjermdumper av 0 brudd...
+📄 [7/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf
+  📸 Tar skjermdumper av 0 brudd...
+📄 [8/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2
+  📸 Tar skjermdumper av 0 brudd...
+📄 [9/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger
+  📸 Tar skjermdumper av 0 brudd...
+📄 [10/20] Analyserer: https://tilskudd.fiks.test.ks.no/om
+  📸 Tar skjermdumper av 1 brudd...
+📄 [11/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc
+  📸 Tar skjermdumper av 0 brudd...
+📄 [12/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5
+  📸 Tar skjermdumper av 0 brudd...
+📄 [13/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81
+  📸 Tar skjermdumper av 0 brudd...
+📄 [14/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0
+  📸 Tar skjermdumper av 0 brudd...
+📄 [15/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6
+  📸 Tar skjermdumper av 0 brudd...
+📄 [16/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33
+  📸 Tar skjermdumper av 0 brudd...
+📄 [17/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/opprett
+  ⚠️  Kunne ikke laste: https://tilskudd.fiks.test.ks.no/soknad/opprett (page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigatin)
+
+⌨️  Kjører tastaturnavigasjonstest...
+  ⚠️ [2.4.7] Synlig fokus på interaktive elementer – 3 element(er) uten synlig fokus: A "Logg inn", A "Logg inn"
+  ✅ [2.4.3] Ingen tabindex > 0
+  ✅ [2.1.1] Interaktive elementer nåbare via Tab – 5 elementer nådd (6 i DOM)
+  ✅ [2.1.2] Ingen tastaturfelle
+  ⚠️ [2.4.1] Hopplenke til hovedinnhold – Første Tab: A "ks tilskudd"
+  ⚠️ [2.1.1] Enter aktiverer navigasjonslenke – Ingen navigasjonslenke aktivert i de første 15 Tab-stegene
+
+📱 Kjører Reflow-sjekk (WCAG 1.4.10)...
+  ✅ [1.4.10] Ingen horisontal rulling ved 320px (400 % zoom) – Ingen horisontal rulling ved 320px bredde
+  ✅ [1.4.10] Innhold ikke avskåret ved 320px
+
+📐 Kjører tekstmellomrom-sjekk (WCAG 1.4.12)...
+  ✅ [1.4.12] Ingen tekstklipping ved økt linjehøyde og bokstavmellomrom
+  ✅ [1.4.12] Ingen horisontal overflyt etter økt tekstmellomrom
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 RAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📄 Sider testet:     16
+♿ WCAG-brudd:       [33m1[0m   (kritiske: 0, alvorlige: 0)
+🔗 Døde lenker:      [31m6[0m
+🔘 Knapper testet:   11 ([32m0[0m uten label)
+🖼️  Bilder testet:    50 ([32m0[0m uten alt)
+📝 Skjemafelt:       2 ([32m0[0m uten label)
+⌨️  Tastatur:         3 bestått · [31m3[0m adv. · [32m0[0m feil
+📱 Reflow (1.4.10):  2 bestått · [32m0[0m adv. · [32m0[0m feil
+📐 Tekstmellomrom:   2 bestått · [32m0[0m adv. · [32m0[0m feil
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 HTML-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-05-15/uu-rapport.html
+
+[2026-05-15 04:23:35] Kjører npm run monkey...
+
+> uu-tester@1.0.0 monkey
+> node monkey-tester.js
+
+
+🐒 Starter monkey-testing av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+🔄 Iterasjoner: 60
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ❌ Innlogging feilet: page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://tilskudd.fiks.test.ks.no/", waiting until "dom
+  📸 Skjermbilde: /tmp/idporten-login-feil.png
+❌ Innlogging feilet – avslutter.
+[2026-05-15 07:43:01] 🚀 Starter tester (ikke kjørt i dag)
+=======================================
+[2026-05-15 07:43:01] Starter daglig UU-test
+[2026-05-15 07:43:01] Node: v24.12.0
+[2026-05-15 07:43:01] Kjører npm run rapport...
+
+> uu-tester@1.0.0 rapport
+> node uu-tester.js
+
+
+🔍 Starter UU-analyse av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+📄 [1/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  📸 Tar skjermdumper av 0 brudd...
+📄 [2/20] Analyserer: https://tilskudd.fiks.test.ks.no
+  📸 Tar skjermdumper av 0 brudd...
+📄 [3/20] Analyserer: https://tilskudd.fiks.test.ks.no/minside
+  📸 Tar skjermdumper av 0 brudd...
+📄 [4/20] Analyserer: https://tilskudd.fiks.test.ks.no/logout
+  📸 Tar skjermdumper av 0 brudd...
+📄 [5/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef
+  📸 Tar skjermdumper av 0 brudd...
+📄 [6/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601
+  📸 Tar skjermdumper av 0 brudd...
+📄 [7/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf
+  📸 Tar skjermdumper av 0 brudd...
+📄 [8/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2
+  📸 Tar skjermdumper av 0 brudd...
+📄 [9/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger
+  📸 Tar skjermdumper av 0 brudd...
+📄 [10/20] Analyserer: https://tilskudd.fiks.test.ks.no/om
+  📸 Tar skjermdumper av 1 brudd...
+📄 [11/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc
+  📸 Tar skjermdumper av 0 brudd...
+📄 [12/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5
+  📸 Tar skjermdumper av 0 brudd...
+📄 [13/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81
+  📸 Tar skjermdumper av 0 brudd...
+📄 [14/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0
+  📸 Tar skjermdumper av 0 brudd...
+📄 [15/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6
+  📸 Tar skjermdumper av 0 brudd...
+📄 [16/20] Analyserer: https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33
+  📸 Tar skjermdumper av 0 brudd...
+📄 [17/20] Analyserer: https://tilskudd.fiks.test.ks.no/soknad/opprett
+  📸 Tar skjermdumper av 0 brudd...
+
+⌨️  Kjører tastaturnavigasjonstest...
+  ⚠️ [2.4.7] Synlig fokus på interaktive elementer – 3 element(er) uten synlig fokus: A "Logg inn", A "Logg inn"
+  ✅ [2.4.3] Ingen tabindex > 0
+  ✅ [2.1.1] Interaktive elementer nåbare via Tab – 5 elementer nådd (6 i DOM)
+  ✅ [2.1.2] Ingen tastaturfelle
+  ⚠️ [2.4.1] Hopplenke til hovedinnhold – Første Tab: A "ks tilskudd"
+  ⚠️ [2.1.1] Enter aktiverer navigasjonslenke – Ingen navigasjonslenke aktivert i de første 15 Tab-stegene
+
+📱 Kjører Reflow-sjekk (WCAG 1.4.10)...
+  ✅ [1.4.10] Ingen horisontal rulling ved 320px (400 % zoom) – Ingen horisontal rulling ved 320px bredde
+  ✅ [1.4.10] Innhold ikke avskåret ved 320px
+
+📐 Kjører tekstmellomrom-sjekk (WCAG 1.4.12)...
+  ✅ [1.4.12] Ingen tekstklipping ved økt linjehøyde og bokstavmellomrom
+  ✅ [1.4.12] Ingen horisontal overflyt etter økt tekstmellomrom
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 RAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📄 Sider testet:     17
+♿ WCAG-brudd:       [33m1[0m   (kritiske: 0, alvorlige: 0)
+🔗 Døde lenker:      [31m6[0m
+🔘 Knapper testet:   13 ([32m0[0m uten label)
+🖼️  Bilder testet:    61 ([32m0[0m uten alt)
+📝 Skjemafelt:       2 ([32m0[0m uten label)
+⌨️  Tastatur:         3 bestått · [31m3[0m adv. · [32m0[0m feil
+📱 Reflow (1.4.10):  2 bestått · [32m0[0m adv. · [32m0[0m feil
+📐 Tekstmellomrom:   2 bestått · [32m0[0m adv. · [32m0[0m feil
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 HTML-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-05-15/uu-rapport.html
+
+[2026-05-15 07:43:30] Kjører npm run monkey...
+
+> uu-tester@1.0.0 monkey
+> node monkey-tester.js
+
+
+🐒 Starter monkey-testing av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+🔄 Iterasjoner: 60
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  🔗 [1] Klikket lenke: "Søknad på Kommunalt næringsfondMORALSK MARITIM FJELLREVSøkna"
+  🏠 [2] Reset til startside
+  🖱️  [3] Klikket: "Søk"
+  ✏️  [4] Fylte "mrsnabrsnd 3br13gskwlg a02vizr8vdo 1jiet" i search-felt
+  ✏️  [5] Fylte "null undefined NaN" i search-felt
+  🖱️  [6] Klikket: "(ingen tekst)"
+  ⬅️  [7] Gikk tilbake (browser back)
+  ⬅️  [8] Gikk tilbake (browser back)
+  🖱️  [9] Klikket: "Grei Handlekraftgh@example.comOrg.rep"
+  ⬅️  [10] Gikk tilbake (browser back)
+  🔗 [11] Klikket lenke: "Ledende Tyttebær"
+  🌐 HTTP 401: https://tilskudd.fiks.test.ks.no/api/bff/innlogget.soknader.getList?batch=1&inpu
+  🔗 [13] Klikket lenke: "Hjem"
+  🔗 [15] Klikket lenke: "Tilskuddsordninger"
+  📤 [16] Send skjema: "Søk"
+  🖱️  [17] Klikket: "Søk"
+  📤 [18] Send skjema: "Søk"
+  📤 [19] Send skjema: "Søk"
+  ✏️  [20] Fylte "   " i search-felt
+  🖱️  [21] Klikket: "Søk"
+  ⚠️  Klikk feilet: locator.click: Timeout 4000ms exceeded.
+Call log:
+  - waiting for locator('butto
+  ✏️  [23] Fylte "æøå ÆØÅ" i search-felt
+  🖱️  [24] Klikket: "(ingen tekst)"
+  🏠 [25] Reset til startside
+  🖱️  [26] Klikket: "Søk"
+  🏠 [27] Reset til startside
+  🖱️  [28] Klikket: "Søk"
+  📤 [29] Send skjema: "Søk"
+  🖱️  [30] Klikket: "Søk"
+  📤 [31] Send skjema: "Søk"
+  ✏️  [32] Fylte "null undefined NaN" i search-felt
+  🏠 [33] Reset til startside
+  📤 [34] Send skjema: "Søk"
+  📤 [35] Send skjema: "Søk"
+  🖱️  [36] Klikket: "Søk"
+  🖱️  [37] Klikket: "Søk"
+  🖱️  [38] Klikket: "Søk"
+  ✏️  [39] Fylte "-1" i search-felt
+  🏠 [40] Reset til startside
+  ✏️  [41] Fylte "æøå ÆØÅ" i search-felt
+  ⬅️  [42] Gikk tilbake (browser back)
+  🔗 [43] Klikket lenke: "Kommunalt næringsfond Kristiansund 2026"
+  ✏️  [44] Fylte "99999999999999999999" i search-felt
+  ✏️  [45] Fylte "0" i search-felt
+  🖱️  [46] Klikket: "(ingen tekst)"
+  ⬅️  [47] Gikk tilbake (browser back)
+  🔗 [48] Klikket lenke: "BIO-midlar 2026"
+  🔗 [50] Klikket lenke: "Arktis 2030"
+  🔗 [51] Klikket lenke: "Grønn omstilling og innovasjon i bedrift"
+  🔗 [52] Klikket lenke: "Hjem"
+  🏠 [53] Reset til startside
+  🏠 [54] Reset til startside
+  📤 [55] Send skjema: "Søk"
+  🖱️  [56] Klikket: "Søk"
+  🖱️  [57] Klikket: "Søk"
+  📤 [58] Send skjema: "Søk"
+  ⬅️  [59] Gikk tilbake (browser back)
+  🖱️  [60] Klikket: "Søk"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🐒 MONKEY-RAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔄 Iterasjoner:      60
+📄 Sider besøkt:     10
+⚡ JS-feil:          0
+🖥️  Konsoll-feil:     4
+🌐 Nettverksfeil:    1
+💥 Kritiske funn:    0
+⏱️  Varighet:         101s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Monkey-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-05-15/monkey-rapport.html
+[2026-05-15 07:45:12] Kjører npm run sikkerhet...
+
+> uu-tester@1.0.0 sikkerhet
+> node sikkerhet-tester.js
+
+
+🔐 Starter sikkerhetstest av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+
+📋 Sjekker HTTP-sikkerhetshoder...
+  ✅ [OK] HSTS er satt
+  ✅ [OK] Content-Security-Policy er satt
+  ✅ [OK] X-Frame-Options er satt
+  ✅ [OK] X-Content-Type-Options er satt
+  🔵 [LAV] Manglende Referrer-Policy
+  🔵 [LAV] Manglende Permissions-Policy
+  🔵 [LAV] Manglende COOP
+  🔵 [LAV] Manglende CORP
+🕵️  Sjekker informasjonslekkasje i hoder...
+🔒 Sjekker HTTPS-håndhevelse...
+  ✅ [OK] HTTP omdirigerer til HTTPS
+📂 Sjekker sensitive stier...
+  🟠 [ALVORLIG] Sensitiv sti tilgjengelig: /api
+  🟠 [ALVORLIG] Sensitiv sti tilgjengelig: /robots.txt
+🍪 Sjekker cookie-sikkerhet...
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  🟡 [MIDDELS] Cookie "07c80249a0769e869d701c22923ad7d0" har svake sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "ingress-csrf" har svake sikkerhetsattributter
+  🟠 [ALVORLIG] Cookie "dtCookie" har svake sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "b01773c48f061e5a6fa15915170117e2" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB02_TEST~pool_digdir_test.idporten.no_https" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "0260dc82f58fc9f938d67c7fc5f66b20" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB01~pool_digdir_idporten.no_https" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "JSESSIONID" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "0ba91516c140d36c0e0e98cf9b128957" har svake sikkerhetsattributter
+  ✅ [OK] Cookie "BIGipServer~DIGILB02_TEST~pool_digdir_test.idporten.no_https" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "JSESSIONID" har korrekte sikkerhetsattributter
+  ✅ [OK] Cookie "IDPORTEN_AUTH" har korrekte sikkerhetsattributter
+  🟡 [MIDDELS] Cookie "session" har svake sikkerhetsattributter
+🔀 Sjekker mixed content...
+  ✅ [OK] Ingen mixed content funnet
+💉 Sjekker input-refleksjon...
+  ✅ [OK] Søkefelt ser ut til å rense input
+🌐 Sjekker CORS-konfigurasjon...
+  ✅ [OK] Ingen CORS-hoder – standard same-origin-policy gjelder
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔐 SIKKERHETSRAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 Kritiske:   0
+🟠 Alvorlige:  3
+🟡 Moderate:   6
+🔵 Lave:       4
+✅ Bestått:    14
+📊 Score:      32/100
+⏱️  Varighet:   6s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Sikkerhetsrapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-05-15/sikkerhet-rapport.html
+[2026-05-15 07:45:26] Kjører npm run negativ...
+
+> uu-tester@1.0.0 negativ
+> node negativ-tester.js
+
+
+🧪 Starter negativ testing av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+
+📝 Kategori 1: Skjema-validering
+  ✅ Tom søkeinnsending
+  ✅ Søk med ekstremt lang tekst (2000 tegn)
+  ✅ Søk med spesialtegn
+  ✅ Søk med kun mellomrom
+  ✅ Søk med norske tegn (æøå)
+  ✅ SQL-lignende søketekst
+
+🔗 Kategori 2: URL-validering
+  ⚠️ Ukjent side
+  ⚠️ Ugyldig UUID i URL
+  ⚠️ Null-UUID
+  ✅ Path traversal-forsøk
+  ⚠️ Kodet path traversal
+  ✅ Ugyldig søknads-ID
+
+🔀 Kategori 3: Navigasjonsrekkefølge
+  ❌ Direkte tilgang til søknadsskjema uten forside
+  ✅ Browser tilbake fra søknadsskjema
+  ✅ Rask frem-og-tilbake-navigasjon (5x)
+  ✅ Dobbelt-klikk på handlingsknapp
+
+🌐 Kategori 4: Nettleserfunksjoner
+  ❌ Sideoppdatering (F5) under søknad
+  ✅ Siden uten JavaScript
+  ✅ Smal mobilvisning (320px bredde)
+  ✅ Stor skjerm (3840×2160)
+
+🔑 Kategori 5: Tilstand og sesjon
+  ✅ Last side etter sletting av alle cookies
+  ✅ Last side etter tømming av localStorage
+  ✅ Direkte tilgang til "Min side" uten innlogging
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧪 NEGATIV-TESTRAPPORT – https://tilskudd.fiks.test.ks.no/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Bestått:   17
+⚠️  Advarsler: 4
+❌ Feil:      2
+📊 Score:     50/100
+⏱️  Varighet:  43s
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 Negativ-rapport: /Users/ummearkhan/tester-KSTilskudd/rapporter/2026-05-15/negativ-rapport.html
+[2026-05-15 07:46:09] Kjører npm run ytelse...
+
+> uu-tester@1.0.0 ytelse
+> node ytelse-tester.js
+
+
+🚀 Starter ytelsestest av: https://tilskudd.fiks.test.ks.no/
+📅 Dato: 2026-05-15
+📄 Maks antall sider: 20
+
+
+🔐 Logger inn via ID-porten TestID (modus: fast)...
+  ✅ Innlogget. Landet på: https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+  📄 [1] https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast
+     Score: 100 | LCP: 160ms | FCP: 160ms | TTFB: 125ms | Last: 176ms | 5KB | 21 req
+  📄 [2] https://tilskudd.fiks.test.ks.no/
+     Score: 100 | LCP: 44ms | FCP: 44ms | TTFB: 22ms | Last: 56ms | 0KB | 12 req
+  📄 [3] https://tilskudd.fiks.test.ks.no/minside
+     Score: 100 | LCP: 160ms | FCP: 160ms | TTFB: 128ms | Last: 176ms | 1KB | 21 req
+  📄 [4] https://tilskudd.fiks.test.ks.no/logout
+     Score: 100 | LCP: 88ms | FCP: 88ms | TTFB: 21ms | Last: 101ms | 1KB | 9 req
+  📄 [5] https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef
+     Score: 100 | LCP: 100ms | FCP: 100ms | TTFB: 21ms | Last: 119ms | 0KB | 14 req
+  📄 [6] https://tilskudd.fiks.test.ks.no/soknad/72076638-cb96-4e8d-866b-9b120fe00601
+     Score: 100 | LCP: 80ms | FCP: 80ms | TTFB: 12ms | Last: 76ms | 0KB | 14 req
+  📄 [7] https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf
+     Score: 100 | LCP: 84ms | FCP: 84ms | TTFB: 13ms | Last: 81ms | 0KB | 14 req
+  📄 [8] https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2
+     Score: 100 | LCP: 84ms | FCP: 84ms | TTFB: 12ms | Last: 81ms | 0KB | 14 req
+  📄 [9] https://tilskudd.fiks.test.ks.no/utlysinger
+     Score: 100 | LCP: 460ms | FCP: 96ms | TTFB: 51ms | Last: 110ms | 7KB | 18 req
+  📄 [10] https://tilskudd.fiks.test.ks.no/om
+     Score: 100 | LCP: 48ms | FCP: 48ms | TTFB: 26ms | Last: 60ms | 1KB | 11 req
+  📄 [11] https://tilskudd.fiks.test.ks.no/utlysinger/553b5d8c-209e-410e-88c6-a6cb79d714dc
+     Score: 100 | LCP: 144ms | FCP: 100ms | TTFB: 76ms | Last: 92ms | 15KB | 17 req
+  📄 [12] https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5
+     Score: 100 | LCP: 180ms | FCP: 124ms | TTFB: 104ms | Last: 123ms | 0KB | 17 req
+  📄 [13] https://tilskudd.fiks.test.ks.no/utlysinger/7082abd8-4f23-43e9-adce-c4762b848b81
+     Score: 100 | LCP: 168ms | FCP: 108ms | TTFB: 88ms | Last: 139ms | 0KB | 17 req
+  📄 [14] https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0
+     Score: 100 | LCP: 160ms | FCP: 108ms | TTFB: 90ms | Last: 107ms | 0KB | 17 req
+  📄 [15] https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6
+     Score: 100 | LCP: 172ms | FCP: 120ms | TTFB: 100ms | Last: 119ms | 0KB | 17 req
+  📄 [16] https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33
+     Score: 100 | LCP: 148ms | FCP: 96ms | TTFB: 75ms | Last: 87ms | 0KB | 17 req
+  📄 [17] https://tilskudd.fiks.test.ks.no/soknad/opprett
+     Score: 100 | LCP: 100ms | FCP: 100ms | TTFB: 13ms | Last: 95ms | 0KB | 14 req
+
+✅ Ferdig! Score: 100/100 | 17 sider analysert
+📄 JSON lagret → rapporter/2026-05-15/ytelse-resultat.json
+📊 Rapport lagret → rapporter/2026-05-15/ytelse-rapport.html
+[2026-05-15 07:46:25] Kjører npm run arkiv...
+
+> uu-tester@1.0.0 arkiv
+> node generer-arkiv.js
+
+✅ Siste rapporter og skjermdumper kopiert til docs/ (2026-05-15)
+✅ Arkiv generert → docs/arkiv.html
+   Datoer: 29 | UU: 80 | Monkey: 64 | Sikkerhet: 63 | Negativ: 63
+✅ Dashboard generert → docs/rapport.html

@@ -1,0 +1,61 @@
+{
+  "url": "https://tilskudd.fiks.test.ks.no/",
+  "dato": "2026-05-15",
+  "versjon": "v0.6.0",
+  "nettleser": "147.0.7727.15",
+  "totalt": {
+    "iterasjoner": 60,
+    "siderBesøkt": 10,
+    "jsErrors": 0,
+    "konsollFeil": 4,
+    "nettverksFeil": 1,
+    "kritiske": 0,
+    "alvorlige": 0,
+    "varighet": 101
+  },
+  "score": 83,
+  "jsErrors": [],
+  "konsollFeil": [
+    {
+      "melding": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-15T05:43:36.286Z"
+    },
+    {
+      "melding": "TRPCClientError: Failed to fetch\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-15T05:45:10.811Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-15T05:45:11.000Z"
+    },
+    {
+      "melding": "TRPCClientError: network error\n    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)\n    at https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:14299",
+      "url": "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+      "tid": "2026-05-15T05:45:11.194Z"
+    }
+  ],
+  "nettverksFeil": [
+    {
+      "status": 401,
+      "url": "https://tilskudd.fiks.test.ks.no/api/bff/innlogget.soknader.getList?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22statusFilter%22%3A%22utkast%22%7D%7D%7D",
+      "side": "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+      "tid": "2026-05-15T05:43:36.286Z"
+    }
+  ],
+  "interaksjoner": [],
+  "besøkte": [
+    "https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast",
+    "https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf",
+    "https://tilskudd.fiks.test.ks.no/",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlogget",
+    "https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6",
+    "https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33"
+  ]
+}
