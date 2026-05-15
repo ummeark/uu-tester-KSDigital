@@ -5,7 +5,7 @@
 <script>if(!sessionStorage.getItem('ks-auth'))location.replace('logg-inn.html?redir='+encodeURIComponent(location.href))</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Monkey-testrapport – 2026-05-15 07:43</title>
+<title>Monkey-testrapport – 2026-05-15 08:30</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:system-ui,-apple-system,sans-serif;background:#faf6f0;color:#0f0e17;display:flex;min-height:100vh}
@@ -82,7 +82,7 @@
   <div class="sidemeny-header">
     <div class="sidemeny-logo">KS Tilskudd · Monkey-tester</div>
     <div class="env-badge">TEST-MILJØ · v0.6.0</div>
-    <h1>Monkey-testrapport <span>2026-05-15 07:43 · 60 iterasjoner</span></h1>
+    <h1>Monkey-testrapport <span>2026-05-15 08:30 · 60 iterasjoner</span></h1>
   </div>
   <ul><li><a href="#sammendrag" class="sidenav-link ">
     <span class="sidenavn">Sammendrag</span>
@@ -92,23 +92,23 @@
     <span class="side-badge">0 funn</span>
   </a></li><li><a href="#konsoll" class="sidenav-link har-brudd">
     <span class="sidenavn">Konsoll-feil</span>
-    <span class="side-badge">4 funn</span>
-  </a></li><li><a href="#nettverk" class="sidenav-link har-brudd">
+    <span class="side-badge">5 funn</span>
+  </a></li><li><a href="#nettverk" class="sidenav-link ok">
     <span class="sidenavn">Nettverksfeil</span>
-    <span class="side-badge">1 funn</span>
+    <span class="side-badge">0 funn</span>
   </a></li><li><a href="#interaksjoner" class="sidenav-link ok">
     <span class="sidenavn">Interaksjonsfunn</span>
     <span class="side-badge">0 funn</span>
   </a></li><li><a href="#sider" class="sidenav-link ">
     <span class="sidenavn">Sider besøkt</span>
-    <span class="side-badge">10 funn</span>
+    <span class="side-badge">6 funn</span>
   </a></li></ul>
 </nav>
 <div class="hoveddel">
   <div class="rapport-header">
     <div>
       <h1>Monkey-testrapport</h1>
-      <div class="meta"><a href="https://tilskudd.fiks.test.ks.no/" target="_blank">https://tilskudd.fiks.test.ks.no/</a> · 2026-05-15 07:43 · 101s · 60 tilfeldige handlinger · Chromium 147</div>
+      <div class="meta"><a href="https://tilskudd.fiks.test.ks.no/" target="_blank">https://tilskudd.fiks.test.ks.no/</a> · 2026-05-15 08:30 · 15s · 60 tilfeldige handlinger · Chromium 147</div>
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">Forside</a>
@@ -162,19 +162,19 @@
     </div>
   </div>
   <div class="score-kort">
-    <div class="score-sirkel god">83</div>
+    <div class="score-sirkel god">85</div>
     <div class="score-tekst">
       <strong>Robusthetsscore</strong>
-      <p>Basert på JS-feil, nettverksfeil og kritiske funn etter 60 tilfeldige interaksjoner på 10 sider. Lavere score indikerer ustabilitet.</p>
+      <p>Basert på JS-feil, nettverksfeil og kritiske funn etter 60 tilfeldige interaksjoner på 6 sider. Lavere score indikerer ustabilitet.</p>
     </div>
   </div>
 
   <div class="kort-grid">
     <div class="kort ok"><div class="tall">60</div><div class="etikett">Iterasjoner</div></div>
-    <div class="kort ok"><div class="tall">10</div><div class="etikett">Sider besøkt</div></div>
+    <div class="kort ok"><div class="tall">6</div><div class="etikett">Sider besøkt</div></div>
     <div class="kort ok"><div class="tall">0</div><div class="etikett">JS-feil</div></div>
-    <div class="kort advarsel"><div class="tall">4</div><div class="etikett">Konsoll-feil</div></div>
-    <div class="kort advarsel"><div class="tall">1</div><div class="etikett">Nettverksfeil</div></div>
+    <div class="kort advarsel"><div class="tall">5</div><div class="etikett">Konsoll-feil</div></div>
+    <div class="kort ok"><div class="tall">0</div><div class="etikett">Nettverksfeil</div></div>
     <div class="kort ok"><div class="tall">0</div><div class="etikett">Kritiske funn</div></div>
   </div>
 
@@ -186,44 +186,46 @@
 
   <!-- Konsoll-feil -->
   <div class="seksjon" id="konsoll">
-    <div class="seksjon-tittel">Konsoll-feil (4)</div>
+    <div class="seksjon-tittel">Konsoll-feil (5)</div>
     <table><thead><tr><th>Tidspunkt</th><th>Melding</th><th>URL</th></tr></thead><tbody>
           <tr>
-            <td style="white-space:nowrap">05:43:36</td>
-            <td>Failed to load resource: the server responded with a status of 401 (Unauthorized)</td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</td>
+            <td style="white-space:nowrap">06:30:46</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
           </tr><tr>
-            <td style="white-space:nowrap">05:45:10</td>
+            <td style="white-space:nowrap">06:30:46</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr><tr>
+            <td style="white-space:nowrap">06:30:47</td>
+            <td>TRPCClientError: network error
+    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
+    at</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+          </tr><tr>
+            <td style="white-space:nowrap">06:30:47</td>
             <td>TRPCClientError: Failed to fetch
     at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
     </td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10</td>
           </tr><tr>
-            <td style="white-space:nowrap">05:45:11</td>
-            <td>TRPCClientError: network error
+            <td style="white-space:nowrap">06:30:47</td>
+            <td>TRPCClientError: Failed to fetch
     at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
-    at</td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
-          </tr><tr>
-            <td style="white-space:nowrap">05:45:11</td>
-            <td>TRPCClientError: network error
-    at ic.from (https://tilskudd.fiks.test.ks.no/assets/index-DrNGiQh1.js:13:4073)
-    at</td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</td>
+    </td>
+            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10</td>
           </tr>
         </tbody></table>
   </div>
 
   <!-- Nettverksfeil -->
   <div class="seksjon" id="nettverk">
-    <div class="seksjon-tittel">Nettverksfeil (1)</div>
-    <table><thead><tr><th>Status</th><th>URL</th><th>Fra side</th></tr></thead><tbody>
-          <tr>
-            <td><span class="badge alvorlig">401</span></td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/api/bff/innlogget.soknader.getList?batch=1&input=%7B%220%22%3A%7B%2</td>
-            <td style="font-size:.75rem;word-break:break-all">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</td>
-          </tr>
-        </tbody></table>
+    <div class="seksjon-tittel">Nettverksfeil (0)</div>
+    <div class="wcag-ok">Ingen HTTP 4xx/5xx-svar oppdaget</div>
   </div>
 
   <!-- Interaksjonsfunn -->
@@ -234,9 +236,9 @@
 
   <!-- Sider besøkt -->
   <div class="seksjon" id="sider">
-    <div class="seksjon-tittel">Sider besøkt (10)</div>
+    <div class="seksjon-tittel">Sider besøkt (6)</div>
     <ul class="url-liste">
-      <li title="https://tilskudd.fiks.test.ks.no/">https://tilskudd.fiks.test.ks.no/</li><li title="https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</li><li title="https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf">https://tilskudd.fiks.test.ks.no/soknad/f79639d3-59df-498c-97d5-1b0499078ecf</li><li title="https://tilskudd.fiks.test.ks.no/utlogget">https://tilskudd.fiks.test.ks.no/utlogget</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6">https://tilskudd.fiks.test.ks.no/utlysinger/72ad6a5b-3819-446b-881d-eed1d5dd9ed6</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33">https://tilskudd.fiks.test.ks.no/utlysinger/b4d7c9a1-2f65-4e3b-8a91-0c7d6e5f4a33</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0">https://tilskudd.fiks.test.ks.no/utlysinger/cbc3a2eb-42bd-49db-b2e7-0f66e13a56a0</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5">https://tilskudd.fiks.test.ks.no/utlysinger/e42eab8a-1512-4dc2-bbf9-40eebcbabcd5</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</li>
+      <li title="https://tilskudd.fiks.test.ks.no/">https://tilskudd.fiks.test.ks.no/</li><li title="https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast">https://tilskudd.fiks.test.ks.no/minside?statusFilter=utkast</li><li title="https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef">https://tilskudd.fiks.test.ks.no/soknad/a1b2c3d4-e5f6-7890-1234-567890abcdef</li><li title="https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2">https://tilskudd.fiks.test.ks.no/soknad/d1aa30b0-88c6-4084-abfb-57751f0876a2</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?currentPage=1&pageSize=10</li><li title="https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10">https://tilskudd.fiks.test.ks.no/utlysinger?searchString=&currentPage=1&pageSize=10</li>
     </ul>
   </div>
 
@@ -268,7 +270,7 @@
       </div>
     </div>
   </details>
-  <footer>KS Tilskudd · Monkey-tester · Playwright · 2026-05-15 07:43</footer>
+  <footer>KS Tilskudd · Monkey-tester · Playwright · 2026-05-15 08:30</footer>
 </div>
 </body>
 </html>
