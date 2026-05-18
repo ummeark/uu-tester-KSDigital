@@ -7,6 +7,11 @@ import path from 'path';
 const jsonPath = 'brukerhistorie-resultater/brukerhistorie-resultat.json';
 const utPath   = 'docs/brukerhistorie-rapport.html';
 
+const dato = new Date().toISOString().slice(0, 10);
+const datoDir = `rapporter/${dato}`;
+if (!fs.existsSync(datoDir)) fs.mkdirSync(datoDir, { recursive: true });
+const datoUtPath = `${datoDir}/brukerhistorie-rapport.html`;
+
 if (!fs.existsSync(jsonPath)) {
   console.error(`Finner ikke ${jsonPath} – kjør 'npm run brukerhistorie' først.`);
   process.exit(1);
@@ -287,4 +292,5 @@ ${bhSeksjoner()}
 </html>`;
 
 fs.writeFileSync(utPath, html);
-console.log(`Rapport skrevet til ${utPath}`);
+fs.writeFileSync(datoUtPath, html);
+console.log(`Rapport skrevet til ${utPath} og ${datoUtPath}`);
