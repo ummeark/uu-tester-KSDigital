@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { START_URL, MAX_SIDER, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, LAST_TIMEOUT, LINK_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR } from './config.js';
+import { START_URL, MAX_SIDER, VIEWPORT, SIDE_TIMEOUT, IDLE_TIMEOUT, LAST_TIMEOUT, LINK_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR, GITHUB_PAGES_AUTH } from './config.js';
 import { hentVersjon, loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +25,7 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 UU-Tester/1.0',
   viewport: VIEWPORT
 });
+if (GITHUB_PAGES_AUTH) await context.addInitScript(() => sessionStorage.setItem('ks-auth', '1'));
 
 const { url: innloggetUrl, steg: innloggingsSteg } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR, skjermDir });
 if (!innloggetUrl) {
@@ -1043,6 +1044,7 @@ function genererRapport(url, dato, tidspunkt, totalt, sider, versjon = null, tas
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </div>

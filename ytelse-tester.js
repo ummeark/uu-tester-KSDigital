@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR } from './config.js';
+import { START_URL, MAX_SIDER, VIEWPORT, LAST_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR, GITHUB_PAGES_AUTH } from './config.js';
 import { loggInn } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -48,6 +48,7 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 Ytelses-Tester/1.0',
   viewport: VIEWPORT,
 });
+if (GITHUB_PAGES_AUTH) await context.addInitScript(() => sessionStorage.setItem('ks-auth', '1'));
 
 const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
 if (!innloggetUrl) {
@@ -297,6 +298,7 @@ const rapportHTML = `<!DOCTYPE html>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp aktiv">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </div>

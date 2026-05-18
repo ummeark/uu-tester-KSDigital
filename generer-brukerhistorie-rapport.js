@@ -231,7 +231,13 @@ ${sidemenyLinks()}
     </div>
     <div class="nav-knapper">
       <a href="rapport.html" class="knapp sekundær">Forside</a>
+      <a href="uu-rapport.html" class="knapp sekundær">UU-rapport</a>
+      <a href="monkey-rapport.html" class="knapp sekundær">Monkey-test</a>
+      <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
+      <a href="negativ-rapport.html" class="knapp sekundær">Negativ test</a>
+      <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
       <a href="brukerhistorie-rapport.html" class="knapp aktiv">Brukerhistorier</a>
+      <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </header>
 

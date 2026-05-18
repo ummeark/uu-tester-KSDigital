@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { exec } from 'child_process';
-import { START_URL, VIEWPORT, SIDE_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR } from './config.js';
+import { START_URL, VIEWPORT, SIDE_TIMEOUT, TEST_FNR, TEST_MODUS, RAPPORTDIR, GITHUB_PAGES_AUTH } from './config.js';
 import { hentVersjon, loggInn, gåTil, sjekkKrasj, sjekkFeilmelding } from './lib/common.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -37,6 +37,7 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 NegativTester/1.0',
   viewport: VIEWPORT,
 });
+if (GITHUB_PAGES_AUTH) await context.addInitScript(() => sessionStorage.setItem('ks-auth', '1'));
 
 const { url: innloggetUrl } = await loggInn(context, START_URL, { modus: TEST_MODUS, testFnr: TEST_FNR });
 if (!innloggetUrl) {
@@ -619,6 +620,7 @@ const html = `<!DOCTYPE html>
       <a href="sikkerhet-rapport.html" class="knapp sekundær">Sikkerhetstest</a>
       <a href="negativ-rapport.html" class="knapp aktiv">Negativ test</a>
       <a href="ytelse-rapport.html" class="knapp sekundær">Ytelsestest</a>
+      <a href="brukerhistorie-rapport.html" class="knapp sekundær">Brukerhistorier</a>
       <a href="arkiv.html" class="knapp sekundær">Tidligere rapporter</a>
     </div>
   </div>
