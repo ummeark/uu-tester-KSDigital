@@ -14,7 +14,12 @@ if (!fs.existsSync(jsonPath)) {
 
 const data   = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 const stats  = data.stats ?? {};
-const suites = data.suites?.[0]?.suites ?? [];
+
+// Samle BH-suites fra alle testfiler og dedupliser på tittel (siste fil vinner)
+const allBhSuites = (data.suites ?? []).flatMap(s => s.suites ?? []);
+const bhMap = new Map();
+for (const suite of allBhSuites) bhMap.set(suite.title, suite);
+const suites = [...bhMap.values()];
 
 // Dato
 const startTime = new Date(stats.startTime);
@@ -26,6 +31,7 @@ const datotid = `${dato} ${tid}`;
 const totaltBestatt = stats.expected ?? 0;
 const totaltFeilet  = stats.unexpected ?? 0;
 const totaltTester  = totaltBestatt + totaltFeilet + (stats.skipped ?? 0);
+const maxBh = Math.max(0, ...suites.map(s => { const m = s.title.match(/^BH-(\d+)/); return m ? parseInt(m[1]) : 0; }));
 
 // Score
 const pct = totaltTester > 0 ? Math.round((totaltBestatt / totaltTester) * 100) : 0;
@@ -254,7 +260,7 @@ ${sidemenyLinks()}
     <div class="kort ok">
       <div class="etikett">Brukerhistorier</div>
       <div class="tall">${suites.length}</div>
-      <div class="undertekst">BH-1 til BH-${suites.length}</div>
+      <div class="undertekst">BH-1 til BH-${maxBh}</div>
     </div>
     <div class="kort ok">
       <div class="etikett">Tester kjørt</div>
