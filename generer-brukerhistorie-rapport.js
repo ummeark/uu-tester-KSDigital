@@ -7,8 +7,8 @@ import path from 'path';
 const jsonPath = 'brukerhistorie-resultater/brukerhistorie-resultat.json';
 const utPath   = 'docs/brukerhistorie-rapport.html';
 
-const dato = new Date().toISOString().slice(0, 10);
-const datoDir = `rapporter/${dato}`;
+const iDag = new Date().toISOString().slice(0, 10);
+const datoDir = `rapporter/${iDag}`;
 if (!fs.existsSync(datoDir)) fs.mkdirSync(datoDir, { recursive: true });
 const datoUtPath = `${datoDir}/brukerhistorie-rapport.html`;
 
