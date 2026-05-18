@@ -65,6 +65,10 @@ jobs:
         if: ${{ inputs.test == 'alle' || inputs.test == 'ytelse' }}
         run: npm run ytelse
 
+      - name: 📖 Brukerhistorietest
+        if: ${{ inputs.test == 'alle' || inputs.test == 'brukerhistorie' }}
+        run: npm run brukerhistorie
+
       - name: Generer arkiv
         run: npm run arkiv
 
@@ -75,19 +79,17 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/ummeark/tester-KSTilskudd-TEST.git"
-          git add rapporter/ docs/
+          git add rapporter/ docs/ brukerhistorie-resultater/
           DATO=$(date '+%Y-%m-%d %H:%M')
           if git diff --staged --quiet; then
             echo "Ingen nye rapporter å publisere"
           else
             git commit --no-verify -m "Testrapport GitHub Actions ${DATO} – ${{ inputs.test }}"
+            git stash --include-untracked 2>/dev/null || true
             git pull --rebase origin main
+            git stash pop 2>/dev/null || true
             git push origin main
           fi
-
-      - name: 📖 Brukerhistorietest
-        if: ${{ inputs.test == 'alle' || inputs.test == 'brukerhistorie' }}
-        run: npm run brukerhistorie
 
       - name: ✅ Bekreft publisering
         run: |
